@@ -127,7 +127,7 @@ from Invent
 ------------------------------------------------------------p4
 
 
-select cars.Name, sold.price
+select cars.Name, sold.price,count(cars.Name)
 from cars INNER JOIN sold on cars.id=sold.id
 
 
@@ -137,7 +137,7 @@ from cars FULL JOIN sold on cars.id=sold.id
 select *
 from cars LEFT OUTER JOIN sold on cars.id=sold.id
 
-select a.id, b.price
+select a.id, b.price,a.Name,b.Brand
 from cars a, cars b
 WHERE a.id <> b.id
 
@@ -257,7 +257,7 @@ from Empp
 --1. Get difference between JOINING_DATE and INCENTIVE_DATE from employee and incentives table 
 
 
-SELECT Empp.JOINING_DATE, Incentives.INCENTIVE_DATE, DATEDIFF(DAY,Empp.JOINING_DATE,Incentives.INCENTIVE_DATE) as diff
+SELECT Empp.JOINING_DATE, Incentives.INCENTIVE_DATE, concat(DATEDIFF(DAY,Empp.JOINING_DATE,Incentives.INCENTIVE_DATE),' days') as diff
 from Empp INNER JOIN
     Incentives on Empp.EMPLOYEE_ID = Incentives.EMPLOYEE_REF_ID
 
@@ -326,7 +326,7 @@ GROUP by DEPARTMENT
 
 
 
---7. Get department,total salary with respect to a department from employee table order by total salary des cending
+--7. Get department,total salary with respect to a department from employee table order by total salary descending
 
 
 select DEPARTMENT, sum(SALARY) as Total_Sal
@@ -364,4 +364,6 @@ from empp
 GROUP BY department
 HAVING sum(SALARY)>800000
 ORDER by Total_Sal desc
+
+
 

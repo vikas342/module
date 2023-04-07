@@ -111,6 +111,17 @@ create table employees (
 )
 
 
+--p2
+
+alter table job_history
+add CONSTRAINT fk_job_id FOREIGN key (job_id) REFERENCES jobs(job_id)
+
+
+alter table job_history drop CONSTRAINT fk_job_id
+
+alter table job_history
+add location_ varchar(50)
+
 
 
 

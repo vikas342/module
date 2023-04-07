@@ -23,8 +23,6 @@ SELECT * from cars_2
 INSERT into cars_2 values('gfg','xfgd')
 
 
-INSERT into cars_2 values('Ford','Mustang')
-INSERT into cars_2 values('BMW','M5')
 UPDATE cars_2 set Brand='Dodge',NAME='Charger'
 WHERE id= 3
 

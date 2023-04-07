@@ -8,6 +8,7 @@ create view myview as
 select * from cars_2
 
 
+drop view myview
 
 select * from myview
 
@@ -71,20 +72,30 @@ select * from cars_2
 
 
 ------
+
+
+alter table cars_2
+add price int
+
+
+
+
 create procedure my_procedure @price int
 as
 select * from cars_2 where price=@price
 
 
-Exec my_procedure 31000
+Exec my_procedure 76555
 
+
+drop procedure my_procedure
 -------
 
 
-alter procedure my_procedure2 @price int
+create procedure my_procedure2 @price int
 as
 
-if @price<30000
+if @price<300000
 Begin
 select * from cars_2 where price=@price;
 print 'if'
@@ -101,7 +112,7 @@ End
 
 
 
-Exec my_procedure2 27890
+Exec my_procedure2 456123
 
 
 
@@ -122,6 +133,10 @@ from cars_2
 
 
 
+
+
+
+---------------------------------------
 
 ----A1
 
@@ -230,7 +245,12 @@ add Location varchar(50)
 
 
 
-select DEPARTMENT,Manager_id,Location
-from Empp
+select *
+from 
+(select *, DATEDIFF(YEAR,JOINING_DATE,CURRENT_TIMESTAMP) as experiance  from Empp) as b
+where b.experiance>2
+
+
+
 
 

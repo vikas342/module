@@ -35,7 +35,8 @@ CREATE TABLE Employee (
 
     INSERT INTO Employee VALUES(7,'TestName1','123',650000,'01-JAN-13 12:00:00 AM','Services')
 
-    INSERT INTO Employee VALUES(8,'TestName2','Lname%',600000,'01-FEB-13 12:00:00 AM','Insurance')
+    INSERT INTO Employee VALUES(8,'TestName2','Lname%',600000,'01-FEB-13 12:00:00 AM','Insurance'),
+
 
      
 
@@ -61,7 +62,7 @@ FROM Employee
 
 --4. Get First_Name from employee table using alias name “Employee Name”
 
-    SELECT FIRST_NAME AS Fname FROM Employee
+    SELECT FIRST_NAME AS [Employee Name] FROM Employee
 
 
 --5. Get employee details from employee table whose employee name is “John”
@@ -97,9 +98,13 @@ SELECT * from Employee where not (FIRST_NAME='John' OR FIRST_NAME='Roy')
 
         SELECT DEPARTMENT As Unique_Deprtments from Employee group by(DEPARTMENT)
 
+		select distinct(department) from Employee
+
  --12. Select TOP 2 salary from employee table 
 
       SELECT  Top 2 Salary from Employee 
+
+		select * from Employee
 
 
  ---13. Store the output of below query in common table expression, and then find out the average of their salary 
@@ -113,7 +118,7 @@ SELECT * from Employee where not (FIRST_NAME='John' OR FIRST_NAME='Roy')
 
  --15. Get names of employees from employee table who has '%' in Last_Name. 
 
-    SELECT * FROM Employee WHERE Last_Name LIKE '%[%]'
+    SELECT * FROM Employee WHERE Last_Name LIKE '%[%]%'
 
 
  --16. Give 10% incentive to each employee, find out the employee whose incentive amount is more than 1lac, using derived table
@@ -147,12 +152,18 @@ SELECT * from Employee where not (FIRST_NAME='John' OR FIRST_NAME='Roy')
 --1. Write a query that displays the first name and the length of the first name for all employees whose name starts with the letters 'A', 'J' or 'M'. Give each column an appropriate label. Sort the results by the employees' first names.
 
 
-SELECT First_Name,LEN(First_Name) As Len FROM Employee WHERE First_Name LIKE '[AGM]%'
+
+SELECT First_Name,len(First_Name) As Len FROM Employee WHERE First_Name LIKE '[AGM]%'
 
 
 --2. Write a query to display the first name and salary for all employees. Format the salary to be 10 characters long, left-padded with the $ symbol. Label the column SALARY.
 
 Select RIGHT(REPLICATE('0',10) + CONVERT(varchar (50),SALARY) ,10) as Salary,First_Name from Employee
+
+
+SELECT First_Name,REPLACE(STR(SALARY,10),' ','$') from Employee
+
+select First_Name,lpad(salary,10,'#') from Employee
 
 --3. Write a query to display the employees with their code, first name, last name and hire date who hired either on seventh day of any month or seventh month in any year. 
 
@@ -173,8 +184,76 @@ WHERE Last_Name LIKE '_a%'
 
 --5. Write a query to extract the last 4 character of phone numbers. 
 
+select *,RIGHT(phone,4) as last_digit from Employee
+
 
 
 
 
 --6. Write a query to update the portion of the phone_number in the employees table, within the phone number the substring '124' will be replaced by '999'. 
+
+
+select *,replace(phone,123,999) as last_digit from Employee
+
+
+--- 7. Write a query to calculate the age in year. 
+
+
+
+---8. Write a query to get the distinct Mondays from hire_date in employees tables. 
+
+ select * ,DATENAME(WEEKDAY,joining_date) as day from Employee where DATENAME(WEEKDAY,joining_date)='Tuesday'
+
+
+ select DATENAME(WEEKDAY,getdate())
+
+---9. Write a query to get the first name and hire date from employees table where hire date between '1987-06-01' and '1987-07-30' 
+
+	select * from Employee where joining_date between '2010-01-01' and '2013-01-01' 
+
+
+--10. Write a query to display the current date in the following format. 
+---11. Sample output : 12:00 AM Sep 5, 2014 
+
+select format(GETDATE(),'hh:mm tt MMM d,yyyy')
+select format(CURRENT_TIMESTAMP,'hh:mm tt MMM d,yyyy')
+
+
+--12. Write a query to get the firstname, lastname who joined in the month of June. 
+
+
+	select * from Employee where month(joining_date) = 1
+
+
+
+--13. Write a query to get employee ID, last name, and date of first salary of the employees. 
+
+select * from Employee where day(joining_date) = 1
+
+--14. Write a query to get first name, hire date and experience of the employees. 
+
+
+	select First_Name,joining_date,(DATEDIFF(YEAR,joining_date,GETDATE())  as Exp from Employee 
+
+
+
+
+--15. Write a query to get first name of employees who joined in 1987. 
+
+	
+		select First_Name,joining_date from Employee where year(joining_date)=2013
+
+
+
+--16. Write a query to rank employees based on their salary for a month 
+
+
+
+		select First_Name,joining_date,salary ,(DENSE_RANK() over (order by salary desc)) as rank from Employee
+
+
+
+--17. Select 4th Highest salary from employee table using ranking function.
+
+
+select * from (select First_Name,joining_date,salary ,(DENSE_RANK() over (order by salary desc)) as rank from Employee) as b where b.rank=4

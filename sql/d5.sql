@@ -154,3 +154,159 @@ select * from mystudents
 ----2
 
 
+create or alter procedure json_procedure @myjson nvarchar(max)
+as
+
+ begin try
+   select * into #student from openJson(@myjson) with(
+
+  Student_Name varchar(50) ,
+      Address varchar(50),
+      City varchar(50),
+      DOB varchar(50),
+      Standasdfrd int '$.Standard'
+  )
+
+	select * from #student
+	select * from #student for json auto
+	 
+
+  end try
+
+
+  begin catch
+
+  select ERROR_line() as no,ERROR_MESSAGE() as err_msg
+
+  end catch
+
+
+
+drop table mystudents2
+
+
+
+declare @json varchar(max);
+
+	set @json ='[
+    {
+      "Student_Name": "vikas",
+      "Address": "ahmedabad",
+      "City": "ahmedabad",
+      "DOB": "03/04/2002",
+      "Standard": 12
+    },
+    {
+      "Student_Name": "vinit",
+      "Address": "jaipur",
+      "City": "jaipur",
+      "DOB": "04/02/2003",
+      "Standard": 11
+    },
+    {
+      "Student_Name": "preet",
+      "Address": "rajsthan",
+      "City": "rajsthan",
+      "DOB": "24/02/2001",
+      "Standard": 10
+    },
+    {
+      "Student_Name": "ronny",
+      "Address": "surat",
+      "City": "Surat",
+      "DOB": "09/02/2005",
+      "Standard": 7
+    },
+    {
+      "Student_Name": "jaydeep",
+      "Address": "udaipur",
+      "City": "udaipur",
+      "DOB": "04/02/2005",
+      "Standard": 8
+    }
+  ]';
+
+  EXEC json_procedure @json
+
+
+  ---3
+
+
+  create table sudents_(
+
+  s_id int,
+  StudentName varchar(50)
+  )
+
+  create table course(
+
+  CourseID int, CourseName varchar(50)
+  )
+
+
+  
+declare @json_1 varchar(max);
+
+	set @json_1 ='[
+    {
+      "Student_Name": "vikas",
+      "Student_id": "1",
+      "CourseID":  "2",
+      "CourseName": "xyz"
+    },
+    {
+      "Student_Name": "vinit",
+         "Student_id": "2",
+      "CourseID":  "3",
+      "CourseName": "xyz"
+    },
+    {
+      "Student_Name": "preet",
+         "Student_id": "3",
+      "CourseID":  "1",
+      "CourseName": "xyz"
+    },
+    {
+      "Student_Name": "ronny",
+         "Student_id": "4",
+      "CourseID":  "6",
+      "CourseName": "xyz"
+    },
+    {
+      "Student_Name": "jaydeep",
+         "Student_id": "4",
+      "CourseID":  "5",
+      "CourseName": "xyz"
+    }
+  ]';
+
+
+  EXEC myprcedure__1 @json_1
+
+
+
+
+  ----
+
+
+  alter procedure myprcedure__1  @myvar varchar(max) as
+  select * into #tab from openjson(@myvar) with(
+  s_name varchar(50) '$.Student_Name',
+      s_id int '$.Student_id',
+      c_id int '$.CourseID',
+      c_name varchar(50) '$.CourseName'
+  )
+  insert into sudents_
+  select s_id,s_name from #tab
+
+  select * from sudents_
+
+  insert into course
+  select c_id,c_name from #tab
+
+  select * from course
+
+
+
+  ----
+
