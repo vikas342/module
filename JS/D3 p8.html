@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3 P8</title>
+  </head>
+  <body>
+    <script>
+    
+    // dif 1
+
+
+    // program to print text
+
+
+// variable a cannot be used here
+function greet() {
+    // variable a can be used here
+    var a = 'hello';
+    console.log(a);
+
+}
+// variable a cannot be used here
+
+greet(); // hello
+
+
+
+
+
+
+// program to print the text
+// variable a cannot be used here
+function greet() {
+    let a = 'hello';
+
+    // variable b cannot be used here
+    if(a == 'hello'){
+        // variable b can be used here
+        let b = 'world';
+        console.log(a + ' ' + b);
+    }
+
+     // variable b cannot be used here
+    console.log(a + ' ' + b); // error
+}
+// variable a cannot be used here
+greet();
+
+
+// diff 2
+// var allows redclaration of value
+var a = 5; 
+var a = 3; 
+console.log(a)
+
+//let dont
+
+var b = 5; 
+var b = 3;
+console.log(b)
+
+
+//diff 3
+
+//var support hoisting(variable initialize before its declaration)
+
+c=10;
+var c;
+console.log(c)
+
+
+//let support hoisting(variable initialize before its declaration)
+
+d=10;
+let d;
+console.log(d)
+
+
+
+    </script>
+  </body>
+</html>

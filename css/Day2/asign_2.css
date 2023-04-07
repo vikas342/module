@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+  body{
+    background-color: black;
+    color: white;
+  }
+  header {
+    font-family: 'Gentium Book Plus', serif;
+font-family: 'Mukta Vaani', sans-serif;
+
+    padding: 10px;
+    text-align: center;
+    width: 100vw;
+    height: 80px;
+    background-color: rgb(27, 29, 29);
+  } 
+.row{
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.column{
+    width: 100vw;
+    padding: 2px;
+    flex: 33%;
+    max-width: 33%;
+}
+.column img{
+    width: 100%;
+}
+header img{
+    width: 100px;
+    border-radius: 50px;
+}
+@media screen and (max-width:800px){
+    .column{
+        max-width:50%;
+        flex: 50%;
+
+        
+    }
+    
+}
+
+@media screen and (max-width:600px){
+    .column{
+        max-width:100%;
+        flex: 100%;
+
+        
+    }
+    
+}

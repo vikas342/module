@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container bg-info mt-5">
+        
+        <p id="text" class="h2">
+    
+        </p>
+    </div>
+    <div class="text-center">
+
+        <button onclick="display.call(employee)" class="btn btn-primary ">btn</button>
+    </div>
+    <script>
+        
+        
+        const employee= new myfunc("vikas","Ahmedabad","Software devloper");
+
+        function myfunc(name,address,designation){
+            this.name=name;
+            this.address=address;
+            this.designation=designation;
+        }
+        
+        // .call method will pass the object to the function
+        function display(employee){
+         
+
+            document.getElementById('text').innerHTML=this.name+ "<br> "+ this.designation  +" <br>"+this.address;
+
+        }
+     
+
+        
+        
+      
+
+        // const employee1={
+        //     name:"vikas sonwane",
+        //     address:"Ahmedabad",
+        //     designation:"software devloper"
+        // }
+        // const employee2={
+        //     name:"parv gajipara",
+        //     address:"Gir",
+        //     designation:"QA tester"
+        // }
+
+    </script>
+ 
+    
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

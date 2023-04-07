@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>D3A2</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container text-center">
+      <div class="form-group w-25 mx-auto mt-5">
+        <input
+          type="number"
+          name="num"
+          id="hour"
+          class="form-control"
+          placeholder="Enter Hour"
+        />
+      </div>
+      <div class="form-group w-25 mx-auto mt-5">
+        <input
+          type="number"
+          name="num"
+          id="min"
+          class="form-control"
+          placeholder="Enter Minutes"
+        />
+      </div>
+
+      <!-- <div class="form-group w-25 mx-auto mt-5">
+        <input
+          type="number"
+          name="num"
+          id="sec"
+          class="form-control"
+          placeholder="Enter Seconds"
+        />
+      </div> -->
+
+      <div class="form-group mt-5">
+        <input
+          type="button"
+          value="SET TIMER"
+          id="btn"
+          onclick="myfunc()"
+          class="btn btn-primary"
+        />
+      </div>
+
+      <div class="form-group mt-5">
+        <p id="disp" class="fw-bold h2"></p>
+      </div>
+    </div>
+
+    <script>
+      function myfunc() {
+        var hour = document.getElementById("hour").value;
+        console.log(hour);
+
+            var min = document.getElementById("min").value;
+
+     
+        console.log(min);
+
+        var sec = 0;
+        console.log(sec);
+
+        var x = setInterval(mytimer, 1000);
+        function mytimer() {
+          document.getElementById("disp").innerHTML =
+            hour + " : " + min + " : " + sec;
+          sec--;
+          if (hour == 0 && min == 0 && sec < 0) {
+            clearInterval(x);
+            document.getElementById("disp").innerHTML.display = "";
+
+            document.getElementById("disp").innerHTML = "Exam is over";
+          }
+
+          if (sec < 0) {
+            min--;
+            sec = 60;
+          }
+          if (min < 0) {
+            hour--;
+            min = 59;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

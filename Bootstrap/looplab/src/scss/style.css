@@ -1,0 +1,38 @@
+body {
+  background: #333;
+  color: #fff;
+}
+
+.navbar {
+  background-color: #0008d6;
+  border-bottom: #0008d6 4px solid;
+  opacity: 0.5;
+}
+
+#home-section {
+  background-image: url("https://images.pexels.com/photos/708392/pexels-photo-708392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 700px;
+}
+#home-section .dark-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 700px;
+}
+#home-section .home.inner {
+  padding-top: 150px;
+}
+#home-section .card-form {
+  opacity: 0.8;
+}
+#home-section .fa {
+  color: #0008d6;
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 5px;
+}/*# sourceMappingURL=style.css.map */

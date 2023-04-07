@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container p-2 text-center">
+      <div class="w-25 mt-5 mx-auto">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" class="form-control" />
+      </div>
+      <div class="w-25 mt-3 mx-auto">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" class="form-control" />
+      </div>
+      <div class="w-25 mt-3 mx-auto text-center">
+        <label for="male">Male</label>
+
+        <input type="radio" name="radio1" id="male" value="male" />
+        <label for="female">Female</label>
+
+        <input type="radio" name="radio1" id="female" value="female" />
+      </div>
+      <div class="w-25 mt-3 mx-auto text-center">
+        <label for="active">active</label>
+        <input type="radio" name="radio2" id="active" value="active" />
+
+        <label for="inactive">inactive</label>
+
+        <input type="radio" name="radio2" id="inactive" value="inactive" />
+      </div>
+      <button type="bttton" class="btn btn-primary m-2" id="btn">
+        get data
+      </button>
+      <button type="bttton" class="btn btn-primary m-2" id="btn2">
+        post data
+      </button>
+    </div>
+
+    <table id="tbl" class="table">
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Status</th>
+        <th>Update</th>
+        <th>Remove</th>
+      </tr>
+      <tbody id="body"></tbody>
+    </table>
+
+    <script>
+      $(document).ready(function () {
+
+
+        //get
+        
+        $("#btn").click(function () {
+          var settings = {
+            url: "https://gorest.co.in/public/v2/users",
+            method: "GET",
+            timeout: 0,
+            headers: {
+              Authorization:
+                "Bearer 993946d22a7adb49ee5aaa3dab189602bfeb7fb6a0ad5c5c09ca0619e1b03e1b",
+            },
+          };
+
+          $.ajax(settings).done(function (response) {
+            var data = response;
+            var arr = [];
+            console.log(response);
+
+            $.each(data, function (i, field) {
+              arr += `<tr><td> ${field.id}</td>
+                <td> ${field.name}</td>
+                <td> ${field.email}</td>
+                <td> ${field.gender}</td>
+                <td> ${field.status}</td>
+                <td> <button type="button" class="btn btn-danger" id="update" onclick="update(${field.id})">update</button> </td>
+                <td> <button type="button" class="btn btn-primary" id="remove" value ="${field.id}" onclick="remove(${field.id})     ">remove</button></td>
+
+                `;
+            });
+            $("#body").html(arr);
+            
+
+            $('#remove').click(function() {
+             var id= $('#remove').val()
+              var settings = {
+                url: "https://gorest.co.in/public/v2/users/" +id,
+                method: "DELETE",
+                timeout: 0,
+                headers: {
+                  Authorization:
+                    "Bearer 993946d22a7adb49ee5aaa3dab189602bfeb7fb6a0ad5c5c09ca0619e1b03e1b",
+                },
+              };
+
+              $.ajax(settings).done(function (response) {
+                console.log(response);
+                $("#btn").click();
+              });
+
+            });
+
+            function update(id){
+        alert(data[id]);
+
+      }
+           
+          });
+
+         
+          
+        });
+        
+      });
+
+      //delete 2nd method
+      // function remove(id) {
+      //   var settings = {
+      //     url: "https://gorest.co.in/public/v2/users/" + id,
+      //     method: "DELETE",
+      //     timeout: 0,
+      //     headers: {
+      //       Authorization:
+      //         "Bearer 993946d22a7adb49ee5aaa3dab189602bfeb7fb6a0ad5c5c09ca0619e1b03e1b",
+      //     },
+      //   };
+
+      //   $.ajax(settings).done(function (response) {
+      //     console.log(response);
+      //     $("#btn").click();
+      //   });
+      // }
+
+
+      //update
+
+     
+///post
+      $("#btn2").click(function () {
+        var nm = $("#name").val();
+        var em = $("#email").val();
+        var gen = $('input[name="radio1"]:checked').val();
+        var status = $('input[name="radio2"]:checked').val();
+        var data;
+        //alert(status)
+
+        var settings = {
+          url: "https://gorest.co.in/public/v2/users",
+          method: "POST",
+          timeout: 0,
+          headers: {
+            Authorization:
+              "Bearer 993946d22a7adb49ee5aaa3dab189602bfeb7fb6a0ad5c5c09ca0619e1b03e1b",
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify({
+            name: nm,
+            email: em,
+            gender: gen,
+            status: status,
+          }),
+        };
+
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        });
+        $("#btn").click();
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

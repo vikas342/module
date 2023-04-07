@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>D4P7</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <table class="table table-hover text-center">
+        <thead class="fw-bolder">
+          <td>Item name</td>
+          <td>Time</td>
+          <td>Location</td>
+        </thead>
+        <tbody id="tbl"></tbody>
+      </table>
+      <div class="text-center">
+        <button class="btn btn-primary" onclick="api()">Fetch Data</button>
+        
+      </div>
+    </div>
+
+    <script>
+           let data=[]
+           function setData(d){
+              data=d
+           }
+
+            function printing(data) {
+
+              for (var i = 0; i < data.length; i++) {
+                document.getElementById("tbl").innerHTML +=
+                  "<tr><td>" +
+                  data[i].name +
+                  "</td>" +
+                  "<td>" +
+                  data[i].price +
+                  "</td>" +
+                  "<td>" +
+                  data[i].location +
+                  "</td>" +
+                  "<td> " +
+                  `<button type='button' class='btn btn-primary' onclick='add(${i})'>add</button> ` +
+                  `<button type='button' class='btn btn-primary' onclick='remove(${i})'>remove</button>` +
+                  "</td>";
+              }
+          }
+          function add(x){
+
+              console.log(data)
+             localStorage.setItem(data[x].name,data[x].price)
+          }
+          function remove(x){
+              console.log(data);
+              localStorage.removeItem(data[x].name);
+          }
+        
+
+            function api() {
+              fetch("x.json")
+                .then((response) => response.json())
+                .then((result) => {setData(result.products);printing(result.products);})
+                .catch((error) => console.log("error", error));
+            }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <select name="sel" id="selcector" onchange="myfunc2()">
+        <option value="none"  selected disabled>select item</option>
+
+        <option value="gujrat" >gujrat</option>
+
+        <option value="mahrashtra" >mahrashtra</option>
+      </select>
+
+      <select name="sel" id="selcector2" >
+        <option value="none" selected  disabled>select item</option>
+      </select>
+      <p id="text"></p>
+      <!-- <button onclick="myfunc2()" type="button">btn</button> -->
+    </form>
+
+    <script>
+      function myfunc() {
+        var x = document.getElementById("selcector").value;
+        document.getElementById("text").innerHTML = x;
+        alert(cities.length);
+      }
+
+      function myfunc2() {
+          var x = document.getElementById("selcector").value;
+        const cities = {
+          "gujrat": ["abad", "surat"],
+          "mahrashtra": ["mumbai", "pune"],
+        };
+        // alert(x)
+
+        if(x=="gujrat"){
+            for(var i=0;i<cities.gujrat.length;i++){
+                document.getElementById("selcector2").innerHTML+="<option value='"+cities.gujrat[i]+"'>"+cities.gujrat[i]+"</option>"+"<br>"
+            }
+        }
+        else if(x=="mahrashtra"){
+            for(var i=0;i<cities.gujrat.length;i++){
+                document.getElementById("selcector2").innerHTML+="<option value='"+cities.mahrashtra[i]+"'>"+cities.mahrashtra[i]+"</option>"+"<br>"
+            }
+        }
+        
+
+
+        }
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Assigment</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container mt-5">
+
+   
+    <form>
+
+        <div class="form-group mb-3">
+            
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="firstname" class="form-control">
+       
+            
+
+
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="laststname" class="form-control">
+</div>
+
+<div class="form-group mb-3">
+    <label for="email">EMAIL:</label>
+    <input type="email" id="email" name="e-mail" class="form-control">
+</div>
+
+
+<div class="form-group mb-3">
+    <label for="date">DOJ:</label>
+    <input type="date" id="date" name="dt" class="form-control w-25"> 
+</div>
+
+
+<input type="button" value="click" onclick="myfunc()" class="btn btn-primary">
+
+    </form>
+</div>
+
+    <table  class="container mt-3 table table-striped ">
+        <thead>
+            <th>First name</th>
+            <th>Last name</th> <th>Email</th> <th>DOJ</th>
+        </thead>
+        <tbody id="tbl">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+        var arr=[];
+        function myfunc(){
+            
+            var fname=document.getElementById("fname").value;
+            var lname=document.getElementById("lname").value;
+            var email=document.getElementById("email").value;
+            var date=document.getElementById("date").value;
+            console.log(fname)
+
+            
+            // arr.push({"First Name :":fname,"Last Name :":lname,"Email :":email,"Date :":date});
+            // console.log(arr);
+
+                arr.push({"First Name :":fname,"Last Name :":lname,"Email :":email,"Date :":date});
+          
+         
+
+
+           
+
+                document.getElementById("tbl").innerHTML+="<tr>"+"<td>"+fname+"</td>"+"<td>"+lname+"</td>"+"<td>"+email+"</td>"+"<td>"+date+"</td>"+"<br>"
+
+         
+        }
+
+    </script>
+</body>
+</html>

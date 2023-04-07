@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS D1 P1</title>
+    <meta charset="utf-8">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+ 
+
+    
+    <div class="container bg-primary w-50 p-5 mt-3">
+        <h4>
+            Biggest number among three is:
+        </h4>
+        <p id="big_number" class="h3">
+            
+        </p>
+
+    </div>
+
+    
+    <div class="container bg-danger w-50 p-5 mt-3">
+        <h4>
+            Sum of numbers which anre greater than 40
+        </h4>
+        <p id="total" class="h3">
+
+        </p>
+
+    </div>
+    <div class="container mt-3 text-center p-5">
+
+        
+        <input type="button" value="Enter input" onclick="myfunc();" class="btn btn-primary p-3 w-25">
+    </div>
+
+    <script>
+        function myfunc() {
+            var n1 =  parseInt(prompt('Enter no1:'));
+            var n2 =  parseInt(prompt('Enter no1:'));
+            var n3 =  parseInt(prompt('Enter no1:'));
+
+           var sum=0;
+
+            
+
+            
+
+
+            if (n1 >= n2 && n1 >= n3) {
+                document.getElementById("big_number").innerHTML = n1 + ' is biggest number';
+            }
+            else if (n2 >= n1 && n2 >= n3) {
+                document.getElementById("big_number").innerHTML = n2 + ' is biggest number';
+
+                // alert(n2+"is biggest number");
+
+            }
+            else if (n3 >= n1 && n3 >= n2) {
+                document.getElementById("big_number").innerHTML = n3 + ' is biggest number';
+
+                //alert(n3+"is biggest number");
+
+            }
+
+            if(n1>40){
+               sum=sum+n1;
+            }
+           
+            if(n2>40){
+                sum=sum+n2;
+            }
+            if(n3>40){
+                sum=sum+n3;
+            }
+            document.getElementById("total").innerHTML= sum;
+
+          
+
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

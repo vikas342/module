@@ -1,0 +1,12 @@
+version: '2.51.1'
+
+services:
+  node:
+    build: .
+    image: assign1
+    container_name: assign1c
+    volumes:
+      - ./:/app/
+    ports:
+      - 5002:80
+  

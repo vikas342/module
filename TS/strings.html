@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="1"></p>
+
+    <p id="2"></p>
+    <p id="3"></p>
+
+    <p id="4"></p>
+
+    <p id="5"></p>
+
+    <p id="6"></p>
+    <p id="7"></p>
+
+    <p id="8"></p>
+
+    <p id="9"></p>
+    <p id="10"></p>
+    <p id="11"></p>
+    <p id="12"></p>
+    <p id="13"></p>
+    <p id="14"></p>
+    <p id="15"></p>
+    <p id="16"></p>
+    <p id="17"></p>
+    <p id="18"></p>
+    <p id="19"></p>
+    <p id="20"></p>
+    <p id="21"></p>
+
+
+
+
+    
+    <script>
+        let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        let text2 = "asd sbjbab asd akjhkfdk ASD WER KGKG WER KGF ASD KGF";
+        let text3="     asdfghjkl       "
+        
+
+
+        let length = text.length;
+        document.getElementById("1").innerHTML=length;
+
+
+
+        let txt1=text.slice(0, 5);
+        document.getElementById("2").innerHTML=txt1;
+
+
+        
+        let txt2=text.substring(0,5);
+        document.getElementById("3").innerHTML=txt2;
+
+
+        let txt3=text.replace("ABC","XYZ");
+        document.getElementById("4").innerHTML=txt3;
+
+        let txt4=text2.replaceAll("asd","vikas")
+          document.getElementById("5").innerHTML=txt4 ;
+
+
+          let txt5= text.toLowerCase();
+          document.getElementById("6").innerHTML=txt5;
+
+
+          document.getElementById("7").innerHTML=txt5.toUpperCase();
+
+
+
+
+          let txt6=text.concat(text2);
+          document.getElementById("8").innerHTML=txt6;
+
+
+          let txt7=text3.trim()
+          document.getElementById("9").innerHTML=txt7;
+          document.getElementById("9").style.background="red";
+
+          document.getElementById("10").innerHTML=text3.trimEnd();
+          document.getElementById("10").style.background="red";
+
+          document.getElementById("11").innerHTML=text3.trimStart();
+          document.getElementById("11").style.background="red";
+
+
+          
+
+          document.getElementById("12").innerHTML=text.charAt(0);
+          document.getElementById("13").innerHTML=text.charCodeAt("0");
+
+
+          document.getElementById("14").innerHTML=text[2];
+
+
+
+          var arr=text2.split(" ");
+          document.getElementById("15").innerHTML=arr;
+
+
+
+         
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

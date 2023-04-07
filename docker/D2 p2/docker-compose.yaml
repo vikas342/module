@@ -1,0 +1,11 @@
+version: '1'
+
+services:
+  first:
+    image: nginx:latest
+  
+    ports:
+      - 5001:80
+
+    volumes:
+      - ./p2:/usr/share/nginx/html

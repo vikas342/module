@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Js D1 A1</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container p-5">
+      <form>
+        <div class="form-group m-3">
+          <label for="num1" class="form-label">Number 1:</label>
+
+          <input type="text" class="form-control" id="num1" name="n1" />
+        </div>
+
+        <div class="form-group m-3">
+          <label for="num2" class="form-label">Number 2:</label>
+
+          <input type="text" class="form-control" id="num2" name="n2" />
+        </div>
+
+        <div class="form-group m-3">
+          <label for="oprands" class="form-label">Select Operand: </label>
+          <input type="radio" name="oprands" id="add" class="m-2" value="Addition" /> Addition
+          <input type="radio" name="oprands" id="sub" class="m-2" value="Subtraction" /> Subtraction
+          <input type="radio" name="oprands" id="div" class="m-2" value="Divition" /> Divition
+          <input type="radio" name="oprands" id="mul" class="m-2" value="Multiplication" />
+          Multiplication
+          <input type="radio" name="oprands" id="rem" class="m-2" value="Reminder" /> Reminder
+          
+         
+            <p class="p-2 m-auto  m-3 border border-2 rounded-2" id="ans">Answer</p>
+            
+          
+          
+        </div>
+        <div class="text-center">
+          <input
+            type="button"
+            value="Calculate"
+            class="btn btn-success m-3"
+            onclick="myfunc();"
+          />
+          <input type="reset" onclick="myfunc2();" class="btn btn-warning m-3" />
+        </div>
+      </form>
+    </div>
+
+    <script>
+      
+      function myfunc2(){
+
+        document.getElementById("ans").innerHTML="Answer";
+
+
+      }
+
+      function myfunc() {
+      
+
+
+        var n1 = parseInt(document.getElementById("num1").value);
+        var n2 = parseInt(document.getElementById("num2").value);
+      
+        var op =document.querySelector('input[name="oprands"]:checked')
+        var op_val=op.value;
+        console.log(op.value);
+        if(op_val =="Addition"){
+
+          document.getElementById("ans").innerHTML=n1+n2;
+        
+          
+         // alert("Ans : "+ (n1+n2));
+        }
+        else if(op_val=="Subtraction")
+        {
+          document.getElementById("ans").innerHTML=n1-n2;
+
+         // alert("Ans : "+ (n1-n2));
+
+        }
+        else if(op_val=="Division")
+        {
+
+          document.getElementById("ans").innerHTML=n1/n2;
+
+         // alert("Ans : "+ (n1/n2));
+        }  else if(op_val=="Multiplication")
+        {
+          document.getElementById("ans").innerHTML=n1*n2;
+
+        //  alert("Ans : "+ (n1*n2));
+        }  else if(op_val=="Reminder")
+        {
+          document.getElementById("ans").innerHTML=n1%n2;
+
+          //alert("Ans : "+ (n1%n2));
+        }
+      
+        
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

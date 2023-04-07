@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>D4p3</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container bg-danger mt-5 h2">
+
+        <p id="txt1"></p>
+        <p id="txt2"></p>
+        
+        
+    </div>
+    <div class="container text-center">
+
+        <button id="btn1" type="button" class="btn btn-primary" onclick="myfunc()">normal function</button>
+        <button id="btn2" type="button" class="btn btn-primary" onclick="myfunc3()">function expresion</button>
+        
+    </div>
+    <script>
+      function myfunc() {
+        myfunc2();
+        function myfunc2() {
+          document.getElementById("txt1").innerHTML =
+            "this is normal function call like we can call it before it declare";
+        }
+      }
+
+      function myfunc3() {
+        
+          myfunc4();
+          var myfunc4 =function () {
+              document.getElementById("txt1").innerHTML =
+              "its Function expresion one as we use variavle as function so we cant call it before it declared";
+              }
+       
+      }
+    </script>
+  </body>
+
+</html>

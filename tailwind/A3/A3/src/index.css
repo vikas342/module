@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.life{
+    display: none;
+}
+
+.life:target{
+  display: block;
+}

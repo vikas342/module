@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 6</title>
+    <style>
+        
+
+        
+
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100vw;
+            background-color: rgb(248, 217, 149);
+            
+        }
+        
+
+        .logo img {
+            width: 100px;
+            border-radius: 50px;
+        }
+
+        .details P {
+            padding-top: 20px;
+
+        }
+
+        .mid_section {
+            width: 100vw;
+            height: 100vw;
+            /* background-color: aqua; */
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+
+
+        }
+
+        .left {
+            width: 20vw;
+            height: 100%;
+            background-color:rgb(175, 154, 108);
+
+
+
+
+
+        }
+
+        .right {
+            width: 90vw;
+            height: 100%;
+            /* background-color: rgb(98, 98, 209); */
+
+
+
+        }
+
+        .left ul li {
+            padding: 20px;
+        }
+        
+        .mid_section .left ul li a {
+            color: black;
+            list-style-type: none;
+            text-decoration: none;
+            position: fixed;
+
+        }
+        
+        .right div{
+            display: none;
+
+        }
+
+        .right div:target{
+            display: block;
+        }
+
+        .objective,
+        .Education,
+        .Skills,
+        .Certifications,
+        .Projects {
+            padding: 20px;
+           
+
+        }
+        .right   .objective,
+        .Education,
+        .Skills,
+        .Certifications,
+        .Projects:target{
+            display: block;
+        }
+
+        .Education ul li,.Skills ul li ,.Certifications ul li ,.Projects ul li {
+            padding: 10px;
+
+        }
+
+        @media only screen and (max-width:800px){
+
+
+            .mid_section {
+            width: 100vw;
+            
+            flex-direction: column;
+
+
+        }
+        .mid_section .left ul li a {
+            color: black;
+            list-style-type: none;
+            text-decoration: none;
+            position: static;
+
+        }
+        .left ul li {
+            padding: 5px;
+        }
+
+        .left{
+            text-align: center;
+            width: 100vw;
+            padding: 20px;
+
+        }
+        .right{
+            padding-top: 20px;
+            width: 100vw;
+            height: 100%;
+        }
+        .right div{
+            display: block;
+        }
+
+            
+
+
+
+
+
+}
+
+         
+    </style>
+
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="img_avatar.png" alt="img">
+
+        </div>
+        <div class="details">
+            <p>
+
+            <h2>Vikas Sonwane</h2>
+            <h3>IT Engineer</h3>
+
+            </p>
+        </div>
+    </nav>
+    <main class="mid_section">
+
+        <div class="left">
+
+            <ul>
+                <li><a href="#one">Objective</a></li>
+                <li><a href="#two">Education</a></li>
+                <li><a href="#three">Skills</a></li>
+                <li><a href="#four">Certifications</a></li>
+                <li><a href="#five">Projects</a></li>
+
+
+            </ul>
+
+
+        </div>
+        <div class="right">
+
+            <div class="objective" id="one">
+                <h2>
+                    Objective
+                </h2>
+                <br>
+
+
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores neque dolore corporis! Ea, iste
+                    mollitia illum perferendis natus non facere a tempore atque similique assumenda aut aspernatur
+                    asperiores temporibus? Voluptatum!
+                    Exercitationem perspiciatis nulla magni porro at vitae praesentium odit sunt facilis accusantium
+                    enim qui repellendus animi excepturi magnam, cumque nemo sequi expedita ipsam, et fuga autem ad.
+                    Laborum, quod consequuntur.
+                    Labore, nisi minus error hic accusamus ex sint molestias fugiat pariatur? Rem, fuga! Unde enim
+                    maiores eius saepe iusto aut, quos, aspernatur veniam expedita numquam, eos hic laborum fugit
+                    cupiditate?
+                    Rem, possimus sint. Sint commodi accusantium maxime saepe cum quod nam, suscipit natus deserunt
+                    incidunt quos voluptate minus velit? Aspernatur labore fuga minima veniam expedita sint corporis
+                    voluptates consectetur iure.
+                    Tempore esse consequuntur accusantium eligendi autem, blanditiis error, qui suscipit, eius veniam
+                    ipsam? Autem magnam esse voluptas iste doloremque possimus dignissimos iure eum placeat, corporis
+                    quod labore quos sint est.
+                </p>
+                <br>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam beatae consequatur exercitationem
+                    doloribus earum ipsum tempore suscipit et culpa itaque dolorum ipsa natus vero, aliquid quidem,
+                    voluptas temporibus, praesentium reprehenderit!
+                    Minima, doloribus natus. Voluptatibus dolore eum neque aut magni, vero natus optio qui, ducimus
+                    beatae quas facere, nemo error magnam. Repudiandae error eum voluptas ex explicabo sed. Incidunt,
+                    fugit tempore.
+                    Architecto, dolores esse? Nemo reiciendis error assumenda labore eligendi nulla sequi laboriosam
+                    laudantium eius? Quasi blanditiis aut quam, minus illo provident possimus repudiandae temporibus
+                    earum quos ducimus dolorem minima ea!
+                    Sit in porro autem aut quia excepturi ab, quis voluptatum! Eligendi eius sequi optio, cum amet
+                    delectus, earum consequuntur tempora ab quia rerum! Alias enim adipisci quia exercitationem
+                    similique itaque!
+                    Quidem consequuntur alias modi ullam soluta omnis culpa, suscipit commodi, maxime animi impedit
+                    atque aperiam id dolor voluptas! Veniam ea sunt sequi voluptate dicta laudantium quam at deserunt
+                    dolor tenetur.
+                </p>
+
+            </div>
+
+            <div class="Education" id="two">
+
+                <h2>
+                    Education
+                </h2>
+                <br>
+                <ul class="ed_ul">
+                    <li>B.tech in Information Technology - 8.9 CGPA
+                        <ul>
+                            <li>Indus Uiversity</li>
+                        </ul>
+                    </li>
+                    <li>
+                        HSC - 66%
+                        <ul>
+                            <li>Aone scool</li>
+                        </ul>
+                    </li>
+                    <li>
+                        SSC 72%
+                        <ul>
+                            <li>Aone scool</li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+
+            </div>
+            <div class="Skills" id="three">
+
+                <h2>Skills</h2>
+                <br>
+                <ul>
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>Html</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>Flutter</li>
+
+
+
+                </ul>
+
+
+
+
+                
+
+            </div>
+            <div class="Certifications" id="four">
+
+                <h2>Certifications</h2>
+                <br>
+
+                <ul>
+                    <li>Aakash Techno Lab Flutter Devlopment</li>
+                    <li>Udemy - Web Devlopment</li>
+                    <li>Coursera - Python Programing</li>
+                    <li>Coursera - C Programing</li>
+                  </ul>
+
+
+
+            </div>
+
+            <div class="Projects" id="five">
+                <h2>Projects</h2>
+                <br>
+
+                <ul>
+                    <li>Alarm clock - using python</li>
+                    <li>E-commerce site - using html,css,javscript</li>
+                    <li>Fruits and vegetable ordering store - using flutter</li>
+                    <li>Chat app - using flutter and firebase</li>
+                  </ul>
+
+            </div>
+
+        </div>
+    </main>
+
+
+</body>
+
+</html>

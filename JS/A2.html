@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>A2</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container align-center mt-5">
+
+        <form class="w-25">
+            
+            <input type="text" name="dt" id="date" placeholder="mm-dd-yyyy" class="form-control mb-2">
+        </form>
+        <input type="button" value="check" class="btn btn-primary" onclick="myfunc()">
+        <p id="dt"></p>
+    </div>
+
+
+    <script>
+        function myfunc(){
+            var x=document.getElementById("date").value;
+
+            var dt=x.split("-");
+            document.getElementById("dt").innerHTML=dt;
+
+            var mm=dt[0];
+            var dd=dt[1];
+            var yyyy=dt[2];
+
+            // alert(mm)
+            // alert(dd)
+            // alert(yyyy)
+
+            const newdt= new Date(yyyy,mm-1,dd)
+            // alert("date : "+newdt.getDate() )
+            // alert("year : "+newdt.getFullYear())
+            // alert("month : "+newdt.getMonth())
+            
+            var new_mm=newdt.getMonth()+1;
+            var new_dd=newdt.getDate();
+            var new_yyyy=newdt.getFullYear();
+
+            if(mm == new_mm && dd ==new_dd && yyyy ==new_yyyy){
+                alert("valid date")
+            }
+            else{
+                alert("invalid date")
+            }
+           
+
+        }
+     
+    </script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</head>
+<body>
+    
+
+    <select  id="country">
+        <option value="" id="default" selected >select country</option>
+
+        <option value="India" id="c1" >India</option>
+        <option value="UK" id="c2">UK</option>
+        <option value="Australia" id="c3">Australia</option>
+        <option value="England" id="c4">England</option>
+
+
+    </select>
+    
+        
+  
+    <div id="disp1">
+        <p>Your Selected Country :India</p>
+        <p>Your Selected Country :UK</p>
+        <p>Your Selected Country :Australia</p>
+        <p>Your Selected Country :England</p>
+
+    </div>
+
+
+    <div id="disp2">
+        <p>Your Selected Country : <span id="usrcountry"></span></p>
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+
+            
+
+            $("#disp2").hide();
+            
+            
+        $("#country").change(function () {
+
+            
+            var selval=$("#country").val();
+           //alert(selval);
+           
+           if( selval== "" ){
+               
+            $("#disp1").show();
+
+            
+            $("#disp2").hide();
+               
+
+          }
+          else{
+
+            $("#disp1").hide();
+            $("#disp2").show();
+
+            $("#usrcountry").text(selval)
+
+          }
+         
+
+          
+
+
+            
+
+
+
+        });
+
+    });
+
+    </script>
+
+</body>
+</html>

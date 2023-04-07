@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <body>
+    <select name="" id="drp">
+    </select>
+
+
+    <div id="disp">
+
+        <p id="p"></p>
+
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        var settings = {
+          url: "https://gorest.co.in/public/v2/users",
+          method: "GET",
+          timeout: 0,
+          headers: {
+            Authorization:
+              "Bearer 993946d22a7adb49ee5aaa3dab189602bfeb7fb6a0ad5c5c09ca0619e1b03e1b",
+          },
+        };
+
+        $.ajax(settings).done(function (response) {
+            var data= response;
+            var arr=[];
+          console.log(response);
+
+          $.each(data,function(i,value){
+
+            arr +=`
+        <option value="${i}">${value.name}</option>
+            
+            `
+          })
+          $("#drp").html(arr);
+
+
+          $("#drp").change(function(){
+  
+              let x = $("#drp").val()
+
+              console.log(x)
+
+  
+              console.log(data[x])
+  
+              
+              $("#p").html(`${data[x].id} , ${data[x].name}  , ${data[x].email}  ,  ${data[x].gender}`)
+             
+
+  
+  
+          });
+        });
+
+
+
+
+      });
+    </script>
+  </body>
+</html>

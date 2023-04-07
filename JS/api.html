@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tbl">
+
+    </table>
+    <button class="btn btn-primary" onclick="api()">btn</button>
+    
+
+    
+    <script>
+
+        function printing(data=[]){
+
+            for (let i = 0; i < data.length; i++) {
+
+            document.getElementById('tbl').innerHTML +="<tr><td>"+data[i].name+"</td>"+"<td>"+data[i].email+"</td>"+"<td>"+data[i].gender+"</td>"+"<td>"+data[i].status+"</td>";
+                
+                
+            }
+
+        }
+
+
+
+
+        function api(){
+            var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("https://gorest.co.in/public/v2/users?Authorization=Bearer 993946d22a7adb49ee5aaa3dab189602bfeb7fb6a0ad5c5c09ca0619e1b03e1b", requestOptions)
+  .then(response => response.json())
+  .then(result => printing(result))
+  .catch(error => console.log('error', error));
+            
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 
+<script>
+    function ct(data=[]){
+        for (let i = 0; i < data.length; i++) {
+      document.getElementById('s').innerHTML +=
+        '<tr><td>' +
+        data[i].name +
+        '</td>' +
+        '<td>' +
+        data[i].email +
+        '</td>' +
+        '<td>' +
+        data[i].gender +
+        '</td>' +
+        '<td>' +
+        data[i].status +
+        '</td></tr>';
+    }
+
+    }
+function clk(){
+var requestOptions = {
+method: 'GET',
+redirect: 'follow'
+};
+
+fetch("https://gorest.co.in/public/v2/users?Authorization=Bearer 993946d22a7adb49ee5aaa3dab189602bfeb7fb6a0ad5c5c09ca0619e1b03e1b", requestOptions)
+.then(response => response.json())
+.then(result => ct(result))
+.catch(error => console.log('error', error));
+}
+</script> -->

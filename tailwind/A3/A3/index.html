@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <nav
+      class="flex-no-wrap relative flex w-full items-center justify-between bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
+      data-te-navbar-ref
+    >
+      <div class="flex w-full flex-wrap items-center justify-around px-6">
+        <a
+          class="mt-2 mr-2 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mt-0"
+          href="#"
+        >
+          <img
+            src="hau_gitschberge_horizontal 1.png"
+            style="height: 40px"
+            alt=""
+            loading="lazy"
+          />
+        </a>
+        <button
+          class="block border-0 bg-transparent py-2 px-2.5 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+          type="button"
+          data-te-collapse-init
+          data-te-target="#navbarSupportedContent1"
+          aria-controls="navbarSupportedContent1"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="[&>svg]:w-7">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="h-7 w-7"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+          id="navbarSupportedContent1"
+          data-te-collapse-item
+        >
+          <!-- Left links -->
+          <ul
+            class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
+            data-te-navbar-nav-ref
+          >
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-green-700 hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >Home</a
+              >
+            </li>
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-black hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >Blog</a
+              >
+            </li>
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-black hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >Features</a
+              >
+            </li>
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-black hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >Categories</a
+              >
+            </li>
+
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-black hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >About</a
+              >
+            </li>
+
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-black hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >Contact</a
+              >
+            </li>
+
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-black hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >shop</a
+              >
+            </li>
+            <li class="lg:pr-2" data-te-nav-item-ref>
+              <a
+                class="text-black hover:text-green-700 font-serif text-xl px-5"
+                href="#"
+                data-te-nav-link-ref
+                >Portfolio</a
+              >
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+      </div>
+    </nav>
+
+    <div class="container-fluid bg-green-50  ">
+      <div class="grid grid-rows-6">
+        <div class="row-span-4 align-middle ">
+          <div class="container mx-auto pt-5 hidden lg:block ">
+            <div class="grid grid-cols-6">
+              <div class="col-span-2 pt-5">
+                <img src="Rectangle 65.png" alt="" />
+              </div>
+              <div class="col-span-2 pt-0">
+                <img src="Rectangle 66.png" alt="" />
+              </div>
+              <div class="col-span-2 pt-5">
+                <img src="Rectangle 67.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid  block md:hidden">
+
+
+            <div class="flex overflow-x-auto">
+              <img src="3 (2).png" alt="">
+              <img src="26 (2).png" alt="">
+              <img src="3 (2).png" alt="">
+      
+            </div>
+
+          
+        </div>
+        <div class="row-span-2 text-center ">
+          <p class="text-center text-3xl font-serif">Hey There</p>
+          <p class="text-center text-6xl font-semibold font-serif">I'm Hous</p>
+          <p class="text-center p-5 font-serif">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni,
+            pariatur similique debitis, repellendus rerum sapiente, assumenda
+            eveniet in maxime veniam velit nisi doloremque! Ducimus, quia
+            commodi! Sit nobis odio assumenda? Eveniet natus quia, praesentium
+            reiciendis blanditiis quisquam explicabo beatae unde pariatur
+            dolorum nulla possimus dolore perspiciatis molestiae quasi. Veniam
+            rerum accusantium nam sed quaerat minus laudantium impedit. Aliquid,
+            repellendus placeat! Illum aliquam voluptas repellendus non
+          </p>
+
+          <button
+            class="btn font-serif font-bold text-center border w-15 hover:bg-yellow-600 hover:text-white p-5"
+          >
+            READ THE WHOLE STORY
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid bg-yellow-50 p-10">
+      <div class="grid grid-cols-1 md:grid-cols-6">
+        <div class="col-span-2 mx-auto">
+          <img src="Rectangle 65 (1).png" alt="" />
+        </div>
+        <div class="col-span-4 ">
+          <p class="font-serif text-2xl md:text-4xl text-left text-center text-justify">
+            Lorem ipsum dolor sit amet conse=xercitatio
+          </p>
+          <br />
+       
+
+          <p class="font-serif text-xl md:text-2xl text-left text-gray-400 text-center text-justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+            exercitationem aliquid quidem placeat eligendi commodi cumque harum
+            distinctio esse.
+          </p>
+          <br />
+          <br />
+          <button
+            class="btn font-serif font-bold text-center border w-15 hover:bg-yellow-600 hover:text-white p-5"
+          >
+            GET STARTED
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto">
+
+      <div class="container-fluid hidden md:block">
+
+      
+      <div class="grid grid-cols-3">
+        <div class="col-span-1">
+          <div
+            class="text-center pt-32 m-10"
+            style="
+              background-image: url('2022 (1).png');
+              width: 460px;
+              height: 312px;
+            "
+          >
+            <span class="font-serif bg-white p-5 text-center text-2xl"
+              >ARCHITECTURE</span
+            >
+          </div>
+
+          <div
+            class="text-center pt-32 m-10"
+            style="background-image: url('71.png'); width: 460px; height: 312px"
+          >
+            <span class="font-serif bg-white p-5 text-center text-2xl"
+              >PHOTOGRAPHY</span
+            >
+          </div>
+        </div>
+
+        <div class="col-span-1 text-center my-auto">
+          <p class="font-serif text-2xl p-3">THE PORTFOLIO</p>
+          <p class="font-serif text-7xl p-3">VIEW RECENT WORK</p>
+          <button
+            class="btn font-serif font-bold text-center border border-black w-15 hover:bg-blue-900 hover:text-white p-5"
+          >
+            EXPLORE
+          </button>
+        </div>
+
+        <div class="col-span-1">
+          <div
+            class="text-center pt-32 m-10"
+            style="
+              background-image: url('21 1.png');
+              width: 460px;
+              height: 312px;
+            "
+          >
+            <span class="font-serif bg-white p-5 text-center text-2xl"
+              >INTERIOR</span
+            >
+          </div>
+
+          <div
+            class="text-center pt-32 m-10"
+            style="
+              background-image: url('22_1.png');
+              width: 460px;
+              height: 312px;
+            "
+          >
+            <span class="font-serif bg-white p-5 text-center text-2xl"
+              >ANIMAL</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="continer-fluid block md:hidden">
+      <div class="flex overflow-x-auto">
+        <img src="2022 (1).png" alt="">
+        <img src="71.png" alt="">
+        <img src="21 1.png" alt="">
+        <img src="22_1.png" alt="">
+
+
+      </div>
+
+    </div>
+    </div>
+
+    <div class="container-fluid bg-green-50 p-20">
+
+      <div class="grid grid-cols-1 md:grid-cols-2">
+      
+        <div class="col-span-1 md:p-10 p-2">
+          <p class="font-serif text-5xl text-left underline ">
+           Tools For Creatives
+          </p>
+          <br />
+          <br />
+
+          <p class="font-serif text-2xl text-left text-gray-400 text-justify">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
+            exercitationem aliquid quidem placeat eligendi commodi cumque harum
+            distinctio esse. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas repudiandae cumque, similique fugit ad, accusamus dolorum cupiditate iste amet maxime deleniti odit suscipit necessitatibus ab explicabo quidem commodi debitis doloremque!
+          </p>
+          <br />
+          <br />
+          <button
+            class="btn font-serif font-bold text-center border w-15 hover:bg-yellow-600 hover:text-white p-5 text-xl"
+          >
+            GO TO BLOG PAGE
+          </button>
+        </div>
+        <div class="col-span-1 mx-auto">
+
+          <div class="grid grid-cols-2 ">
+
+            <div class="col-span-1 m-2">
+              <img src="23.png" alt=""  class="w-fit">
+
+
+            </div>
+            <div class="col-span-1 m-2">
+              <img src="24.png" alt="" class="w-fit">
+              
+            </div>
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid   md:p-10  bg-white">
+      <div class="container mx-auto md:mb-5 m-0 p-2">
+      <div class="grid md:grid-cols-6 grid-cols-1">
+  
+      <div class="col-span-2 ">
+
+        <div class="hover:bg-green-50   border-2 text-center md:w-400px md:h-64  w-fit m-2" >
+
+          <p class="italic p-5 text-xl">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi est, iste doloremque ipsum corrupti illo perferendis harum! Inventore, placeat alias? Fugiat suscipit facere voluptates et quidem nemo itaque incidunt.
+          Culpa at praesentium perspici?" </p>
+         
+         
+  
+          <img src="Ellipse 10.png" alt=""  class="mx-auto hidden md:block ">
+        </div>
+  
+      </div>
+      <div class="col-span-2">
+        <div class="hover:bg-green-50 border-2 text-center md:w-400px md:h-64  w-fit m-2" >
+
+          <p class="italic p-5 text-xl ">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi est, iste doloremque ipsum corrupti illo perferendis harum! Inventore, placeat alias? Fugiat suscipit facere voluptates et quidem nemo itaque incidunt.
+          Culpa at praesentium perspici?" </p>
+         
+         
+  
+          <img src="Ellipse 10.png" alt=""  class="mx-auto hidden md:block">
+        </div>
+      </div>
+      <div class="col-span-2">
+        <div class="hover:bg-green-50   border-2 text-center md:w-400px md:h-64  w-fit m-2" >
+
+          <p class="italic p-5 text-xl">"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo animi est, iste doloremque ipsum corrupti illo perferendis harum! Inventore, placeat alias? Fugiat suscipit facere voluptates et quidem nemo itaque incidunt.
+          Culpa at praesentium perspici?" </p>
+         
+         
+  
+          <img src="Ellipse 10.png" alt=""  class="mx-auto hidden md:block">
+        </div>
+      </div>
+            
+    </div>
+    </div>
+
+     
+
+    </div>
+
+    <div class="container-fluid bg-green-50 pt-5 mt-5">
+
+
+      <div class="flex overflow-x-auto">
+        <img src="3 (2).png" alt="">
+        <img src="26 (2).png" alt="">
+        <img src="3 (2).png" alt="">
+
+      </div>
+      
+
+    </div>
+
+    <div class="container md:mx-auto pt-5">
+
+      <a href="#lifestyle" class="text-5xl px-10 link_lifestyle">Lifesyle</a>
+      <a href="#travels" class="text-5xl px-10">Travel</a>
+      <a href="#photos" class="text-5xl px-10">Photos</a>
+
+
+        <div class="container life  border-2 text-justify p-2 font-serif text-2xl  text-gray-400 " id="lifestyle" >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor omnis laudantium ab quas. Ullam id porro praesentium optio, obcaecati ipsum tempora hic, nesciunt, architecto cum autem ut commodi alias dolorem!
+          Voluptatibus aliquid corrupti doloremque facere eos nihil, quisquam quae cupiditate repellat itaque nam adipisci quia consequuntur quibusdam veniam repudia
+          Quo, quidem eius unde possimus similique accusantium non magnam mollitia consequatur temporibus pariatur corporis molestias obcaecati architecto officiis iste autem ratione repudiandae quam optio sit maiores exercitationem laboriosam beatae. Autem?
+  
+        </div>
+  
+        <div class="container life  border-2 text-justify p-2 font-serif text-2xl  text-gray-400 " id="travels" >
+          Lorem, ipsu obcaecati architecto officiis iste autem ratione repudiandae quam optio sit maiores exercitationem laboriosam beatae. Autem?ndae! Laborum ea ratione nam, atque sapiente possimus maiores ipsa veritatis dolores.
+          Minima quia at voluptatum consequatur reiciendis suscipit, obcaecati vel quo enim dolore totam, accusamus sapiente doloremque voluptate unde quam atque ullam impedit. Dolore cum sunt aspernatur fugiat nemo. Ratione, dolorem!
+          Iste asperiores, ea harum laboriosam, beatae expedita sed tenetur, inventore delectus aliquid quod. Beatae explicabo repellat, velit odit aliquid iste accusamus praesentium harum neque. Amet architecto eligendi fugit aut! Ipsam.
+  
+        </div>
+  
+        <div class="container life  border-2 text-justify p-2 font-serif text-2xl  text-gray-400 " id="photos" >
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor omnis laudantium ab quas. Ullam id porro praesentium optio, obcaecati ipsum tempora hic, nesciunt, architecto cum autem ut commodi alias dolorem!ndae! Laborum ea ratione nam, atque sapiente possimus maiores ipsa veritatis dolores.
+          Minima quia at voluptatum consequatur reiciendis suscipit, obcaecati vel quo enim dolore totam, accusamus sapiente doloremque voluptate unde quam atque ullam impedit. Dolore cum sunt aspernatur fugiat nemo. Ratione, dolorem!
+          Iste asperiores, ea harum laboriosam, beatae expedita sed tenetur, inventore delectus aliquid quod. Beatae explicabo repellat, velit odit aliquid iste accusamus praesentium harum neque. Amet architecto eligendi fugit aut! Ipsam.
+          Voluptatibu
+  
+        </div>
+  
+      </div>
+
+      <div class="container-fluid bg-white mx-auto text-center p-5">
+        <p class="font-serif  text-5xl">Lets Collabrate Together</p>
+        
+        <div class="grid md:grid-cols-4 grid-cols-1">
+          
+          <div class=" cols-span-1 p-5 ">
+            <p class="text-justify text-2xl text-gray-500">Lorem ipsum, dolor sit aaspernatur doloremque est corrupti quas almet consectetur adipisicing elit. Nulla cupiditate sit nesciunt quod magni? Cupiditate facere, vel quos et voluptas sed nihil quo. Iste iquid maxime?</p>
+            
+          </div>
+          <div class=" cols-span-1 p-5">
+            <p class="text-justify text-2xl text-gray-500">Lorem ipsum, doloruod magni? Cupiditate facere, vel quos et voluptas sed nihil illum modi citationem beatae inventore nisi culpa vel quo. Iste aspernatur doloremque est corrupti quas aliquid maxime?</p>
+            
+          </div>
+
+          <div class=" cols-span-1 p-5">
+            <p class="text-justify text-2xl text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla cupiditate sit nesciunt quod magni? Cupiditate facere, vel quos et voluptas sed nihil illum modi ab ut quisquam odit minima magnam.
+            Maxime tempora unde si</p>
+            
+          </div>
+
+
+          <div class=" cols-span-1 p-5">
+            <p class="text-justify text-2xl text-gray-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla cupiditate sit nesciunt quod magni? Cupiditate facere, vel quos et voluptas sed nihil illum modi ab ut quisquapernatur doloremque est cid maxime?</p>
+            
+          </div>
+
+       
+        </div>
+
+      </div>
+      
+
+
+      <div class="">
+        <div class="container lg:mx-auto py-10 px-2">
+          <div class="text-2xl md:text-5xl text-center font-serif">Contact Us</div>
+          <div class="block md:flex md:flex-row mt-4 space-y-2">
+            <div class="space-y-3 mx-auto flex flex-col">
+              <input
+                type="text"
+                class="w-full h-12 border border-green-500 p-3 font-serif"
+                placeholder="First Name"
+              />
+              <input
+                type="text"
+                class="w-full h-12 border border-green-500 p-3 font-serif"
+                placeholder="Last Name"
+              />
+              <input
+                type="email"
+                class="w-full h-12 border border-green-500 p-3 font-serif"
+                placeholder="Email"
+              />
+  
+              <label class="my-2 text-xl block font-serif" for="comments">Comments</label>
+              <textarea name="comments" id="com" cols="60" rows="5" class="border-2 border-green-500 font-serif"></textarea>
+              <input
+                class="w-40 border border-green-500 text-lg text-green-600 font-serif"
+                type="button"
+                value="Submit"
+              />
+            </div>
+            <div class="w-full lg:w-1/2 md:p-2">
+              <p class="text-xl mb-1 flex items-center font-serif">Upload file</p>
+              <div
+                class="
+                  border border-dashed border-green-700
+                  p-5
+                  lg:py-14
+                  md:px-20
+                  lg:px-36
+                "
+              >
+                <label for="dropzone-file">
+                  <div
+                    class="flex flex-col items-center justify-center pt-5 pb-6"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="w-10 h-10 mb-3 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                      ></path>
+                    </svg>
+                    <p class="mb-2 text-sm text-gray-500 dark:text-gray-400 font-serif">
+                      <span class="font-semibold font-serif">Drop your files Here</span>
+                    </p>
+                    <p>Or</p>
+                    <p class="border px-4 font-serif">Browse file</p>
+                  </div>
+                  <input id="dropzone-file" type="file" class="hidden" />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container lg:mx-auto space-y-2 px-2 bg-white">
+        <div class="text-2xl md:text-5xl text-center font-serif">FAQ</div>
+        <div
+          class="
+            border border-teal-700
+            flex
+            justify-between
+            md:w-1/2
+            h-14
+            items-center
+            mx-auto
+          "
+        >
+          <div class="text-2xl font-serif p-3">Lorem, ipsum dolor.</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-plus-lg"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+            />
+          </svg>
+        </div>
+        <div
+          class="
+            border border-teal-700
+            flex
+            justify-between
+            md:w-1/2
+            h-14
+            items-center
+            mx-auto
+          "
+        >
+          <div class="text-2xl font-serif p-3">Lorem, ipsum dolor.</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-plus-lg"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+            />
+          </svg>
+        </div>
+        <div
+          class="
+            border border-teal-700
+            flex
+            justify-between
+            md:w-1/2
+            h-14
+            items-center
+            mx-auto
+          "
+        >
+          <div class="text-2xl font-serif p-3">Lorem, ipsum dolor.</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="currentColor"
+            class="bi bi-plus-lg"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="
+          px-2
+          mt-10
+          flex flex-col
+          lg:flex-row lg:justify-between
+          justify-center
+        "
+      >
+        <div class="flex space-x-6 justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-facebook"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            class="bi bi-twitter"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 448 512"
+          >
+           
+            <path
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 496 512"
+          >
+         
+            <path
+              d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 576 512"
+          >
+          
+            <path
+              d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
+            />
+          </svg>
+        </div>
+        <div class="flex space-x-4 flex-wrap justify-center">
+          <div class="text-lg text-center">Terms And Conditions</div>
+          <div>|</div>
+          <div class="text-lg text-center">Privacy Policy</div>
+          <div>|</div>
+          <div class="text-lg text-center">&copy; 2022 Haus Gitchberg</div>
+        </div>
+      </div>
+
+
+
+  
+  
+
+    <script type="module" src="/src/main.jsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+  </body>
+</html>

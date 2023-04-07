@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>d3p9</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+    <div class="from-group d-flex justify-content-center mt-5">
+      <input
+        type="text"
+        id="str"
+        class="form-control w-25"
+        placeholder="string"
+      />
+      <button class="btn btn-primary mx-5" onclick="setTimeout(promise_func,500)">Click me</button>
+      </button>
+    </div>
+
+    <div class="text-center">
+      <h2 id="text2"></h2>
+    </div>
+
+    <script>
+      function promise_func() {
+        var txt = document.getElementById('str').value;
+        const pro = new Promise((resolve, reject) => {
+          if (isNaN(txt) && typeof txt == 'string') {
+            let revrs = [];
+            revrs = txt.split('');
+           
+            revrs = revrs.reverse();
+            revrs = revrs.join('');
+        
+            resolve(revrs);
+          } else {
+            reject('not the string type');
+          }
+        });
+        pro.then(
+          function (val) {
+            document.getElementById('text2').innerHTML = val;
+          },
+          function (error) {
+            document.getElementById('text2').innerHTML = error;
+          }
+        );
+      }
+    </script>
+  </body>
+
+</html>

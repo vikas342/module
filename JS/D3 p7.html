@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>D3 p7</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="form-group pt-5 d-flex justify-content-center">
+
+  <input type="text" name="num" id="num1" class="form-control w-25" placeholder="Enter Number">
+  <button class="btn btn-danger" onclick="mycalc(document.getElementById('num1').value,print)">Square of Number</button>
+
+</div>
+
+  
+  
+
+  <script>
+  //var n1=document.getElementById("num1").value;
+
+    function mycalc(x,mycallback){
+      var square= x * x ;
+      mycallback(square);
+    }
+    function print(something){
+      // document.getElementById("text").innerHTML=something;
+      alert(something)
+
+
+    }
+   
+  </script>
+</body>
+</html>

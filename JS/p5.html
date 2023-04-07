@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>JS D1 P5</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+    
+    <div class="container  bg-info">
+        <p class="mt-5 pt-5 h2">
+          <input type="text" class="form-control" placeholder="Enter string:" id="str1">
+          
+        </p>
+
+        <p class="mt-5 pt-5 h2">
+
+          <input type="text"  class="form-control" placeholder="Enter no.characters you want:" id="str2">
+
+        </p>
+
+        <p id="text2" class="bg-sucess p-5 mt-5 h3">
+
+        </p>
+
+        <div class="text-center ">
+
+            <input type="button" value="Click me!" class="btn btn-warning mb-3" onclick="myfunc();">
+        </div>
+    </div>
+
+
+
+    <script>
+       
+
+        function myfunc(){
+
+          var str_1=document.getElementById("str1").value;
+          
+          var str_2=document.getElementById("str2").value -1;
+          var str_3="";
+
+          for(var i=0;i<=str_2;i++){
+            str_3=str_3+str_1[i];
+
+
+          }
+
+          document.getElementById("text2").innerHTML=str_3;
+          
+          
+
+            
+          
+
+        }
+    </script>
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

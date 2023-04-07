@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div class="container-fluid bg-green-500">
+      <div class="grid grid-cols-2 bg-green-500 m-5 p-5">
+        <div class="bg-purple-600 text-center">1</div>
+        <div class="bg-sky-600 text-center">2</div>
+        <div class="bg-yellow-600 text-center">3</div>
+        <div class="bg-red-600 text-center">4</div>
+        <div class="bg-blue-600 text-center">5</div>
+        <div class="bg-orange-600 text-center">6</div>
+        <div class="bg-yellow-600 text-center">7</div>
+        <div class="bg-red-600 text-center">8</div>
+        <div class="bg-purple-600 text-center">9</div>
+      </div>
+    </div>
+
+    <div class="container bg-green-500">
+      <div class="grid grid-row-2 m-8 grid-flow-col bg-green-500 m-5 p-5 gap-2">
+        <div class="bg-purple-600 text-center">1</div>
+        <div class="bg-sky-600 text-center">2</div>
+        <div class="bg-yellow-600 text-center">3</div>
+        <div class="bg-red-600 text-center row-span-2">4</div>
+        <div class="bg-blue-600 text-center">5</div>
+        <div class="bg-orange-600 text-center">6</div>
+        <div class="bg-yellow-600 text-center row-span-2">7</div>
+        <div class="bg-red-600 text-center">8</div>
+        <div class="bg-purple-600 text-center">9</div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <!-- <div class="grid grid-cols-12">
+
+     <div class=" col-span-2 bg-slate-400">
+      fghj
+
+    </div>
+    <div class=" col-span-10 bg-red-400">
+      fghj
+
+    </div> 
+    
+
+</div> -->
+
+      <dib class="grid grid-rows-6">
+        <div class="row-span-2 bg-green-500">
+          <div class="grid grid-cols-12">
+            <div class="col-span-2 bg-gray-400">sdfg</div>
+            <div class="col-span-10 bg-yellow-500">kjhgfd</div>
+          </div>
+        </div>
+        <div class="row-span-4 bg-red-600">dfghjk</div>
+      </dib>
+
+      Button
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+      >
+        Button
+      </button>
+    </div>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
