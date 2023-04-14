@@ -87,7 +87,8 @@ SELECT * from Employee where not (FIRST_NAME='John' OR FIRST_NAME='Roy')
 
 
  ---9. Get employee details from employee table whose first name contains 'o'
-     SELECT * FROM Employee WHERE First_Name LIKE '%O%'
+
+    SELECT * FROM Employee WHERE First_Name LIKE '%O%'
 
 
  --10. Get employee details from employee table whose Salary between 500000 and 800000 
@@ -163,6 +164,9 @@ Select RIGHT(REPLICATE('0',10) + CONVERT(varchar (50),SALARY) ,10) as Salary,Fir
 
 SELECT First_Name,REPLACE(STR(SALARY,10),' ','$') from Employee
 
+-- SELECT First_Name,REPLACE(STR(SALARY,10),' ','$') ,STR(SALARY,10),len(STR(SALARY,10))from Employee
+
+
 select First_Name,lpad(salary,10,'#') from Employee
 
 --3. Write a query to display the employees with their code, first name, last name and hire date who hired either on seventh day of any month or seventh month in any year. 
@@ -222,7 +226,10 @@ select format(CURRENT_TIMESTAMP,'hh:mm tt MMM d,yyyy')
 --12. Write a query to get the firstname, lastname who joined in the month of June. 
 
 
-	select * from Employee where month(joining_date) = 1
+	select * from Employee where  month(joining_date) = 1
+
+    	select * from Employee where DATENAME(month,joining_date)  = 'January'
+
 
 
 
@@ -233,7 +240,7 @@ select * from Employee where day(joining_date) = 1
 --14. Write a query to get first name, hire date and experience of the employees. 
 
 
-	select First_Name,joining_date,(DATEDIFF(YEAR,joining_date,GETDATE())  as Exp from Employee 
+	select First_Name,joining_date,(DATEDIFF(YEAR,joining_date,GETDATE()))  as Exp from Employee 
 
 
 

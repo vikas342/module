@@ -8,6 +8,7 @@
 
 select * from Empp
 
+go
 create procedure  [Bank Dept] as
 select * from Empp where DEPARTMENT= 'banking';
 
@@ -16,6 +17,7 @@ EXEC [Bank Dept]
 
 
 
+go
 create procedure  [Insurance Dept] as
 select * from Empp where DEPARTMENT= 'insurance';
 
@@ -24,7 +26,7 @@ EXEC [Insurance Dept]
 
 
 
-
+GO
 create procedure  [Services Dep] as
 select * from Empp where DEPARTMENT= 'services';
 
@@ -37,6 +39,9 @@ EXEC [Services Dep]
 
 --2. Select employee details from employee table if data exists in incentive table ? 
 
+
+
+go
 	create procedure myprocedure_1 as
 	select EMPLOYEE_ID,concat(FIRST_NAME,' ',LAST_NAME)as full_name, SALARY,DEPARTMENT,INCENTIVE_AMOUNT from Empp inner join  Incentives  on EMPLOYEE_ID=EMPLOYEE_REF_ID
 
@@ -45,6 +50,8 @@ EXEC [Services Dep]
 
 --3. Find Salary of the employee whose salary is more than Roy Salary 
 
+
+go
 create procedure myprocedure_2 as
 select * from Empp where SALARY >(select SALARY from Empp where FIRST_NAME='Roy')
 
@@ -52,14 +59,23 @@ select * from Empp where SALARY >(select SALARY from Empp where FIRST_NAME='Roy'
 
 --4. Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount 
 
-create procedure myprocedure_3 as
-select e.FIRST_NAME,e.LAST_NAME,e.SALARY,e.JOINING_DATE,i.INCENTIVE_DATE,i.INCENTIVE_AMOUNT from Empp as e  inner join Incentives as i on EMPLOYEE_ID= EMPLOYEE_REF_ID
+
+
+go
+
+create or alter procedure myprocedure_3 as
+select e.FIRST_NAME,e.LAST_NAME,e.SALARY,e.JOINING_DATE,i.INCENTIVE_DATE,i.INCENTIVE_AMOUNT from Empp as e  inner join Incentives as i on e.EMPLOYEE_ID= i.EMPLOYEE_REF_ID
 
 	EXEC [myprocedure_3]
 
 
 
 --5. Create a view to select Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount greater than 3000
+
+
+
+
+go
 
 create procedure myprocedure_4 as
 select e.FIRST_NAME,e.LAST_NAME,e.SALARY,e.JOINING_DATE,i.INCENTIVE_DATE,i.INCENTIVE_AMOUNT from Empp as e  inner join Incentives as i on EMPLOYEE_ID= EMPLOYEE_REF_ID
@@ -153,14 +169,14 @@ select * from mystudents
 
 ----2
 
+go
 
 create or alter procedure json_procedure @myjson nvarchar(max)
 as
 
  begin try
    select * into #student from openJson(@myjson) with(
-
-  Student_Name varchar(50) ,
+      Student_Name varchar(50) ,
       Address varchar(50),
       City varchar(50),
       DOB varchar(50),
@@ -288,8 +304,9 @@ declare @json_1 varchar(max);
 
   ----
 
+  go
 
-  alter procedure myprcedure__1  @myvar varchar(max) as
+  create or alter procedure myprcedure__1  @myvar varchar(max) as
   select * into #tab from openjson(@myvar) with(
   s_name varchar(50) '$.Student_Name',
       s_id int '$.Student_id',

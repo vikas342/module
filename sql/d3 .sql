@@ -280,7 +280,7 @@ where i.INCENTIVE_AMOUNT>3000
 --3. Select first_name, incentive amount from employee and incentives table for all employees even if they didn't get incentives. 
 
 
-select e.first_name, i.INCENTIVE_AMOUNT
+select e.first_name, i.INCENTIVE_AMOUNT,ISNULL(i.INCENTIVE_AMOUNT,0)
 from Empp as e
     left OUTER JOIN
     Incentives as i

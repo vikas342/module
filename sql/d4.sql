@@ -2,12 +2,12 @@
 
 -----p1
 
-
-
+go
 create view myview as 
 select * from cars_2
 
 
+go
 drop view myview
 
 select * from myview
@@ -30,6 +30,7 @@ select * from cars_2 where name='mustang'
 
 select * from cars_2
 
+go
 create procedure cardata as
 select Brand,NAME from cars_2
 
@@ -42,6 +43,7 @@ EXEC cardata
 
 ----
 
+go
 
 Declare @marks int=2;
 
@@ -79,7 +81,7 @@ add price int
 
 
 
-
+go
 create procedure my_procedure @price int
 as
 select * from cars_2 where price=@price
@@ -91,7 +93,7 @@ Exec my_procedure 76555
 drop procedure my_procedure
 -------
 
-
+go
 create procedure my_procedure2 @price int
 as
 
@@ -182,6 +184,7 @@ select * from Empp where SALARY >(select SALARY from Empp where FIRST_NAME='Roy'
 
 --4 Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount 
 
+
 create view  Empp_data1 as
 select e.FIRST_NAME,e.LAST_NAME,e.SALARY,e.JOINING_DATE,i.INCENTIVE_DATE,i.INCENTIVE_AMOUNT from Empp as e  inner join Incentives as i on EMPLOYEE_ID= EMPLOYEE_REF_ID
 
@@ -212,7 +215,7 @@ from Empp
 group by DEPARTMENT
 
 
-select Empp.first_name,Empp.last_name,Empp.department, Empp_dep.D_id from Empp JOIN Empp_dep 
+select Empp.first_name,Empp.last_name,Empp.department, Empp_dep.D_id from Empp JOIN Empp_dep
 ON Empp.department=Empp_dep.DEPARTMENT
 
 drop view Empp_dep
@@ -238,7 +241,7 @@ select * from Empp_data3
 
 
 
-select * from Empp
+select DEPARTMENT,Manager_id,Location  from Empp
 
 Alter table Empp
 add Location varchar(50)

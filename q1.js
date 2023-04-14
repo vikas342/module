@@ -12,7 +12,7 @@ let str = "";
 
 for (const key in arr) {
     const value = arr[key];
-    let y = key;
+    let y = key; 
     let x = parseInt(num / y);
     if(x > 0)
     {

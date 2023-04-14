@@ -147,11 +147,11 @@ select STR(342)
 
  SELECT DATEADD(MM,5,'2023-02-01')
 
-select DATENAME(MONTH,CONVERT(datetime,'2001-06-01'))
+select DATENAME(MONTH,'2001-06-01')
 
 select GETDATE()
 
-select DAY('2001-06-01')
+select DAY('2001-06-05')
 
 --Math Function
 select CEILING(0.34)
@@ -170,6 +170,7 @@ select ROUND(324.255,2)
 
 
 select * from cars_2;
+
 
 
 select DENSE_RANK() over (order by Name DESC) AS DENSE_RANK,*
