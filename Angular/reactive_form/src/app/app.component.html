@@ -1,0 +1,29 @@
+<div class="mb-3">
+
+  <form [formGroup]="form_data" (ngSubmit)="add()">
+    <label for="fn" class="form-label">First name</label>
+  <input type="text" class="form-control" name="" id="fn" formControlName="fn">
+
+
+  <label for="ln" class="form-label">Last name</label>
+  <input type="text" class="form-control" name="" id="ln" formControlName="ln">
+
+  <button type="submit">submit</button>
+  </form>
+
+
+
+</div>
+
+
+  <p>
+
+{{    arr|json
+}}  </p>
+
+
+
+<p>
+  {{arr[0]}}
+</p>
+
