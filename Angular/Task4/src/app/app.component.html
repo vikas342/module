@@ -1,0 +1,146 @@
+<div class="container mt-5">
+  <p class="fw-bold text-center h3">Student form</p>
+  <form [formGroup]="student_data" (ngSubmit)="onsubmit()" class="p-5" >
+
+
+
+    <div class="form-group m-2">
+
+      <label for="id">Id:</label>
+      <input type="text" name="id" id="id" formControlName="Id" class="form-control">
+      <span *ngIf="!Id?.valid && (Id?.dirty ||Id?.touched)" class="text-danger">
+        Id is not valid
+
+      </span>
+    </div>
+
+
+    <div class="form-group m-2">
+
+        <label for="fnm">Full_name:</label>
+        <input type="text" name="fname" id="fnm" formControlName="Full_name"  class="form-control">
+        <span *ngIf="!Full_name?.valid && (Full_name?.dirty ||Full_name?.touched)" class="text-danger">
+          Full_name is not valid
+
+        </span>
+
+      </div>
+
+      <div class="form-group m-2">
+
+        <label for="branch">Branch:</label>
+        <input type="text" name="branch" id="branch" formControlName="Branch"  class="form-control">
+        <span *ngIf="!Branch?.valid && (Branch?.dirty ||Branch?.touched)" class="text-danger">
+          Branch is not valid
+
+        </span>
+      </div>
+
+
+
+
+
+
+
+      <div formGroupName="Address">
+
+        <div class="form-group m-2">
+          <label for="Flat_no">Flat_no:</label>
+        <input type="text" name="Flat_no" id="Flat_no" formControlName="Flat_no"  class="form-control">
+        <span *ngIf="!Flat_no?.valid && (Flat_no?.dirty ||Flat_no?.touched)" class="text-danger">
+          Flat_no is not valid
+
+        </span>
+        </div>
+
+
+      <div class="form-group m-2">
+          <label for="building_name">Building:</label>
+        <input type="building_name" name="building_name" id="building_name" formControlName="building_name"  class="form-control">
+        <span *ngIf="!building_name?.valid && (building_name?.dirty ||building_name?.touched)" class="text-danger">
+          Building_name is not valid
+
+        </span>
+        </div>
+
+
+        <div class="form-group m-2">
+          <label for="City">City:</label>
+        <input type="City" name="City" id="building_name" formControlName="City"  class="form-control">
+        <span *ngIf="!City?.valid && (City?.dirty ||City?.touched)" class="text-danger">
+          City is not valid
+
+        </span>
+        </div>
+
+
+        <div class="form-group m-2">
+          <label for="State">State:</label>
+        <input type="State" name="State" id="building_name" formControlName="State"  class="form-control">
+        <span *ngIf="!State?.valid && (State?.dirty ||State?.touched)" class="text-danger">
+          State is not valid
+
+        </span>
+        </div>
+
+      </div>
+
+      <div class="form-group m-2">
+        <label for="Gender" lass="m-3">Gender:</label>
+
+        <input type="radio" name="Gender" id="Male" value="Male" formControlName="Gender" class="m-2" >
+        <label for="Male" >Male</label>
+
+        <input type="radio" name="Gender" id="Female" value="Female" formControlName="Gender" class="m-2" >
+        <label for="Female" >Female</label>
+
+
+      </div>
+      <div class="form-group m-2">
+
+      <button type="submit" class="btn btn-primary" [disabled]="!student_data.valid">submit</button>
+      </div>
+  </form>
+
+
+</div>
+<div class="text-center">
+  <p class="fw-bold h3">Form data</p>
+<p class="fw-bold h4">
+  {{  student|json
+  }}</p>
+
+
+</div>
+<br>
+<br>
+<div class="container">
+
+<table  class="table ">
+  <thead>
+
+    <tr>
+      <th>Id</th>
+      <th>Full_name</th>
+      <th>Gender</th>
+
+      <th>Branch</th>
+      <th>Address</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let x of student">
+      <td>{{x.Id}}</td>
+      <td>{{x.Gender}}</td>
+
+      <td>{{x.Full_name}}</td>
+      <td>{{x.Branch}}</td>
+      <td>{{x.Address.Flat_no}},{{x.Address.building_name}},{{x.Address.City}},{{x.Address.State}}</td>
+
+    </tr>
+  </tbody>
+</table>
+
+</div>

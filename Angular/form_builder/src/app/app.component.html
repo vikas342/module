@@ -1,0 +1,151 @@
+<div class="container mt-5">
+  <p class="fw-bold text-center h3">Student form</p>
+  <form [formGroup]="student" (ngSubmit)="onsubmit()" class="p-5">
+    <div class="form-group m-2">
+      <label for="id">Id:</label>
+      <input
+        type="text"
+        name="id"
+        id="id"
+        formControlName="id"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group m-2">
+      <label for="fnm">Full_name:</label>
+      <input
+        type="text"
+        name="fname"
+        id="fnm"
+        formControlName="name"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group m-2">
+      <label for="branch">Branch:</label>
+      <input
+        type="text"
+        name="branch"
+        id="branch"
+        formControlName="branch"
+        class="form-control"
+      />
+    </div>
+
+    <div formGroupName="Address">
+      <div class="form-group m-2">
+        <label for="Flat_no">Flat_no:</label>
+        <input
+          type="text"
+          name="Flat_no"
+          id="Flat_no"
+          formControlName="flat_no"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group m-2">
+        <label for="building_name">Building:</label>
+        <input
+          type="building_name"
+          name="building_name"
+          id="building_name"
+          formControlName="building_name"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group m-2">
+        <label for="City">City:</label>
+        <input
+          type="City"
+          name="City"
+          id="building_name"
+          formControlName="city"
+          class="form-control"
+        />
+      </div>
+
+      <div class="form-group m-2">
+        <label for="State">State:</label>
+        <input
+          type="State"
+          name="State"
+          id="building_name"
+          formControlName="state"
+          class="form-control"
+        />
+      </div>
+    </div>
+
+    <div class="form-group m-2">
+      <label for="Gender" lass="m-3">Gender:</label>
+
+      <input
+        type="radio"
+        name="Gender"
+        id="Male"
+        value="Male"
+        formControlName="gender"
+        class="m-2"
+      />
+      <label for="Male">Male</label>
+
+      <input
+        type="radio"
+        name="Gender"
+        id="Female"
+        value="Female"
+        formControlName="gender"
+        class="m-2"
+      />
+      <label for="Female">Female</label>
+    </div>
+    <div class="form-group m-2">
+      <button type="submit" class="btn btn-primary">submit</button>
+    </div>
+  </form>
+</div>
+<div class="text-center">
+  <!-- <p class="fw-bold h3">Form data</p>
+<p class="fw-bold h4">
+  {{  student|json
+  }}</p> -->
+</div>
+<br />
+<br />
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Full_name</th>
+        <th>Gender</th>
+
+        <th>Branch</th>
+        <th>Flat_No</th>
+        <th>Building_name</th>
+        <th>City</th>
+        <th>State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of arr">
+        <td>{{ x.id }}</td>
+        <td>{{ x.name }}</td>
+        <td>{{ x.gender }}</td>
+        <td>{{ x.branch }}</td>
+        <td>{{ x.address.flat_no }}</td>
+        <td>{{ x.address.building_name }}</td>
+        <td>
+          {{ x.address.city }}
+        </td>
+        <td>
+          {{ x.address.state }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
