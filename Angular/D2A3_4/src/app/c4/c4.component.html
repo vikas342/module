@@ -1,0 +1,43 @@
+
+<div class="container border border-2 p-5 ">
+
+    
+
+    <div class="form-group ">
+
+        
+        <input type="text" name="name" id="name" [(ngModel)]="name" class="form-control" placeholder="Name">
+
+    </div>
+
+    <br>
+
+
+    <div class="form-group">
+
+        
+        <input type="text" name="add" id="add" [(ngModel)]="address" class="form-control"  placeholder="Address">
+
+    </div>
+    <br>
+
+
+    <div class="form-group">
+
+        
+        <input type="text" name="pan" id="pan" [(ngModel)]="pan" class="form-control "  placeholder="PanNumber">
+
+    </div>
+<br>
+    <button type="button" class="btn btn-danger" (click)="myfunc()">Add</button>
+
+ 
+</div>
+
+<div class="container-fluid text-center">
+    <p class="fw-bolder h2">
+        {{
+            result
+        }}
+    </p>
+</div>

@@ -1,0 +1,31 @@
+
+<table class="table m-5 text-center" >
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Average</th>
+            <th>Grade</th>
+            <th>Active</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let item of studentlist">
+            <tr *ngIf="item.Active===true">
+                <td>{{item.ID}}</td>
+                <td>{{item.Name}}</td>
+                <td>{{item.Age}}</td>
+                <td>{{item.Average}}</td>
+                <ng-container [ngSwitch]="item.Grade"> 
+                    <td  *ngSwitchCase="'A'" [ngStyle]="{'background-color': 'yellow'}">{{item.Grade}}</td>
+                    <td  *ngSwitchCase="'B'" [ngStyle]="{'background-color': 'red'}">{{item.Grade}}</td>
+                    <td  *ngSwitchCase="'C'" [ngStyle]="{'background-color': 'green'}">{{item.Grade}}</td>
+                    <td  *ngSwitchCase="'D'" [ngStyle]="{'background-color': 'pink'}">{{item.Grade}}</td>
+                </ng-container>
+                <td>{{item.Active}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

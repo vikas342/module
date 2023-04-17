@@ -1,0 +1,43 @@
+
+<div class="container mt-5">
+
+    
+
+    <div class="form-group">
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" [(ngModel)]="name" class="form-control">
+
+    </div>
+
+    <br>
+
+
+    <div class="form-group">
+
+        <label for="add">Address</label>
+        <input type="text" name="add" id="add" [(ngModel)]="address" class="form-control">
+
+    </div>
+    <br>
+
+
+    <div class="form-group">
+
+        <label for="pan">PanNumber </label>
+        <input type="text" name="pan" id="pan" [(ngModel)]="pan" class="form-control">
+
+    </div>
+<br>
+    <button type="button" class="btn btn-danger" (click)="myfunc()">Add</button>
+
+ 
+</div>
+
+<div class="container-fluid text-center">
+    <p class="fw-bolder h2">
+        {{
+            result
+        }}
+    </p>
+</div>

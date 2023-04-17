@@ -1,0 +1,79 @@
+<!-- <p>details works!</p> -->
+
+<p>{{ data }}</p>
+
+<div class="container">
+
+<table *ngFor="let item of marks" class="table border border-2" >
+    <tbody>
+        <ng-container *ngIf="item.StudentID == data">
+            <tr >
+              <td colspan="2" rowspan="3" >
+                <img src="{{ item.StudentImage }}" alt="Student_Image" width="250px" />
+              </td>
+              <td class="fw-bold">Name</td>
+              <td>{{ item.StudentName }}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Address</td>
+        
+              <td>{{ item.Address }}</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Date of Birth</td>
+              <td>{{ item.DOB|date:'mediumDate' }}</td>
+            </tr>
+        
+            <tr class="fw-bold">
+                <td >Subject </td>
+                <td >Internal </td>
+                <td >External </td>
+        
+                <td >
+        
+                    Total(30% weightage Internal 70% External Weightage)</td>
+        
+            </tr>
+            <tr *ngFor="let a of item.Subjects |keyvalue">
+                <td class="fw-bold">{{a.key}}</td>
+                <td>{{a.value.Internal}}</td>
+                <td>{{a.value.External}}</td>
+                <td>{{a.value.Internal *0.3 +  a.value.External *0.7}}</td>
+        
+                
+        
+        
+            </tr>
+            <tr>
+                <td>
+        
+                </td>
+                <td>
+        
+                </td>
+                <td class="fw-bold">
+                    Average
+                </td>
+                <td >
+                    Average
+                </td>
+            </tr>
+            <tr>
+                <td>
+        
+                </td>
+                <td>
+        
+                </td>
+                <td class="fw-bold">
+                    Result
+                </td>
+                <td>
+                    Average
+                </td>
+            </tr>
+          </ng-container>
+    </tbody>
+
+</table>
+</div>

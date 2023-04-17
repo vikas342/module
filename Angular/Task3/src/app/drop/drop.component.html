@@ -1,0 +1,18 @@
+<!-- <p>drop works!</p> -->
+
+<div class="container mt-5">
+
+    <p class="fw-bold h2">Select Student Name</p>
+    <br>
+    <select name="select" id="drp_dn"  (change)="myfunc()" [(ngModel)]="student_id" class="form-select" >
+        <option selected disabled>Select Student Name</option>
+        
+        <option *ngFor="let item of students"  value="{{item.StudentID}}">{{item.StudentName}}</option>
+    </select>
+    
+</div>
+<!-- 
+<p>
+    {{student_id}}
+</p> -->
+<app-details [data]="student_id"></app-details>
