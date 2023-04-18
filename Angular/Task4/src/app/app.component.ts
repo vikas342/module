@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Task4';
 
 
@@ -21,12 +21,16 @@ export class AppComponent {
       Full_name:new FormControl('',Validators.required),
       Branch: new FormControl('',Validators.required),
       Address: new FormGroup({
-        Flat_no: new FormControl(),
-        building_name :new FormControl(),
-        City :new FormControl(),
-        State :new FormControl()
+        Flat_no: new FormControl('',Validators.required),
+        building_name :new FormControl('',Validators.required),
+        City :new FormControl('',Validators.required),
+        State :new FormControl('',Validators.required)
       }),
-      Gender:new FormControl()
+      Gender:new FormControl(),
+      Skills:new FormArray([
+        new FormControl('',[Validators.required])
+      ])
+
 
     })
 
@@ -69,5 +73,14 @@ export class AppComponent {
   }  get State(){
     return this.student_data.get("Address.State");
 
+  }
+
+
+  addskill(){
+    (<FormArray>this.student_data.get("Skills")).push(new FormControl('',[Validators.required])) ;
+  }
+
+  get Skills(){
+    return this.student_data.get('Skills') as FormArray;
   }
 }
