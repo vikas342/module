@@ -1,0 +1,57 @@
+<div class="container">
+
+  <form [formGroup]="student_form" (submit)="adddata()">
+
+
+    <div class="form-group">
+      <label for="id">ID:</label>
+      <input type="text" name="id" id="id" placeholder="e.g. 1" formControlName="Id">
+
+    </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" placeholder="e.g. vikas sonwane" formControlName="name">
+
+    </div>
+    <div class="form-group">
+      <label for="class">Class:</label>
+      <input type="text" name="class" id="class" placeholder="e.g. 10" formControlName="class">
+
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" name="email" id="email" placeholder="e.g. abc@gnail.com" formControlName="email">
+
+    </div>
+
+    <button class="btn btn-primary">submit</button>
+  </form>
+</div>
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Class</th>
+        <th>Email</th>
+
+      </tr>
+    </thead>
+    <tbody>
+<tr *ngFor="let i of data">
+  <td>{{i.Id}}</td>
+  <td>{{i.name}}</td>
+  <td>{{i.class}}</td>
+  <td>{{i.email}}</td>
+
+</tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+  {{data|json}}
+</p>

@@ -34,7 +34,7 @@
       />
     </div>
 
-    <div formGroupName="Address">
+    <div formGroupName="address">
       <div class="form-group m-2">
         <label for="Flat_no">Flat_no:</label>
         <input
@@ -137,15 +137,19 @@
         <td>{{ x.name }}</td>
         <td>{{ x.gender }}</td>
         <td>{{ x.branch }}</td>
-        <td>{{ x.address.flat_no }}</td>
-        <td>{{ x.address.building_name }}</td>
-        <td>
-          {{ x.address.city }}
-        </td>
-        <td>
-          {{ x.address.state }}
-        </td>
+
+          <td>{{ x.address.building_name }}</td>
+          <td>{{ x.address.flat_no }}</td>
+      <td>
+        {{ x.address.city }}
+      </td>
+      <td>
+        {{ x.address.state }}
+      </td>
+
       </tr>
     </tbody>
   </table>
+
+  <p>{{arr|json}}</p>
 </div>

@@ -11,21 +11,21 @@ export class AppComponent {
   title = 'form_builder';
 
   arr:any[]=[];
-  constructor (private formbuilder:FormBuilder){
+  constructor (private fb:FormBuilder){
   }
 
-   student=this.formbuilder.group({
-      id:['',Validators.required],
-      name:['',Validators.required],
-      gender:['',Validators.required],
-      branch:['',Validators.required],
+   student=this.fb.group({
+      id:['',[Validators.required]],
+      name:['',[Validators.required]],
+      gender:['',[Validators.required]],
+      branch:['',[Validators.required]],
 
-      address:this.formbuilder.group({
+      address:this.fb.group({
 
-        flat_no:['',Validators.required],
-        building_name:[,Validators.required],
-        city:[Validators.required],
-        state:[Validators.required],
+        flat_no:['',[Validators.required]],
+        building_name:['',[Validators.required]],
+        city:['',[Validators.required]],
+        state:['',[Validators.required]],
 
       })
 
@@ -33,9 +33,13 @@ export class AppComponent {
 
 
 
-  onsubmit(){
+onsubmit(){
 this.arr.push(this.student.value)
 console.log(this.arr)
   }
 
+
+  get flat_no(){
+    return this.student.get('address.flat_no')
+  }
 }

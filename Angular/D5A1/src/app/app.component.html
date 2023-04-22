@@ -1,258 +1,680 @@
-<form action="" [formGroup]="student_data" (ngSubmit)="onsubmit()" >
+<form action="" [formGroup]="student_data" (ngSubmit)="onsubmit()" novalidate>
+  <div class="container">
+    <div
+      class="container border border-2 p-3 m-2 w-50 mx-auto"
+      formGroupName="Name"
+    >
+      <p class="h3 fw-bold text-center">Student details</p>
+      <div class="form-group mx-auto w-50">
+        <label for="fn" class="fw-bold">Name:</label>
+        <input
+          type="text"
+          name="fname"
+          id="fn"
+          formControlName="First"
+          placeholder="FirstName"
+          class="form-control"
+        />
 
-  <div class="container ">
-    <div class="container border border-2 p-3 m-2 w-50 mx-auto"formGroupName="Name" >
-  <p class="h3 fw-bold text-center">
-    Student details
-  </p>
-  <div class="form-group  mx-auto  w-50">
-    <label for="fn" class=" fw-bold">Name:</label>
-    <input type="text" name="fname" id="fn" formControlName="First" placeholder="FirstName" class="form-control">
-    <span *ngIf="!Name?.get('First')!.valid && (Name?.get('First')!.touched || Name?.get('First')!.dirty)" class="text-danger">
-Invalid First Name
-    </span>
-    <br>
-
-    <input type="text" name="mname" id="mn" formControlName="Middle" placeholder="MiddleName" class="form-control">
-    <span *ngIf="!Name?.get('Middle')!.valid && (Name?.get('Middle')!.touched || Name?.get('Middle')!.dirty)" class="text-danger">
-      Invalid Middle Name
+        <span
+          *ngIf=" !(Name?.get('First'))!.valid && ((Name?.get('First'))!.touched || (Name?.get('First'))!.dirty)"
+          class="text-danger"
+        >
+          <span *ngIf="(Name?.get('First'))!.errors?.['required']">
+            *This is required
           </span>
-    <br>
+          <span *ngIf="(Name?.get('First'))!.errors?.['pattern']"> *Please Enter String </span>
+        </span>
+        <br />
 
-    <input type="text" name="lname" id="ln" formControlName="Last" placeholder="LastName" class="form-control">
-    <span *ngIf="!Name?.get('Last')!.valid && (Name?.get('Last')!.touched || Name?.get('Last')!.dirty)" class="text-danger">
-      Invalid Last Name
+        <input
+          type="text"
+          name="mname"
+          id="mn"
+          formControlName="Middle"
+          placeholder="MiddleName"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Name?.get('Middle'))!.valid &&
+            ((Name?.get('Middle'))!.touched || (Name?.get('Middle'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Name?.get('Middle'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Name?.get('Middle'))!.errors?.['pattern']"> *Please Enter String </span>
+
+
+        </span>
+        <br />
+
+        <input
+          type="text"
+          name="lname"
+          id="ln"
+          formControlName="Last"
+          placeholder="LastName"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Name?.get('Last'))!.valid &&
+            ((Name?.get('Last'))!.touched || (Name?.get('Last'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Name?.get('Last'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Name?.get('Last'))!.errors?.['pattern']"> *Please Enter String </span>
+
+
+
+        </span>
+      </div>
+      <br />
+      <div class="form-group mx-auto w-50">
+        <label for="dob" class="fw-bold">DOB:</label>
+        <input
+          type="date"
+          name="dob"
+          id="dob"
+          formControlName="DOB"
+          class="form-control w-25"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Name?.get('DOB'))!.valid &&
+            ((Name?.get('DOB'))!.touched || (Name?.get('DOB'))!.dirty)
+          "
+          class="text-danger"
+        >
+          Invalid DOB
+        </span>
+      </div>
+      <br />
+      <div class="form-group mx-auto w-50">
+        <label for="pob" class="fw-bold">Place of Birth:</label>
+        <input
+          type="text"
+          name="pob"
+          id="pob"
+          formControlName="Place_of_Birth"
+          placeholder="eg.Paris"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Name?.get('Place_of_Birth'))!.valid &&
+            ((Name?.get('Place_of_Birth'))!.touched ||
+              (Name?.get('Place_of_Birth'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Name?.get('Place_of_Birth'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Name?.get('Place_of_Birth'))!.errors?.['pattern']"> *Invalid Place of Birth Name </span>
+
+
+
+
+
+        </span>
+      </div>
+      <br />
+
+      <div class="form-group mx-auto w-50">
+        <label for="pob" class="fw-bold">First_Language: </label>
+        <input
+          type="text"
+          name="fl"
+          id="fl"
+          formControlName="First_Language"
+          placeholder="eg.English"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Name?.get('First_Language'))!.valid &&
+            ((Name?.get('First_Language'))!.touched ||
+              (Name?.get('First_Language'))!.dirty)
+          "
+          class="text-danger"
+        >
+
+
+          <span *ngIf="(Name?.get('First_Language'))!.errors?.['required']">
+            *This is required
           </span>
-
-  </div>
-  <br>
-  <div class="form-group  mx-auto  w-50">
-    <label for="dob"  class=" fw-bold">DOB:</label>
-    <input type="date" name="dob" id="dob"  formControlName="DOB" class="form-control w-25" class="form-control">
-    <span *ngIf="!Name?.get('DOB')!.valid && (Name?.get('DOB')!.touched || Name?.get('DOB')!.dirty)" class="text-danger">
-      Invalid DOB
-          </span>
-  </div>
-  <br>
-  <div class="form-group  mx-auto  w-50">
-    <label for="pob"  class=" fw-bold">Place of Birth:</label>
-    <input type="text" name="pob" id="pob"  formControlName="Place_of_Birth" placeholder="eg.Paris" class="form-control">
-    <span *ngIf="!Name?.get('Place_of_Birth')!.valid && (Name?.get('Place_of_Birth')!.touched || Name?.get('Place_of_Birth')!.dirty)" class="text-danger">
-      Invalid Place of Birth Name
-          </span>
-  </div>
-  <br>
-
-  <div class="form-group mx-auto w-50">
-    <label for="pob"  class=" fw-bold">First_Language: </label>
-    <input type="text" name="fl" id="fl"  formControlName="First_Language" placeholder="eg.English" class="form-control">
-    <span *ngIf="!Name?.get('First_Language')!.valid && (Name?.get('First_Language')!.touched || Name?.get('First_Language')!.dirty)" class="text-danger">
-      Invalid First Language
-          </span>
-  </div>
-  </div>
-
-  <div class="container border border-2 p-3 m-2 w-50 mx-auto"formGroupName="Address" >
+          <span *ngIf="(Name?.get('First_Language'))!.errors?.['pattern']"> *Invalid First Language </span>
 
 
-  <div class="form-group  mx-auto  w-50">
+        </span>
+      </div>
+    </div>
 
-    <label for="city"  class=" fw-bold">Address:</label>
-    <input type="text" name="city" id="city" formControlName="City" placeholder="City" class="form-control">
-    <span *ngIf="!Address?.get('City')!.valid && (Address?.get('City')!.touched || Address?.get('City')!.dirty)" class="text-danger">
-      Invalid City
-          </span>
+    <div
+      class="container border border-2 p-3 m-2 w-50 mx-auto"
+      formGroupName="Address"
+    >
+      <div class="form-group mx-auto w-50">
+        <label for="city" class="fw-bold">Address:</label>
+        <input
+          type="text"
+          name="city"
+          id="city"
+          formControlName="City"
+          placeholder="City"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Address?.get('City'))!.valid &&
+            ((Address?.get('City'))!.touched || (Address?.get('City'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Address?.get('City'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Address?.get('City'))!.errors?.['pattern']"> *Invalid City </span>
 
-    <br>
-    <input type="text" name="state" id="state" formControlName="State" placeholder="State" class="form-control">
-    <span *ngIf="!Address?.get('State')!.valid && (Address?.get('State')!.touched || Address?.get('State')!.dirty)" class="text-danger">
-      Invalid State
-          </span>
-    <br>
 
-    <input type="text" name="country" id="country" formControlName="Country" placeholder="Country" class="form-control">
-    <span *ngIf="!Address?.get('Country')!.valid && (Address?.get('Country')!.touched || Address?.get('Country')!.dirty)" class="text-danger">
-      Invalid Country
-          </span>
-    <br>
-
-    <input type="text" name="pin" id="pin" formControlName="Pin" placeholder="Pin" class="form-control">
-    <span *ngIf="!Address?.get('Pin')!.valid && (Address?.get('Pin')!.touched || Address?.get('Pin')!.dirty)" class="text-danger">
-      Invalid Pincode
-          </span>
+      </span>
 
 
-  </div>
+        <br />
+        <input
+          type="text"
+          name="state"
+          id="state"
+          formControlName="State"
+          placeholder="State"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Address?.get('State'))!.valid &&
+            ((Address?.get('State'))!.touched || (Address?.get('State'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Address?.get('State'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Address?.get('State'))!.errors?.['pattern']"> *Invalid State </span>
 
 
 
-</div>
+        </span>
+        <br />
+
+        <input
+          type="text"
+          name="country"
+          id="country"
+          formControlName="Country"
+          placeholder="Country"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Address?.get('Country'))!.valid &&
+            ((Address?.get('Country'))!.touched ||
+              (Address?.get('Country'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Address?.get('Country'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Address?.get('Country'))!.errors?.['pattern']"> *Invalid Country </span>
 
 
-<div class="container border border-2 p-3 m-2 w-50 mx-auto" formGroupName="Father" >
-  <p class="h3 fw-bold text-center">
-    Fathers details:
-  </p>
+        </span>
+        <br />
 
-  <div class="form-group  mx-auto  w-50"
-    formGroupName="FullName">
-    <label for="fn_1" class=" fw-bold">Name:</label>
-    <input type="text" class="form-control " name="fname_1" id="fn_1" formControlName="First" placeholder="FirstName">
-    <span *ngIf="!Father_FullName?.get('First')!.valid && (Father_FullName?.get('First')!.touched || Father_FullName?.get('First')!.dirty)" class="text-danger">
-      Invalid First Name
-          </span>
-    <br>
-    <input type="text" class="form-control" name="mname_1" id="mn_1" formControlName="Middle" placeholder="MiddleName">
-    <span *ngIf="!Father_FullName?.get('Middle')!.valid && (Father_FullName?.get('Middle')!.touched || Father_FullName?.get('Middle')!.dirty)" class="text-danger">
-      Invalid Middle Name
-          </span>
-    <br>
-
-
-    <input type="text" class="form-control" name="lname_1" id="ln_1" formControlName="Last" placeholder="LastName">
-    <span *ngIf="!Father_FullName?.get('Last')!.valid && (Father_FullName?.get('Last')!.touched || Father_FullName?.get('Last')!.dirty)" class="text-danger">
-      Invalid Last Name
-          </span>
-    <br>
-
-  </div>
-
-  <div class="form-group  mx-auto  w-50">
-    <label for="Em1"  class=" fw-bold">Email:</label>
-    <input type="text" class="form-control" name="Em1" id="Em1"  formControlName="Email" placeholder="eg.jonny007@gmail.com">
-    <span *ngIf="!Father?.get('Email')!.valid && (Father?.get('Email')!.touched || Father?.get('Email')!.dirty)" class="text-danger">
-      Invalid Email
-          </span>
-    <br>
-  </div>
-  <div class="form-group  mx-auto  w-50">
-    <label for="Edu1"  class=" fw-bold">Education: </label>
-    <input type="text" class="form-control" name="Edu1" id="Edu1"  formControlName="Education" placeholder="eg.Doctor">
-
-    <span *ngIf="!Father?.get('Education')!.valid && (Father?.get('Education')!.touched || Father?.get('Education')!.dirty)" class="text-danger">
-      Invalid Education Detail
-          </span>
-    <br>
-  </div>
-
-  <div class="form-group  mx-auto  w-50">
-    <label for="phn1"  class=" fw-bold">Phone: </label>
-    <input type="text" class="form-control" name="phn1" id="phn1"  formControlName="Phone" placeholder="eg.9876543211">
-    <span *ngIf="!Father?.get('Phone')!.valid && (Father?.get('Phone')!.touched || Father?.get('Phone')!.dirty)" class="text-danger">
-      Invalid Phone No.
-          </span>
-    <br>
-
-  </div>
+        <input
+          type="text"
+          name="pin"
+          id="pin"
+          formControlName="Pin"
+          placeholder="Pin"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            !(Address?.get('Pin'))!.valid &&
+            ((Address?.get('Pin'))!.touched || (Address?.get('Pin'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Address?.get('Pin'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Address?.get('Pin'))!.errors?.['pattern']"> *Invalid Pincode </span>
 
 
-</div>
+        </span>
+      </div>
+    </div>
 
+    <div
+      class="container border border-2 p-3 m-2 w-50 mx-auto"
+      formGroupName="Father"
+    >
+      <p class="h3 fw-bold text-center">Fathers details:</p>
 
-
-<div class="container border border-2 p-3 m-2 w-50 mx-auto" formGroupName="Mother" >
-  <p class="h3 fw-bold text-center">
-    Mother's details:
-  </p>
-
-  <div class="form-group  mx-auto  w-50" formGroupName="FullName">
-    <label for="fn_1" class=" fw-bold" >Name:</label>
-    <input type="text" class="form-control"  name="fname_1" id="fn_1" formControlName="First" placeholder="FirstName">
-    <span *ngIf="!Mother_FullName?.get('First')!.valid && (Mother_FullName?.get('First')!.touched || Mother_FullName?.get('First')!.dirty)" class="text-danger">
-      Invalid First Name
-          </span>
-    <br>
-    <input type="text" class="form-control"  name="mname_1" id="mn_1" formControlName="Middle" placeholder="MiddleName">
-    <span *ngIf="!Mother_FullName?.get('Middle')!.valid && (Mother_FullName?.get('Middle')!.touched || Mother_FullName?.get('Middle')!.dirty)" class="text-danger">
-      Invalid Middle Name
-          </span>
-    <br>
-    <input type="text" class="form-control"  name="lname_1" id="ln_1" formControlName="Last" placeholder="LastName">
-    <span *ngIf="!Mother_FullName?.get('Last')!.valid && (Mother_FullName?.get('Last')!.touched || Mother_FullName?.get('Last')!.dirty)" class="text-danger">
-      Invalid Last Name
-          </span>
-    <br>
-
-  </div>
-
-  <div class="form-group  mx-auto  w-50">
-    <label for="Em1" class=" fw-bold" >Email:</label>
-    <input type="text" name="Em1" id="Em1" class="form-control"   formControlName="Email" placeholder="eg.jonny007@gmail.com">
-    <span *ngIf="!Mother?.get('Email')!.valid && (Mother?.get('Email')!.touched || Mother?.get('Email')!.dirty)" class="text-danger">
-      Invalid Email
-          </span>
-    <br>
-  </div>
-  <div class="form-group  mx-auto  w-50">
-    <label for="Edu1" class=" fw-bold" >Education: </label>
-    <input type="text" name="Edu1" id="Edu1" class="form-control"   formControlName="Education" placeholder="eg.Doctor">
-    <span *ngIf="!Mother?.get('Education')!.valid && (Mother?.get('Education')!.touched || Mother?.get('Education')!.dirty)" class="text-danger">
-      Invalid Education Detail
-          </span>
-    <br>
-  </div>
-
-  <div class="form-group  mx-auto  w-50">
-    <label for="phn1" class=" fw-bold" >Phone: </label>
-    <input type="text" name="phn1" id="phn1" class="form-control"   formControlName="Phone" placeholder="eg.9876543211">
-    <span *ngIf="!Mother?.get('Phone')!.valid && (Mother?.get('Phone')!.touched || Mother?.get('Phone')!.dirty)" class="text-danger">
-      Invalid Phone No.
-          </span>
-    <br>
-  </div>
-
-
-</div>
-
-
-<div formArrayName="Emergency_Contact_List" class="container border border-2 p-3 m-2 w-50 mx-auto text-center" >
-
-  <p class="h3 fw-bold ">
-    Add Emergency Contact List</p><br>
-  <ng-container  *ngFor="let item of Contact_List.controls;let i=index">
+      <div class="form-group mx-auto w-50" formGroupName="FullName">
+        <label for="fn_1" class="fw-bold">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="fname_1"
+          id="fn_1"
+          formControlName="First"
+          placeholder="FirstName"
+        />
+        <span
+          *ngIf="
+            !(Father_FullName?.get('First'))!.valid &&
+            ((Father_FullName?.get('First'))!.touched ||
+              (Father_FullName?.get('First'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Father_FullName?.get('First'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Father_FullName?.get('First'))!.errors?.['pattern']"> *Invalid First Name </span>
 
 
 
-    <ng-container [formGroupName]="i">
+        </span>
+        <br />
+        <input
+          type="text"
+          class="form-control"
+          name="mname_1"
+          id="mn_1"
+          formControlName="Middle"
+          placeholder="MiddleName"
+        />
+        <span
+          *ngIf="
+            !(Father_FullName?.get('Middle'))!.valid &&
+            ((Father_FullName?.get('Middle'))!.touched ||
+              (Father_FullName?.get('Middle'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Father_FullName?.get('Middle'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Father_FullName?.get('Middle'))!.errors?.['pattern']"> *Invalid Middle Name </span>
 
-      <div class="form-group  mx-auto  w-50">
-        <input type="text"  placeholder="Person name" formControlName="pname" class="form-control" >
-        <span></span>
-        <input type="text" placeholder="Person contact.no" formControlName="p_cno" class="form-control" >
-        <!-- <span *ngIf="!Contact_List_arr?.get('p_cno')!.valid && (Contact_List_arr?.get('p_cno')!.touched || Contact_List_arr?.get('p_cno')!.dirty)" class="text-danger">
-          Invalid Phone No.
-              </span> -->
-        <br>
+
+
+        </span>
+        <br />
+
+        <input
+          type="text"
+          class="form-control"
+          name="lname_1"
+          id="ln_1"
+          formControlName="Last"
+          placeholder="LastName"
+        />
+        <span
+          *ngIf="
+            !(Father_FullName?.get('Last'))!.valid &&
+            ((Father_FullName?.get('Last'))!.touched ||
+              (Father_FullName?.get('Last'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Father_FullName?.get('Last'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Father_FullName?.get('Last'))!.errors?.['pattern']"> *Invalid Last Name </span>
+
+        </span>
+        <br />
       </div>
 
-    </ng-container>
-  </ng-container>
-<br>
-  <button class="btn btn-primary w-10 " type="button"
-  (click)="addpersons()">Add more person</button>
+      <div class="form-group mx-auto w-50">
+        <label for="Em1" class="fw-bold">Email:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Em1"
+          id="Em1"
+          formControlName="Email"
+          placeholder="eg.jonny007@gmail.com"
+        />
+        <span
+          *ngIf="
+            !(Father?.get('Email'))!.valid &&
+            ((Father?.get('Email'))!.touched || (Father?.get('Email'))!.dirty)
+          "
+          class="text-danger"
+        >
 
-</div>
+        <span *ngIf="(Father?.get('Email'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Father?.get('Email'))!.errors?.['pattern']"> *Invalid Email </span>
+
+        </span>
+
+        <br />
+      </div>
+      <div class="form-group mx-auto w-50">
+        <label for="Edu1" class="fw-bold">Education: </label>
+        <input
+          type="text"
+          class="form-control"
+          name="Edu1"
+          id="Edu1"
+          formControlName="Education"
+          placeholder="eg.Doctor"
+        />
+
+        <span
+          *ngIf="
+            !(Father?.get('Education'))!.valid &&
+            ((Father?.get('Education'))!.touched ||
+              (Father?.get('Education'))!.dirty)
+          "
+          class="text-danger"
+        >
+
+        <span *ngIf="(Father?.get('Education'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Father?.get('Education'))!.errors?.['pattern']"> *Invalid Education Detail </span>
+
+
+        </span>
+        <br />
+      </div>
+
+      <div class="form-group mx-auto w-50">
+        <label for="phn1" class="fw-bold">Phone: </label>
+        <input
+          type="text"
+          class="form-control"
+          name="phn1"
+          id="phn1"
+          formControlName="Phone"
+          placeholder="eg.9876543211"
+        />
+        <span
+          *ngIf="
+            !(Father?.get('Phone'))!.valid &&
+            ((Father?.get('Phone'))!.touched || (Father?.get('Phone'))!.dirty)
+          "
+          class="text-danger"
+        >
+
+        <span>*Invalid number
+
+       </span>
 
 
 
+        </span>
+        <br />
+      </div>
+    </div>
+
+    <div
+      class="container border border-2 p-3 m-2 w-50 mx-auto"
+      formGroupName="Mother"
+    >
+      <p class="h3 fw-bold text-center">Mother's details:</p>
+
+      <div class="form-group mx-auto w-50" formGroupName="FullName">
+        <label for="fn_1" class="fw-bold">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="fname_1"
+          id="fn_1"
+          formControlName="First"
+          placeholder="FirstName"
+        />
+        <span
+          *ngIf="
+            !(Mother_FullName?.get('First'))!.valid &&
+            ((Mother_FullName?.get('First'))!.touched ||
+              (Mother_FullName?.get('First'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Mother_FullName?.get('First'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Mother_FullName?.get('First'))!.errors?.['pattern']"> *Invalid First Name </span>
+
+        </span>
+        <br />
+        <input
+          type="text"
+          class="form-control"
+          name="mname_1"
+          id="mn_1"
+          formControlName="Middle"
+          placeholder="MiddleName"
+        />
+        <span
+          *ngIf="
+            !(Mother_FullName?.get('Middle'))!.valid &&
+            ((Mother_FullName?.get('Middle'))!.touched ||
+              (Mother_FullName?.get('Middle'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Mother_FullName?.get('Middle'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Mother_FullName?.get('Middle'))!.errors?.['pattern']"> *Invalid Middle Name </span>
+
+        </span>
+        <br />
+        <input
+          type="text"
+          class="form-control"
+          name="lname_1"
+          id="ln_1"
+          formControlName="Last"
+          placeholder="LastName"
+        />
+        <span
+          *ngIf="
+            !(Mother_FullName?.get('Last'))!.valid &&
+            ((Mother_FullName?.get('Last'))!.touched ||
+              (Mother_FullName?.get('Last'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Mother_FullName?.get('Last'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Mother_FullName?.get('Last'))!.errors?.['pattern']"> *Invalid Last Name </span>
+
+        </span>
+        <br />
+      </div>
+
+      <div class="form-group mx-auto w-50">
+        <label for="Em1" class="fw-bold">Email:</label>
+        <input
+          type="text"
+          name="Em1"
+          id="Em1"
+          class="form-control"
+          formControlName="Email"
+          placeholder="eg.jonny007@gmail.com"
+        />
+        <span
+          *ngIf="
+            !(Mother?.get('Email'))!.valid &&
+            ((Mother?.get('Email'))!.touched || (Mother?.get('Email'))!.dirty)
+          "
+          class="text-danger"
+        >
+        <span *ngIf="(Mother?.get('Email'))!.errors?.['required']">
+          *This is required
+        </span>
+        <span *ngIf="(Mother?.get('Email'))!.errors?.['pattern']"> *Invalid Email </span>
 
 
 
+        </span>
+
+        <br />
+      </div>
+      <div class="form-group mx-auto w-50">
+        <label for="Edu1" class="fw-bold">Education: </label>
+        <input
+          type="text"
+          name="Edu1"
+          id="Edu1"
+          class="form-control"
+          formControlName="Education"
+          placeholder="eg.Doctor"
+        />
+        <span
+          *ngIf="
+            !(Mother?.get('Education'))!.valid &&
+            ((Mother?.get('Education'))!.touched ||
+              (Mother?.get('Education'))!.dirty)
+          "
+          class="text-danger"
+        >
+
+          <span *ngIf="(Mother?.get('Phone'))!.errors?.['required']">
+            *This is required
+          </span>
+          <span *ngIf="(Mother?.get('Phone'))!.errors?.['pattern']"> *Invalid Education Detail </span>
 
 
-</div>
 
-<div class="
- text-center" >
-  <br>
-  <button type="submit" class="btn btn-primary w-50 mb-5 " >Submit</button>
-</div>
+          </span>
+        <br />
+      </div>
+
+      <div class="form-group mx-auto w-50">
+        <label for="phn1" class="fw-bold">Phone: </label>
+        <input
+          type="text"
+          name="phn1"
+          id="phn1"
+          class="form-control"
+          formControlName="Phone"
+          placeholder="eg.9876543211"
+        />
+        <span
+          *ngIf="
+            !(Mother?.get('Phone'))!.valid &&
+            ((Mother?.get('Phone'))!.touched || (Mother?.get('Phone'))!.dirty)
+          "
+          class="text-danger"
+        >
+       *Invalid number
+
+
+        </span>
+        <br />
+      </div>
+    </div>
+
+    <div
+      formArrayName="Emergency_Contact_List"
+      class="container border border-2 p-3 m-2 w-50 mx-auto text-center"
+    >
+      <p class="h3 fw-bold">Add Emergency Contact List</p>
+      <br />
+      <ng-container *ngFor="let item of Contact_List.controls; let i = index">
+        <ng-container [formGroupName]="i">
+          <div class="form-group mx-auto w-50">
+            <input
+              type="text"
+              placeholder="Person name"
+              formControlName="pname"
+              class="form-control"
+            />
+            <span></span>
+            <input
+              type="text"
+              placeholder="Person contact.no"
+              formControlName="p_cno"
+              class="form-control"
+            />
+            <!-- <span *ngIf="!Contact_List_arr?.get('p_cno')!.valid && (Contact_List_arr?.get('p_cno')!.touched || Contact_List_arr?.get('p_cno')!.dirty)" class="text-danger">
+          Invalid Phone No.
+              </span> -->
+            <br />
+          </div>
+        </ng-container>
+      </ng-container>
+      <br />
+      <button class="btn btn-primary w-10" type="button" (click)="addpersons()">
+        Add more person
+      </button>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <br />
+    <button
+      type="submit"
+      class="btn btn-primary w-50 mb-5"
+      [disabled]="!student_data.valid"
+    >
+      Submit
+    </button>
+  </div>
 </form>
+<div class="border border-2 m-5">
+  <p class="h3 fw-bold text-center">Data</p>
+  <p class="h3 fw-bold text-center">
+    {{ student | json }}
+  </p>
+</div>
 
-
-
-
-
-<p class="h3 fw-bold">
-  {{student|json}}
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>DOB</th>
+      <th>Place_of_Birth</th>
+      <th>First_Language</th>
+      <th>Address</th>
+      <th>Contact_List</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of student">
+      <td>{{ i.Name.First }}{{ i.Name.Middle }}{{ i.Name.Last }}</td>
+      <td>{{ i.Name.DOB }}</td>
+      <td>{{ i.Name.Place_of_Birth }}</td>
+      <td>{{ i.Name.First_Language }}</td>
+      <td>
+        {{ i.Address.City }},{{ i.Address.State }},{{ i.Address.Country }},{{
+          i.Address.Pin
+        }}
+      </td>
+      <ng-container *ngFor="let x of i.Emergency_Contact_List">
+        <td>{{ x.pname }} {{ x.p_cno }}</td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>
