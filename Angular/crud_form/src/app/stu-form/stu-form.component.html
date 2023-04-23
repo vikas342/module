@@ -40,11 +40,14 @@
       </tr>
     </thead>
     <tbody>
-<tr *ngFor="let i of data">
+<tr *ngFor="let i of data,let x=index">
   <td>{{i.Id}}</td>
   <td>{{i.name}}</td>
   <td>{{i.class}}</td>
   <td>{{i.email}}</td>
+  <td><button type="button" (click)="deletedata(x)">delete</button></td>
+  <td><button type="button" (click)="update(i,x)">update</button></td>
+
 
 </tr>
     </tbody>
