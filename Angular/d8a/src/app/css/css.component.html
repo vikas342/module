@@ -1,4 +1,5 @@
 <div class="container-fluid">
+
   <div class="row bg-light p-3" style="height: 100vh">
     <div
       class="accordion accordion-flush col col-lg-2"
@@ -25,17 +26,20 @@
           <div class="accordion-body">
             <ul class="list-unstyled">
               <li>
-                <a routerLink="" class="text-decoration-none">Assignment 1</a>
+                <a routerLink="day1/as1" class="text-decoration-none"
+                  >Assignment 1</a
+                >
               </li>
               <li>
-                <a routerLink="" class="text-decoration-none">Assignment 2</a>
+                <a routerLink="day1/as2" class="text-decoration-none"
+                  >Assignment 2</a
+                >
               </li>
               <li>
-                <a routerLink="" class="text-decoration-none">Assignment 3</a>
+                <a routerLink="day1/as3" class="text-decoration-none">Assignment 3</a>
               </li>
             </ul>
           </div>
-
         </div>
       </div>
       <div class="accordion-item">
@@ -56,36 +60,38 @@
           class="accordion-collapse collapse"
           data-bs-parent="#accordionFlushExample"
         >
-        <div class="accordion-body">
-          <ul class="list-unstyled">
-            <li>
-              <a routerLink="" class="text-decoration-none">Assignment 1</a>
-            </li>
-            <li>
-              <a routerLink="" class="text-decoration-none">Assignment 2</a>
-            </li>
-            <li>
-              <a routerLink="" class="text-decoration-none">Assignment 3</a>
-            </li>
-            <li>
-              <a routerLink="" class="text-decoration-none">Assignment 4</a>
-            </li>
-            <li>
-              <a routerLink="" class="text-decoration-none">Assignment 5</a>
-            </li>
-            <li>
-              <a routerLink="" class="text-decoration-none">Assignment 6</a>
-            </li>
-          </ul>
-        </div>
+          <div class="accordion-body">
+            <ul class="list-unstyled">
+              <li>
+                <a routerLink="day2/as1" class="text-decoration-none">Assignment 1</a>
+              </li>
+              <li>
+                <a routerLink="day2/as2" class="text-decoration-none">Assignment 2</a>
+              </li>
+              <li>
+                <a routerLink="day2/as3" class="text-decoration-none">Assignment 3</a>
+              </li>
+              <li>
+                <a routerLink="day2/as4" class="text-decoration-none">Assignment 4</a>
+              </li>
+              <li>
+                <a routerLink="day2/as5" class="text-decoration-none">Assignment 5</a>
+              </li>
+              <li>
+                <a routerLink="day2/as6" class="text-decoration-none">Assignment 6</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="col col-lg-10">
-        <!--
-    <router-outlet>
 
-    </router-outlet> -->
+    </div>
+    <div class="col col-lg-10 ">
+    <div class="container-fluid">
+
+        <router-outlet> </router-outlet>
       </div>
     </div>
   </div>
+
 </div>

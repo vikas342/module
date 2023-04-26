@@ -1,0 +1,6 @@
+<div *ngFor="let x of post,let i=index">
+  <h1>{{x.name}}</h1>
+  <button [routerLink]="['/info',i]">click for more details</button>
+</div>
+
+
