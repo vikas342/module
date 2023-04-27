@@ -1,0 +1,29 @@
+<div class="container mt-5">
+
+
+
+
+  <form (ngSubmit)="onsubmit()" [formGroup]="sigin_form" class=" w-25 mx-auto border border-2 p-5">
+    <div class="form-group m-2  d-flex justify-content-between">
+      <img src="../../assets/Instagram_logo_2016.svg.webp" alt="a" class="w-25">
+      <p class="fw-bolder h2 "> Instagram</p>
+    </div>
+
+    <div class="form-group m-2">
+      <label for="uname">User Name :</label>
+      <input type="text" name="uname" id="uname" formControlName="name" class="form-control">
+    </div>
+    <div class="form-group m-2">
+
+      <label for="pass">Password :</label>
+
+      <input type="password" name="pass" id="pass" formControlName="password" class="form-control">
+    </div>
+
+    <div class="form-group m-2">
+      <button type="submit" routerLink="/home" class="btn btn-danger">Login</button>
+    </div>
+  </form>
+
+
+</div>
