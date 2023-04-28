@@ -1,1 +1,66 @@
-<p>home works!</p>
+
+<div class="container-fluid " *ngFor="let i of user_profile_data">
+
+  <div class="row">
+    <div class="col col-lg-6 text-center">
+     
+      <img src="{{i.profile_image}}" alt="" class="rounded-pill" style="width: 150px;">
+      <p class="h5 fw-bolder" style="color:black">
+        {{i.fullName}}
+      </p>
+      <p class="h5 fst-italic" style="color:rgb(78, 78, 79)">
+        {{i.bio}}
+      </p>
+    </div>
+    <div class="col col-lg-6 my-auto">
+      <p class="h2 fw-bolder m-3">
+        {{i.username}}
+      </p>
+
+      <div class="d-flex ">
+
+        <p class=" h5 m-3" >
+          <span>{{i.following}}</span>
+<br>
+          Following
+        </p>
+
+
+        <p class=" h5 m-3">
+          <span>{{i.followers}}</span>
+<br>
+          Followers
+        </p>
+
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+  </div>
+
+<br>
+<hr>
+  <div class="container-fluid">
+
+    <div class="row" >
+      <div class="col-lg-3 " *ngFor="let x of i.posts" >
+
+      <div class="card text-start"  style="height: 350px;">
+        <img src="{{x.imageUrl}}" alt="" class="w-100 " style="height: 300px;">
+        <p class="card-text">{{x.caption}}</p>
+
+      </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>

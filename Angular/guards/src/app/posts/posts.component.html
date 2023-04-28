@@ -1,0 +1,41 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid p-3" *ngFor="let x of user_details">
+      <a class="navbar-brand" routerLink="/profile">
+        <img src="{{x.profile_image}}" class="card-img-top " alt="..." style="width: 50px; border-radius: 100px;">
+        <p class="fw-bold">{{x.username}}</p>
+      </a>
+
+      <p class="fw-bold mx-auto h2 fst-italic">Instagram</p>
+    </div>
+  </nav>
+</div>
+<div class="container " *ngFor="let x of feeds">
+
+<div class="row my-5" *ngFor="let i of x.posts">
+  <div class="card p-3" >
+   <div class="d-flex p-3">
+    <img src="{{x.profile_image}}" class="card-img-top " alt="..." style="width: 50px; border-radius: 100px;">
+    <p class="my-auto mx-2 fw-bold">{{x.username}}</p>
+   </div>
+
+
+    <div class="card-body">
+
+      <img src="{{i.imageUrl}}" alt="..." class="w-100 " style="height: 800px;">
+
+      <p class="h6 fw-bold my-3">{{i.caption}}</p>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+</div>
+
+
+
+

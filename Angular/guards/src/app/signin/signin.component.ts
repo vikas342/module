@@ -29,6 +29,8 @@ export class SigninComponent implements OnInit{
   onsubmit(){
     console.log(this.sigin_form.value);
     this.service.check(this.sigin_form.value.name,this.sigin_form.value.password);
+    this.service.get_userdata(this.sigin_form.value.name);
+    this.service.get_posts(this.sigin_form.value.name);
     // this.rt.navigate(['home']);
 
   }
