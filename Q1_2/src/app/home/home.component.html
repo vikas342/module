@@ -1,0 +1,117 @@
+
+
+
+<div class="container  mt-5">
+  <p class="h2 text-center fw-bolder">
+    Parking
+  </p>
+  <div class="row row-cols-5 mt-5" >
+
+    <div class="col" *ngFor="let x of rows">
+
+
+      <ng-container  *ngIf="x.allocated; else other">
+
+        <button type="button" (click)="passId(x.id) ; cost()" class="btn btn-primary w-100 m-3 bg-danger" data-bs-toggle="modal" data-bs-target="#checkout" > {{x.id}} {{x.Carnumber}} {{x.inTime}}</button>
+      </ng-container>
+      <ng-template #other>
+        <button type="button" (click)="passId(x.id)" class="btn btn-primary w-100 m-3" data-bs-toggle="modal" data-bs-target="#exampleModal" > {{x.id}}</button>
+      </ng-template>
+
+
+
+
+    </div>
+    <!-- <tr >
+      <td *ngFor="let x of rows" >
+        <button type="button" class="btn btn-primary">{{x.id}}</button>
+      </td>
+    </tr> -->
+  </div>
+
+</div>
+
+
+
+
+<!-- <button type="button" class="btn btn-primary"  data-bs-whatever="@mdo">Open modal for @mdo</button> -->
+<!-- ///detail fill form -->
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Car number:</label>
+            <input type="text" name="carnumber" class="form-control" id="recipient-name" [(ngModel)]="Carnumber">
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">In Time:</label>
+            <input type="time" class="form-control" name="intime" id="recipient-name" [(ngModel)]="inTime" >
+          </div>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">out Time:</label>
+            <input type="time"  class="form-control" name="outtime" id="recipient-name" [(ngModel)]="outTime" >
+          </div>
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <ng-container *ngIf="(Carnumber=='') ;else other">
+
+          <button type="button" (click)="onSubmit()" data-bs-dismiss="modal" class="btn btn-primary"  disabled>Send message</button>
+
+        </ng-container>
+        <ng-template #other>
+          <button type="button" (click)="onSubmit()" data-bs-dismiss="modal" class="btn btn-primary"  >Send message</button>
+
+          </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
+///checkout form -->
+
+<div class="modal fade " id="checkout" tabindex="-1" aria-labelledby="checkoutLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="checkoutLabel">Checkout</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" *ngFor="let item of rows" >
+        <ng-container *ngIf="item.id==inIndex">
+
+          <p>Car Number: {{item.Carnumber}}</p>
+          <p>In time: {{item.inTime}}</p>
+          <p>out time: {{item.outTime}}</p>
+          <p>Total cost: {{total}} </p>
+        </ng-container>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="onpay()" data-bs-dismiss="modal" class="btn btn-primary">Pay</button>
+      </div>
+    </div>
+  </div>
+</div>
+
