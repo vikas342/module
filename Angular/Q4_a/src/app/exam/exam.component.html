@@ -1,0 +1,25 @@
+<p>exam works!</p>
+
+<div class="container " >
+
+  <div >
+
+    <div  *ngFor="let x of data">
+      <ng-container *ngIf="x.id ==index">
+        <p>
+          {{x.id}}. {{ x.question }}
+        </p>
+
+        <ng-container *ngFor="let y of x.options" >
+          <div>
+
+            <input type="radio" name="radio" [id]="y" [value]="y" class="m-2" [(ngModel)]="userans">
+            <label [for]="y">{{y}}</label>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <button (click)="nextquestion()">next</button>
+
+  </div>
+</div>
