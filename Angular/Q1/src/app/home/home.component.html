@@ -1,0 +1,160 @@
+<p>{{ data | json }}</p>
+
+<div class="container">
+
+  <p class="h1 fw-bold text-center border m-5">PVR</p>
+  <!-- <table>
+    <ng-container *ngFor="let item of data">
+
+
+
+        <tr>
+          <ng-container *ngFor="let n of seatings" >
+
+            <td  *ngIf=" n != 10 || n != 20" >
+              {{ n }}
+            </td>
+          </ng-container>
+        </tr>
+
+    </ng-container>
+  </table> -->
+
+  <!-- <table class="table border border-2">
+    <tr>
+      <td><button (click)="myfunc(1)">1</button></td>
+      <td><button (click)="myfunc(2)">2</button></td>
+      <td><button (click)="myfunc(3)">3</button></td>
+      <td><button (click)="myfunc(4)">4</button></td>
+      <td><button (click)="myfunc(5)">5</button></td>
+      <td><button (click)="myfunc(6)">6</button></td>
+      <td><button (click)="myfunc(7)">7</button></td>
+      <td><button (click)="myfunc(8)">8</button></td>
+      <td><button (click)="myfunc(9)">9</button></td>
+      <td><button (click)="myfunc(10)">10</button></td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="myfunc(11)">11</button>
+      </td>
+      <td><button (click)="myfunc(12)">12</button></td>
+      <td><button (click)="myfunc(13)">13</button></td>
+      <td><button (click)="myfunc(14)">14</button></td>
+      <td><button (click)="myfunc(15)">15</button></td>
+    </tr>
+    <tr>
+      <td>
+        <button button (click)="myfunc(16)">16</button>
+      </td>
+      <td><button button (click)="myfunc(17)">17</button></td>
+      <td><button button (click)="myfunc(18)">18</button></td>
+      <td><button button (click)="myfunc(19)">19</button></td>
+      <td><button button (click)="myfunc(20)">20</button></td>
+    </tr>
+    <tr>
+      <td>
+        <button button (click)="myfunc(21)">21</button>
+      </td>
+      <td><button button (click)="myfunc(22)">22</button></td>
+      <td><button button (click)="myfunc(23)">23</button></td>
+      <td><button button (click)="myfunc(24)">24</button></td>
+      <td><button button (click)="myfunc(25)">25</button></td>
+      <td>
+        <button button (click)="myfunc(26)">26</button>
+      </td>
+      <td><button button (click)="myfunc(27)">27</button></td>
+      <td><button button (click)="myfunc(28)">28</button></td>
+      <td><button button (click)="myfunc(29)">29</button></td>
+      <td><button button (click)="myfunc(30)">30</button></td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="myfunc(41)">41</button>
+      </td>
+      <td><button (click)="myfunc(42)">42</button></td>
+      <td><button (click)="myfunc(43)">43</button></td>
+      <td><button (click)="myfunc(44)">44</button></td>
+      <td><button (click)="myfunc(45)">45</button></td>
+      <td>
+        <button (click)="myfunc(46)">46</button>
+      </td>
+      <td><button (click)="myfunc(47)">47</button></td>
+      <td><button (click)="myfunc(48)">48</button></td>
+      <td><button (click)="myfunc(49)">49</button></td>
+      <td><button (click)="myfunc(50)">50</button></td>
+    </tr>
+  </table> -->
+
+
+  <table class="table " >
+    <ng-container *ngFor="let item of data">
+
+      <ng-container  *ngFor="let x of item.Rows">
+
+        <tr   >
+
+          <ng-container *ngFor="let y of (x.Start | seatings:x.End)">
+
+
+
+              <td    *ngIf="checkboked(y) ; else othertd"  ><button class="btn w-100 bg-secondary" disabled>{{y}}</button></td>
+
+              <ng-template #othertd>
+                <!-- <td   ><button class="btn w-100  "  (click)="selectedSeat(y)">{{y}}</button></td> -->
+                <td    *ngIf="checkselected(y) ; else other"  ><button class="btn w-100  bg-success"  (click)="selectedSeat(y)">{{y}}</button></td>
+                <ng-template #other>
+                  <td   ><button class="btn w-100  "  (click)="selectedSeat(y)">{{y}}</button></td>
+                </ng-template>
+
+              </ng-template>
+
+          </ng-container>
+        </tr>
+      </ng-container>
+    </ng-container>
+    </table>
+
+
+
+
+<!-- <p>
+  {{  1 | seatings:20}}
+</p> -->
+
+
+<div class="container border border-2 text-center mt-5" *ngFor="let item of data">
+  <p>
+
+    <span class="fw-bold">Movie :</span>{{item.MovieName}}
+  </p>
+  <p>
+
+
+    <span class="fw-bold">No of BookedSeat :{{Sel_seat_number.length}}</span>
+  </p>
+  <p>
+
+
+    <span class="fw-bold">Total Amount : {{totalAmount()}}</span>
+  </p>
+  <p>
+
+
+    <span class="fw-bold">Tax : {{ totalAmount() * 0.2}}</span>
+  </p>
+  <p>
+
+
+    <span class="fw-bold">Total Payable Amount : {{(totalAmount() * 0.2)+ totalAmount()}}</span>
+  </p>
+</div>
+
+</div>
+
+
+
+
+<div class="container text-center mt-5">
+
+  <button class="btn btn-primary " (click)="booking()">Book now</button>
+</div>
