@@ -1,10 +1,18 @@
-<p>exam works!</p>
 
-<div class="container " >
+<div class="container">
+
+  <p class="h1 fw-bolder text-danger text-center">
+    {{duration}}
+  </p>
+</div>
+<!-- <p>exam works!</p> -->
+
+<div class="container border border-2 p-5 rounded-2 " >
 
   <div >
 
     <div  *ngFor="let x of data">
+
       <ng-container *ngIf="x.id ==index">
         <p>
           {{x.id}}. {{ x.question }}
@@ -19,7 +27,14 @@
         </ng-container>
       </ng-container>
     </div>
-    <button (click)="nextquestion()">next</button>
+    <br>
+    <button (click)="nextquestion()" *ngIf="(ansArr.length) != (data.length)-1; else otherbtn" class="btn btn-danger">next</button>
+    <ng-template #otherbtn>
+    <button (click)="nextquestion();clacResult()" routerLink="/result" id="submit" class="btn btn-danger">submit</button>
+
+    </ng-template>
 
   </div>
 </div>
+
+
