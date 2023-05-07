@@ -1,5 +1,6 @@
 import { Component, NO_ERRORS_SCHEMA, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { filter } from 'rxjs';
 
 
 
@@ -24,7 +25,6 @@ export class HomeComponent implements OnInit {
   selected!: string;
 
   fun(a: string) {
-    alert;
     this.selected = a;
     // console.log(this.selected);
     this.fetchdata();
@@ -51,5 +51,9 @@ export class HomeComponent implements OnInit {
     this.serv.getdata().subscribe((y) => {
       this.details = y;
     });
-  }
+
+
+
+
+ }
 }
