@@ -1,0 +1,11 @@
+
+
+
+<input type="text" name="val" id="val" [(ngModel)]="val1">
+
+
+<input type="button" value="send" (click)="myfunc()">
+
+<app-compo1 [data]="send" (messageevent)="recievedmessage($event)">
+
+</app-compo1>

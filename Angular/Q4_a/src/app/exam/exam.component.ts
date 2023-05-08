@@ -55,11 +55,3 @@ export class ExamComponent implements OnInit {
     });
   }
 }
-function calculateTime() {
-  throw new Error('Function not implemented.');
-}
-
-function startTimer() {
-  throw new Error('Function not implemented.');
-}
-

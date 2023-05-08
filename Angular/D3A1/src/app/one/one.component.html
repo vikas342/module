@@ -18,8 +18,8 @@
                 <td>{{item.Name}}</td>
                 <td>{{item.Age}}</td>
                 <td>{{item.Average}}</td>
-                <ng-container [ngSwitch]="item.Grade"> 
-                    <td  *ngSwitchCase="'A'" [ngStyle]="{'background-color': 'yellow'}">{{item.Grade}}</td>
+                <ng-container [ngSwitch]="item.Grade">
+                    <td  *ngSwitchCase="'A'" [ngStyle]="{'background-color': 'yellow' }">{{item.Grade}}</td>
                     <td  *ngSwitchCase="'B'" [ngStyle]="{'background-color': 'red'}">{{item.Grade}}</td>
                     <td  *ngSwitchCase="'C'" [ngStyle]="{'background-color': 'green'}">{{item.Grade}}</td>
                     <td  *ngSwitchCase="'D'" [ngStyle]="{'background-color': 'pink'}">{{item.Grade}}</td>

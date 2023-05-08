@@ -1,0 +1,6 @@
+<p>product works!</p>
+<ul>
+  <li *ngFor="let item of products">
+    <a routerLink="/detail/{{item.id}}">{{item.title}} </a>
+  </li>
+</ul>
