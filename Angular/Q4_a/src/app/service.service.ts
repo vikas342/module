@@ -6,6 +6,7 @@ import { questions } from './type';
 })
 export class ServiceService {
 
+  score:number=0;
   constructor() { }
 
 

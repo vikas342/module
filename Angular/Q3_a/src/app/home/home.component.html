@@ -8,7 +8,8 @@
 
 
     <select name=""  #x (change)="fun(x.value)"  >
-      <option value="{{a.MovieName}}" *ngFor="let a of item.Movies"  >
+      <option value="" selected disabled>select from this</option>
+      <option value="{{a.MovieName}}" *ngFor="let a of item.Movies"   >
 
 
          {{a.MovieName}}
