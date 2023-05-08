@@ -1,0 +1,15 @@
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\bin\Debug\net6.0\D1A2.exe
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\bin\Debug\net6.0\D1A2.deps.json
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\bin\Debug\net6.0\D1A2.runtimeconfig.json
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\bin\Debug\net6.0\D1A2.dll
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\bin\Debug\net6.0\D1A2.pdb
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.AssemblyInfoInputs.cache
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.AssemblyInfo.cs
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.dll
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\refint\D1A2.dll
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.pdb
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\D1A2.genruntimeconfig.cache
+C:\Users\vikas.sonwane\module\C#\D1A2\D1A2\obj\Debug\net6.0\ref\D1A2.dll

@@ -1,0 +1,15 @@
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\bin\Debug\net6.0\D1A5.exe
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\bin\Debug\net6.0\D1A5.deps.json
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\bin\Debug\net6.0\D1A5.runtimeconfig.json
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\bin\Debug\net6.0\D1A5.dll
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\bin\Debug\net6.0\D1A5.pdb
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.AssemblyInfoInputs.cache
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.AssemblyInfo.cs
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.dll
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\refint\D1A5.dll
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.pdb
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\D1A5.genruntimeconfig.cache
+C:\Users\vikas.sonwane\module\C#\D1A5\D1A5\obj\Debug\net6.0\ref\D1A5.dll

@@ -1,0 +1,25 @@
+
+
+
+
+<div class="container">
+
+  <div class="container row">
+
+    <ng-container *ngFor="let x of data,let a=index" >
+      <div class="border border-2  m-2 col cols-sm-12">
+
+        <p>
+          {{x.name}}
+      </p>
+
+      <button class="btn btn-primary m-2" (click)="myfunc(a)">delete</button>
+    </div>
+  </ng-container>
+</div>
+
+
+
+<button (click)="undo()" *ngIf="undoData.length>0" class="btn btn-warning m-2">Undo</button>
+
+</div>

@@ -1,0 +1,15 @@
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.AssemblyInfoInputs.cache
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.AssemblyInfo.cs
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\bin\Debug\net6.0\D1A3.exe
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\bin\Debug\net6.0\D1A3.deps.json
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\bin\Debug\net6.0\D1A3.runtimeconfig.json
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\bin\Debug\net6.0\D1A3.dll
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\bin\Debug\net6.0\D1A3.pdb
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.dll
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\refint\D1A3.dll
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.pdb
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\D1A3.genruntimeconfig.cache
+C:\Users\vikas.sonwane\module\C#\D1A3\D1A3\obj\Debug\net6.0\ref\D1A3.dll

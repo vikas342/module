@@ -1,0 +1,15 @@
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.AssemblyInfoInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.AssemblyInfo.cs
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\bin\Debug\net6.0\d2A1.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\bin\Debug\net6.0\d2A1.deps.json
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\bin\Debug\net6.0\d2A1.runtimeconfig.json
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\bin\Debug\net6.0\d2A1.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\bin\Debug\net6.0\d2A1.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\refint\d2A1.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\d2A1.genruntimeconfig.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\d2A1\d2A1\obj\Debug\net6.0\ref\d2A1.dll
