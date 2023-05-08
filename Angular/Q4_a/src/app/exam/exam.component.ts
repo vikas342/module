@@ -88,9 +88,6 @@ export class ExamComponent implements OnInit {
     });
     this.userans='';
   }
-<<<<<<< HEAD
-}
-=======
 
   clacResult(){
     alert("Exam is over");
@@ -101,20 +98,21 @@ export class ExamComponent implements OnInit {
 
       if(
         this.ansArr[i].userans==this.data[i].ans
-      )
-      {
-        this.score++;
+        )
+        {
+          this.score++;
+        }
+
+
+
+
       }
 
-
-
-
+      this.serv.score=this.score;
+      console.log(this.score);
     }
-
-    this.serv.score=this.score;
-    console.log(this.score);
   }
-}
 
 
->>>>>>> d56a807667367f1f4df8bef16ba02c377f04f83d
+
+
