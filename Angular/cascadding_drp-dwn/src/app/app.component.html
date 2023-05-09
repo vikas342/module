@@ -1,0 +1,19 @@
+
+<div>
+
+
+<select name="sel" id="sel" [(ngModel)]="state" (change)="clickme()">
+  <option [value]="x" *ngFor="let x of x">{{x}}</option>
+</select>
+
+
+
+<select name="" id="">
+  <ng-container *ngFor="let x of y">
+
+    <option value="y" *ngFor="let z of x.city">{{z}}</option>
+  </ng-container>
+  </select>
+
+<!-- <button (click)="clickme()">click</button> -->
+</div>
