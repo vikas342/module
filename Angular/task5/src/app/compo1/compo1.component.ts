@@ -24,7 +24,7 @@ export class Compo1Component {
     name:"preet"
   },
   {
-   
+
     name:"ronny"
   }
 ]

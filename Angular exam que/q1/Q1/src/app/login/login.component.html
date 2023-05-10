@@ -1,0 +1,48 @@
+<!-- <p>
+  {{
+    data|json
+  }}
+</p>
+
+
+
+<p>
+  {{
+    credentials|json
+  }}
+</p>
+
+
+
+
+
+<button (click)="getcredentials()">s</button>
+ -->
+
+
+
+<div class="container w-25 mt-5">
+
+
+  <div class="form-group">
+
+    <label for="unam">User Name:</label>
+
+    <input type="text" name="uname" id="uname" [(ngModel)]="uname" class="form-control">
+  </div>
+
+
+
+
+  <div class="formgroup">
+
+    <label for="pass">Password:</label>
+
+    <input type="password" name="pass" id="pass" [(ngModel)]="pass" class="form-control">
+  </div>
+
+
+
+  <button class="btn btn-primary mt-3" (click)="getcredentials();logining()" >Login</button>
+
+</div>

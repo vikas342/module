@@ -3,24 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './product/product.component';
+import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
+
+
+import { HomeComponent } from './home/home.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    ProductDetailComponent,
+    LoginComponent,
+    HomeComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    FormsModule,
+    ReactiveFormsModule
+
 
   ],
   providers: [],

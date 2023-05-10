@@ -1,0 +1,508 @@
+<div class="container w-50">
+  <nav class="nav">
+    <a class="nav-link active" aria-current="page" routerLink="/home">home</a>
+
+      <a class="nav-link" routerLink="/lists">see list</a>
+
+  </nav>
+
+  <form [formGroup]="studentForm" (ngSubmit)="submit()">
+    <div class="row">
+      <p class="fw-bold h2 bg-primary text-center p-3">Student form</p>
+    </div>
+
+    <div formGroupName="Fullname" class="mt-5">
+      <p class="fw-bold">Fullname</p>
+
+      <div class="form-group">
+        <label for="fn">First name:</label>
+        <input
+          type="text"
+          formControlName="Firstname"
+          name="fn"
+          id="fn"
+          class="form-control"
+        />
+        <span
+          *ngIf="Firstname?.invalid && (Firstname?.dirty || Firstname?.touched)"
+          class="text-danger"
+          >*invalid field</span
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="mn">Middlename:</label>
+        <input
+          type="text"
+          formControlName="Middlename"
+          name="mn"
+          id="mn"
+          class="form-control"
+        />
+        <span
+          *ngIf="
+            Middlename?.invalid && (Middlename?.dirty || Middlename?.touched)
+          "
+          class="text-danger"
+          >*invalid field</span
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="ln">Last name:</label>
+        <input
+          type="text"
+          formControlName="Lastname"
+          name="ln"
+          id="ln"
+          class="form-control"
+        />
+        <span
+          *ngIf="Lastname?.invalid && (Lastname?.dirty || Lastname?.touched)"
+          class="text-danger"
+          >*invalid field</span
+        >
+      </div>
+    </div>
+
+    <div class="form-group mt-5">
+      <label for="ln" class="fw-bold">Email:</label>
+      <input
+        type="text"
+        formControlName="Email"
+        name="Email"
+        id="Email"
+        class="form-control"
+      />
+      <span
+        *ngIf="Email?.invalid && (Email?.dirty || Email?.touched)"
+        class="text-danger"
+        >*invalid field</span
+      >
+    </div>
+
+    <div formGroupName="Address" class="mt-5">
+      <p class="fw-bold">Address:</p>
+
+      <div>
+        <label for="Building">Building:</label>
+        <input
+          type="text"
+          formControlName="Building"
+          name="Building"
+          id="Building"
+          class="form-control"
+        />
+        <span
+          *ngIf="Building?.invalid && (Building?.dirty || Building?.touched)"
+          class="text-danger"
+          >*invalid field</span
+        >
+      </div>
+
+      <div>
+        <label for="Area">Area:</label>
+
+        <input
+          type="text"
+          formControlName="Area"
+          name="Area"
+          id="Area"
+          class="form-control"
+        />
+        <span
+          *ngIf="Area?.invalid && (Area?.dirty || Area?.touched)"
+          class="text-danger"
+          >*invalid field</span
+        >
+      </div>
+
+      <div>
+        <label for="State">State:</label>
+        <select
+          name="sel"
+          id="sel"
+          formControlName="State"
+          #a
+          class="form-select w-25"
+        >
+          <ng-container *ngFor="let x of states">
+            <option value="{{ x.StateName }}">{{ x.StateName }}</option>
+          </ng-container>
+        </select>
+        <span
+          *ngIf="State?.invalid && (State?.dirty || State?.touched)"
+          class="text-danger"
+          >*invalid field</span
+        >
+      </div>
+
+      <!-- <input type="text" formControlName="State" name="State" id="State" class="form-control"/> -->
+
+      <div>
+        <label for="City">City:</label>
+        <div>
+          <select
+            name="sel2"
+            id="sel2"
+            formControlName="City"
+            class="form-select w-25"
+          >
+            <ng-container *ngFor="let x of cities">
+              <ng-container *ngIf="a.value == x.StateName">
+                <option value="{{ x.Name }}">{{ x.Name }}</option>
+              </ng-container>
+              <!-- <input type="text" formControlName="City" name="City" id="City" class="form-control"/> -->
+            </ng-container>
+          </select>
+        </div>
+      </div>
+      <span
+        *ngIf="City?.invalid && (City?.dirty || City?.touched)"
+        class="text-danger"
+        >*invalid field</span
+      >
+    </div>
+
+    <div class="mt-5">
+      <label for="gender" class="fw-bold">Gender:</label>
+
+      <label for="gender1">Male</label>
+      <input type="radio" id="gender1" formControlName="Gender" value="male" />
+
+      <label for="gender2">Female</label>
+      <input
+        type="radio"
+        id="gender2"
+        formControlName="Gender"
+        value="female"
+      />
+    </div>
+
+    <!-- <div formArrayName="Skills">
+      <ng-container *ngFor="let item of Skillsarr.controls,let i=index">
+
+
+
+
+          <div class="form-group mx-auto w-50">
+            <input
+              type="text"
+              placeholder="Person name"
+              [formControlName]="i"
+              class="form-control"
+            />
+          </div>
+
+
+      </ng-container>
+
+    </div> -->
+    <div class="mt-5">
+      <label for="skills" class="fw-bold">Skills:</label>
+      <input
+        type="text"
+        formControlName="skills"
+        name="skills"
+        id="skills"
+        class="form-control"
+      />
+      <span
+        *ngIf="skills?.invalid && (skills?.dirty || skills?.touched)"
+        class="text-danger"
+        >*invalid field</span
+      >
+    </div>
+
+    <div formGroupName="EducationDetails">
+      <div formGroupName="Tenth" class="mt-5">
+        <p class="fw-bold">10th Detail:</p>
+
+        <div>
+          <label for="Marks">Marks:</label>
+          <input
+            type="text"
+            formControlName="Marks"
+            name="Marks"
+            id="Marks"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Tenth_Marks?.invalid &&
+              (Tenth_Marks?.dirty || Tenth_Marks?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+
+        <div>
+          <label for="Grade">Grade:</label>
+          <input
+            type="text"
+            formControlName="Grade"
+            name="Grade"
+            id="Grade"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Tenth_Grade?.invalid &&
+              (Tenth_Grade?.dirty || Tenth_Grade?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+
+        <div>
+          <label for="YearofPassing">YearofPassing:</label>
+          <input
+            type="date"
+            formControlName="YearofPassing"
+            name="YearofPassing"
+            id="YearofPassing"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Tenth_YearofPassing?.invalid &&
+              (Tenth_YearofPassing?.dirty || Tenth_YearofPassing?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+      </div>
+
+      <div formGroupName="Twelth" class="mt-5">
+        <p class="fw-bold">12th Detail:</p>
+
+        <div>
+          <label for="Marks">Marks:</label>
+          <input
+            type="text"
+            formControlName="Marks"
+            name="Marks"
+            id="Marks"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Twelth_Marks?.invalid &&
+              (Twelth_Marks?.dirty || Twelth_Marks?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+
+        <div>
+          <label for="Grade">Grade:</label>
+          <input
+            type="text"
+            formControlName="Grade"
+            name="Grade"
+            id="Grade"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Twelth_Grade?.invalid &&
+              (Twelth_Grade?.dirty || Twelth_Grade?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+
+        <div>
+          <label for="YearofPassing">YearofPassing:</label>
+          <input
+            type="date"
+            formControlName="YearofPassing"
+            name="YearofPassing"
+            id="YearofPassing"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Twelth_YearofPassing?.invalid &&
+              (Twelth_YearofPassing?.dirty || Twelth_YearofPassing?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+      </div>
+
+      <div formGroupName="Degree" class="mt-5">
+        <p class="fw-bold">Deggree Detail:</p>
+
+        <div>
+          <label for="Marks">Marks:</label>
+          <input
+            type="text"
+            formControlName="Marks"
+            name="Marks"
+            id="Marks"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Degree_Marks?.invalid &&
+              (Degree_Marks?.dirty || Degree_Marks?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+
+        <div>
+          <label for="Grade">Grade:</label>
+          <input
+            type="text"
+            formControlName="Grade"
+            name="Grade"
+            id="Grade"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Twelth_YearofPassing?.invalid &&
+              (Twelth_YearofPassing?.dirty || Twelth_YearofPassing?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+
+        <div>
+          <label for="YearofPassing">YearofPassing:</label>
+          <input
+            type="date"
+            formControlName="YearofPassing"
+            name="YearofPassing"
+            id="YearofPassing"
+            class="form-control"
+          />
+          <span
+            *ngIf="
+              Degree_YearofPassing?.invalid &&
+              (Degree_YearofPassing?.dirty || Degree_YearofPassing?.touched)
+            "
+            class="text-danger"
+            >*invalid field</span
+          >
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 mt-5">submit</button>
+  </form>
+</div>
+
+<!--
+<button (click)="clickme()">click</button> -->
+<!--
+<p>
+  {{cities|json}}
+</p> -->
+
+<!-- <p>
+  {{
+    studentdata|json
+  }}
+</p> -->
+
+<div class="container mt-5" *ngIf="studentdata.length > 0">
+  <ng-container>
+    <table class="table">
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>skills</th>
+        <th>10th Marks</th>
+        <th>12th Marks</th>
+        <th>Degree Marks</th>
+      </tr>
+      <ng-container *ngFor="let x of studentdata; let i = index">
+        <tr>
+          <td>
+            {{
+              x.Fullname.Firstname +
+                " " +
+                x.Fullname.Middlename +
+                " " +
+                x.Fullname.Lastname
+            }}
+          </td>
+          <td>{{ x.Email }}</td>
+          <td>
+            {{
+              x.Address.Building +
+                " " +
+                x.Address.Area +
+                " " +
+                x.Address.City +
+                " " +
+                x.Address.State
+            }}
+          </td>
+          <td>{{ x.Gender }}</td>
+          <td>{{ x.skills }}</td>
+          <!-- <td>
+          Marks: {{x.Educatiodetails.Tenth.Marks}} +" "+
+          Grade: {{x.Educatiodetails.Tenth.Grade}} +" "+
+          YearofPassing: {{x.Educatiodetails.Tenth.Yearofpassing}}
+
+
+        </td>
+        <td>
+          Marks: {{x.Educatiodetails.Twelth.Marks}} +" "+
+          Grade: {{x.Educatiodetails.Tenth.Grade}} +" "+
+          YearofPassing: {{x.Educatiodetails.Tenth.Yearofpassing}}
+
+
+        </td>
+
+        <td>
+          Marks: {{x.Educatiodetails.degree.Marks}} +" "+
+          Grade: {{x.Educatiodetails.degree.Grade}} +" "+
+          YearofPassing: {{x.Educatiodetails.degree.Yearofpassing}}
+
+
+        </td> -->
+
+          <td>
+            {{ x.EducationDetails.Tenth.Marks }}
+          </td>
+          <td>
+            {{ x.EducationDetails.Twelth.Marks }}
+          </td>
+          <td>
+            {{ x.EducationDetails.Degree.Marks }}
+          </td>
+          <ng-container *ngIf="usertype != 'staff'">
+            <td>
+              <button class="btn bg-primary" (click)="edit(x, i)">Edit</button>
+            </td>
+            <td>
+              <button class="btn bg-danger" (click)="del(i)">Delete</button>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
+    </table>
+  </ng-container>
+</div>
+
+<!-- <div *ngFor="let x of studentdata">
+
+  {{x.Educatiodetails.Tenth.Grade}}
+
+</div>
+
+<p>ghj</p> -->

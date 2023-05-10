@@ -1,0 +1,56 @@
+<!-- <p>
+
+  {{
+    studentdata|json
+  }}
+</p> -->
+
+
+
+<div class="container">
+  <p class="fw-bold text-center h2 bg-primary p-3" >Student details</p>
+</div>
+
+
+<div class="container">
+  <table class="table">
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Gender</th>
+      <th>10th Marks</th>
+      <th>12th Marks</th>
+      <th>Degree Marks</th>
+
+
+    </tr>
+
+    <tr *ngFor="let x of studentdata">
+      <td>{{x.Fullname.Firstname +' '+x.Fullname.Middlename+' '+x.Fullname.Lastname}}</td>
+      <td>{{x.Email}}</td>
+      <td>{{x.Gender}}</td>
+
+
+
+        <td [ngStyle]="{'background-color':x.EducationDetails.Tenth.Marks >= 80 ? 'green' : '' }">
+          {{
+            x.EducationDetails.Tenth.Marks
+          }}
+        </td>
+        <td [ngStyle]="{'background-color':x.EducationDetails.Twelth.Marks >= 80 ? 'green' : '' }">
+          {{
+            x.EducationDetails.Twelth.Marks
+          }}
+        </td>
+        <td [ngStyle]="{'background-color':x.EducationDetails.Degree.Marks >= 80 ? 'green' : '' }">
+          {{
+            x.EducationDetails.Degree.Marks
+          }}
+        </td>
+
+
+
+
+    </tr>
+  </table>
+</div>
