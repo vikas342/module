@@ -1,56 +1,178 @@
-<!-- <p>
 
-  {{
-    studentdata|json
-  }}
-</p> -->
+<div class="container w-100 ">
 
 
+    <nav class="nav">
+      <a class="nav-link " aria-current="page" routerLink="/home">Home</a>
+
+        <a class="nav-link active " routerLink="/lists">Student List</a>
+        <a class="nav-link" routerLink="/login">Logout</a>
+
+
+    </nav>
+  <p class="fw-bold text-center h2 bg-primary p-3">Student details</p>
+
+  <input type="text" [(ngModel)]="serch_val" />
+  <button class="btn btn-primary " (click)="serch()">Serch</button>
+</div>
 
 <div class="container">
-  <p class="fw-bold text-center h2 bg-primary p-3" >Student details</p>
+
+  <ng-container *ngIf="serch_val !=''; else elsepart">
+
+    <ng-container *ngIf="finddata.length==0 ; else otherparts">
+      <p class="mt-5 text-center fw-bold"> There's no data Availible</p>
+    </ng-container>
+    <ng-template #otherparts>
+
+    <table class="table">
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>10th Marks</th>
+        <th>12th Marks</th>
+        <th>Degree Marks</th>
+      </tr>
+
+
+        <tr *ngFor="let x of finddata ">
+          <ng-container *ngIf="x.Gender == 'male'; else elsepart1">
+            <td>
+              Mr.
+              {{
+                x.Fullname.Firstname +
+                  " " +
+                  x.Fullname.Middlename +
+                  " " +
+                  x.Fullname.Lastname
+              }}
+            </td>
+          </ng-container>
+          <ng-template #elsepart1>
+            <td>
+              Ms.
+              {{
+                x.Fullname.Firstname +
+                  " " +
+                  x.Fullname.Middlename +
+                  " " +
+                  x.Fullname.Lastname
+              }}
+            </td>
+          </ng-template>
+
+          <td>{{ x.Email }}</td>
+          <td>{{ x.Gender }}</td>
+
+          <td
+            [ngStyle]="{
+              'background-color':
+                x.EducationDetails.Tenth.Marks >= 80 ? 'green' : ''
+            }"
+          >
+            {{ x.EducationDetails.Tenth.Marks }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                x.EducationDetails.Twelth.Marks >= 80 ? 'green' : ''
+            }"
+          >
+            {{ x.EducationDetails.Twelth.Marks }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                x.EducationDetails.Degree.Marks >= 80 ? 'green' : ''
+            }"
+          >
+            {{ x.EducationDetails.Degree.Marks }}
+          </td>
+        </tr>
+
+    </table>
+  </ng-template>
+  </ng-container>
+  <ng-template #elsepart>
+
+    <ng-container *ngIf="studentdata.length ==0 ; else elseelse" >
+      <p class="mt-5 text-center fw-bold"> There's no data Availible</p>
+    </ng-container>
+
+    <ng-template #elseelse>
+    <table class="table">
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>10th Marks</th>
+        <th>12th Marks</th>
+        <th>Degree Marks</th>
+      </tr>
+
+
+        <tr *ngFor="let x of studentdata | paginate:{itemsPerPage:2,currentPage:p}">
+          <ng-container *ngIf="x.Gender == 'male'; else elsepart1">
+            <td>
+              Mr.
+              {{
+                x.Fullname.Firstname +
+                  " " +
+                  x.Fullname.Middlename +
+                  " " +
+                  x.Fullname.Lastname
+              }}
+            </td>
+          </ng-container>
+          <ng-template #elsepart1>
+            <td>
+              Ms.
+              {{
+                x.Fullname.Firstname +
+                  " " +
+                  x.Fullname.Middlename +
+                  " " +
+                  x.Fullname.Lastname
+              }}
+            </td>
+          </ng-template>
+
+          <td>{{ x.Email }}</td>
+          <td>{{ x.Gender }}</td>
+
+          <td
+            [ngStyle]="{
+              'background-color':
+                x.EducationDetails.Tenth.Marks >= 80 ? 'green' : ''
+            }"
+          >
+            {{ x.EducationDetails.Tenth.Marks }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                x.EducationDetails.Twelth.Marks >= 80 ? 'green' : ''
+            }"
+          >
+            {{ x.EducationDetails.Twelth.Marks }}
+          </td>
+          <td
+            [ngStyle]="{
+              'background-color':
+                x.EducationDetails.Degree.Marks >= 80 ? 'green' : ''
+            }"
+          >
+            {{ x.EducationDetails.Degree.Marks }}
+          </td>
+        </tr>
+
+    </table>
+  </ng-template>
+  </ng-template>
 </div>
 
 
-<div class="container">
-  <table class="table">
-    <tr>
-      <th>Full Name</th>
-      <th>Email</th>
-      <th>Gender</th>
-      <th>10th Marks</th>
-      <th>12th Marks</th>
-      <th>Degree Marks</th>
 
-
-    </tr>
-
-    <tr *ngFor="let x of studentdata">
-      <td>{{x.Fullname.Firstname +' '+x.Fullname.Middlename+' '+x.Fullname.Lastname}}</td>
-      <td>{{x.Email}}</td>
-      <td>{{x.Gender}}</td>
-
-
-
-        <td [ngStyle]="{'background-color':x.EducationDetails.Tenth.Marks >= 80 ? 'green' : '' }">
-          {{
-            x.EducationDetails.Tenth.Marks
-          }}
-        </td>
-        <td [ngStyle]="{'background-color':x.EducationDetails.Twelth.Marks >= 80 ? 'green' : '' }">
-          {{
-            x.EducationDetails.Twelth.Marks
-          }}
-        </td>
-        <td [ngStyle]="{'background-color':x.EducationDetails.Degree.Marks >= 80 ? 'green' : '' }">
-          {{
-            x.EducationDetails.Degree.Marks
-          }}
-        </td>
-
-
-
-
-    </tr>
-  </table>
-</div>
+<pagination-controls
+ (pageChange)="p=$event" class="text-center mt-5"></pagination-controls>

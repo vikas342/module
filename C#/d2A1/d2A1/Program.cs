@@ -12,7 +12,7 @@ public class person
     {
         Fname = fname;
         Lname = lname;
-        this.email = email;
+        email = email;
         DOB = dOB;
     }
 

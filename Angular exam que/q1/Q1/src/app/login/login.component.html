@@ -19,30 +19,49 @@
 <button (click)="getcredentials()">s</button>
  -->
 
-
-
 <div class="container w-25 mt-5">
-
-
   <div class="form-group">
-
     <label for="unam">User Name:</label>
 
-    <input type="text" name="uname" id="uname" [(ngModel)]="uname" class="form-control">
+    <input
+      type="text"
+      name="uname"
+      id="uname"
+      [(ngModel)]="uname"
+      #name="ngModel"
+      class="form-control"
+      required
+    />
+    <ng-container *ngIf="name?.errors?.['required'] && name?.touched">
+      <p class="text-danger">*Username required</p>
+    </ng-container>
   </div>
-
-
-
 
   <div class="formgroup">
-
     <label for="pass">Password:</label>
 
-    <input type="password" name="pass" id="pass" [(ngModel)]="pass" class="form-control">
+    <input
+      #password="ngModel"
+      type="password"
+      name="pass"
+      id="pass"
+      [(ngModel)]="pass"
+      class="form-control"
+      required
+    />
   </div>
+  <ng-container *ngIf="password?.errors?.['required'] && password?.touched">
+    <p class="text-danger">*Password required</p>
+  </ng-container>
 
 
 
-  <button class="btn btn-primary mt-3" (click)="getcredentials();logining()" >Login</button>
+  <button class="btn btn-primary mt-3" (click)="getcredentials(); logining()">
+    Login
+  </button>
 
+
+  <p class="h2 text-center text-danger fw-bolder mt-5">
+    {{msg}}
+  </p>
 </div>

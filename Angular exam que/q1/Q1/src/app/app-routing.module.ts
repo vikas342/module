@@ -16,6 +16,10 @@ const routes: Routes = [
     component:ListComponent,
     canActivate:[GaurdGuard]
 
+  }, {
+    path: 'login',
+    component:LoginComponent
+
   },
   {
     path: '',

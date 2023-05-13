@@ -35,11 +35,14 @@ export interface student
   Email:string,
   Address:Address,
   Gender:string,
-  // skills:string[],
-  skills:string,
+  skills:Skills[],
+  // skills:string,
   EducationDetails:EducationDetails
 }
 
+export interface Skills{
+  skill:string
+}
 
 export interface Fullname{
 

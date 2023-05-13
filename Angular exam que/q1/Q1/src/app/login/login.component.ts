@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit{
   credentials:Array<users>=[];
 
 
+  msg:string='';
+
 
   uname:string='';
   pass:string='';
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit{
 
 
   logining(){
+    this.msg="";
 
 console.log("object");
     for(let x of this.credentials){
@@ -54,6 +57,8 @@ console.log("object");
 
 
       }
+      this.msg="User not found";
+
 
 
 

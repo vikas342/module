@@ -1,14 +1,16 @@
-<div class="container w-50">
+<div class="container ">
   <nav class="nav">
-    <a class="nav-link active" aria-current="page" routerLink="/home">home</a>
+    <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
 
-      <a class="nav-link" routerLink="/lists">see list</a>
+      <a class="nav-link" routerLink="/lists">Student List</a>
+      <a class="nav-link" routerLink="/login">Logout</a>
 
-  </nav>
+
+    </nav>
+    <p class="fw-bold h2 bg-primary text-center p-3">Student form</p>
 
   <form [formGroup]="studentForm" (ngSubmit)="submit()">
     <div class="row">
-      <p class="fw-bold h2 bg-primary text-center p-3">Student form</p>
     </div>
 
     <div formGroupName="Fullname" class="mt-5">
@@ -179,26 +181,8 @@
       />
     </div>
 
-    <!-- <div formArrayName="Skills">
-      <ng-container *ngFor="let item of Skillsarr.controls,let i=index">
 
-
-
-
-          <div class="form-group mx-auto w-50">
-            <input
-              type="text"
-              placeholder="Person name"
-              [formControlName]="i"
-              class="form-control"
-            />
-          </div>
-
-
-      </ng-container>
-
-    </div> -->
-    <div class="mt-5">
+    <!-- <div class="mt-5">
       <label for="skills" class="fw-bold">Skills:</label>
       <input
         type="text"
@@ -212,7 +196,33 @@
         class="text-danger"
         >*invalid field</span
       >
-    </div>
+    </div> -->
+
+    <div
+    formArrayName="skills" class="mt-5">
+    <p class=" fw-bold">Skills:</p>
+    <ng-container *ngFor="let item of Skill_List.controls; let i = index">
+      <ng-container [formGroupName]="i">
+        <div class="form-group  mb-1">
+          <input
+            type="text"
+            placeholder=""
+            formControlName="skill"
+            class="form-control w-25"
+          />
+
+          <span
+          *ngIf="Skill_List?.invalid && (Skill_List?.dirty || Skill_List?.touched)"
+          class="text-danger"
+          >*invalid field</span>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <button class="btn btn-primary w-10" type="button" (click)="addskill()">
+      Add Skill
+    </button>
+  </div>
 
     <div formGroupName="EducationDetails">
       <div formGroupName="Tenth" class="mt-5">
@@ -259,7 +269,7 @@
         <div>
           <label for="YearofPassing">YearofPassing:</label>
           <input
-            type="date"
+            type="text"
             formControlName="YearofPassing"
             name="YearofPassing"
             id="YearofPassing"
@@ -320,7 +330,7 @@
         <div>
           <label for="YearofPassing">YearofPassing:</label>
           <input
-            type="date"
+            type="text"
             formControlName="YearofPassing"
             name="YearofPassing"
             id="YearofPassing"
@@ -381,7 +391,7 @@
         <div>
           <label for="YearofPassing">YearofPassing:</label>
           <input
-            type="date"
+            type="Jay"
             formControlName="YearofPassing"
             name="YearofPassing"
             id="YearofPassing"
@@ -398,22 +408,12 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary w-100 mt-5">submit</button>
+    <button type="submit" class="btn btn-primary w-100 mt-5" [disabled]="studentForm.invalid">submit</button>
+
   </form>
 </div>
 
-<!--
-<button (click)="clickme()">click</button> -->
-<!--
-<p>
-  {{cities|json}}
-</p> -->
 
-<!-- <p>
-  {{
-    studentdata|json
-  }}
-</p> -->
 
 <div class="container mt-5" *ngIf="studentdata.length > 0">
   <ng-container>
@@ -430,15 +430,32 @@
       </tr>
       <ng-container *ngFor="let x of studentdata; let i = index">
         <tr>
-          <td>
-            {{
-              x.Fullname.Firstname +
-                " " +
-                x.Fullname.Middlename +
-                " " +
-                x.Fullname.Lastname
-            }}
-          </td>
+      <ng-container *ngIf="x.Gender =='male'; else elsepart">
+
+
+        <td>
+          Mr.
+          {{
+            x.Fullname.Firstname +
+            " " +
+            x.Fullname.Middlename +
+            " " +
+            x.Fullname.Lastname
+          }}
+        </td>
+      </ng-container>
+      <ng-template #elsepart>
+        <td>
+          Ms.
+          {{
+            x.Fullname.Firstname +
+            " " +
+            x.Fullname.Middlename +
+            " " +
+            x.Fullname.Lastname
+          }}
+        </td>
+      </ng-template>
           <td>{{ x.Email }}</td>
           <td>
             {{
@@ -452,29 +469,12 @@
             }}
           </td>
           <td>{{ x.Gender }}</td>
-          <td>{{ x.skills }}</td>
-          <!-- <td>
-          Marks: {{x.Educatiodetails.Tenth.Marks}} +" "+
-          Grade: {{x.Educatiodetails.Tenth.Grade}} +" "+
-          YearofPassing: {{x.Educatiodetails.Tenth.Yearofpassing}}
-
-
-        </td>
-        <td>
-          Marks: {{x.Educatiodetails.Twelth.Marks}} +" "+
-          Grade: {{x.Educatiodetails.Tenth.Grade}} +" "+
-          YearofPassing: {{x.Educatiodetails.Tenth.Yearofpassing}}
-
-
-        </td>
-
-        <td>
-          Marks: {{x.Educatiodetails.degree.Marks}} +" "+
-          Grade: {{x.Educatiodetails.degree.Grade}} +" "+
-          YearofPassing: {{x.Educatiodetails.degree.Yearofpassing}}
-
-
-        </td> -->
+          <!-- <td>{{ x.skills }}</td> -->
+          <td>
+            <ng-container *ngFor="let y of x.skills">
+              <span>{{ y.skill }}</span>
+            </ng-container>
+          </td>
 
           <td>
             {{ x.EducationDetails.Tenth.Marks }}
@@ -499,10 +499,4 @@
   </ng-container>
 </div>
 
-<!-- <div *ngFor="let x of studentdata">
 
-  {{x.Educatiodetails.Tenth.Grade}}
-
-</div>
-
-<p>ghj</p> -->

@@ -1,0 +1,8 @@
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\bin\Debug\peactice_Linq.exe.config
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\bin\Debug\peactice_Linq.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\bin\Debug\peactice_Linq.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\obj\Debug\peactice_Linq.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\obj\Debug\peactice_Linq.csproj.SuggestedBindingRedirects.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\obj\Debug\peactice_Linq.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\obj\Debug\peactice_Linq.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\peactice_Linq\peactice_Linq\obj\Debug\peactice_Linq.pdb

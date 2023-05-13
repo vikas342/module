@@ -1,0 +1,8 @@
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\bin\Debug\D3A1.exe.config
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\bin\Debug\D3A1.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\bin\Debug\D3A1.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\obj\Debug\D3A1.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\obj\Debug\D3A1.csproj.SuggestedBindingRedirects.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\obj\Debug\D3A1.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\obj\Debug\D3A1.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\D3A1\D3A1\obj\Debug\D3A1.pdb

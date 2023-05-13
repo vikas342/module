@@ -1,0 +1,8 @@
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\bin\Debug\Task__1.exe.config
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\bin\Debug\Task__1.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\bin\Debug\Task__1.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\obj\Debug\Task__1.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\obj\Debug\Task__1.csproj.SuggestedBindingRedirects.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\obj\Debug\Task__1.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\obj\Debug\Task__1.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\Task__1\Task__1\obj\Debug\Task__1.pdb

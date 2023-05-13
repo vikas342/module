@@ -46,9 +46,9 @@ export class HomeComponent implements OnInit {
 
     this.studentForm = new FormGroup({
       Fullname: new FormGroup({
-        Firstname: new FormControl('', [Validators.required]),
-        Middlename: new FormControl('', [Validators.required]),
-        Lastname: new FormControl('', [Validators.required]),
+        Firstname: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]),
+        Middlename: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z]+")]),
+        Lastname: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]),
       }),
 
       Email: new FormControl('', [Validators.required,Validators.email]),
@@ -57,41 +57,66 @@ export class HomeComponent implements OnInit {
 
       Address: new FormGroup({
         Building: new FormControl('', [Validators.required]),
-        Area: new FormControl('', [Validators.required]),
-        State: new FormControl('', [Validators.required]),
-        City: new FormControl('', [Validators.required]),
+        Area: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]),
+        State: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]),
+        City: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")]),
       }),
 
       Gender: new FormControl('', [Validators.required]),
 
-      // Skills: new FormArray([
-      //   new FormControl('', [Validators.required])]),
+      skills: new FormArray([
+        new FormGroup({
 
-      skills:new FormControl('', [Validators.required]),
+          skill: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")])
+        }),]),
+
+      // skills:new FormControl('', [Validators.required]),
 
       EducationDetails: new FormGroup({
         Tenth: new FormGroup({
-          Marks: new FormControl('', [Validators.required]),
-          Grade: new FormControl('', [Validators.required]),
-          YearofPassing: new FormControl('', [Validators.required]),
+          Marks: new FormControl('', [Validators.required,Validators.pattern("^[0-9][0-9]")]),
+          Grade: new FormControl('', [Validators.required,Validators.pattern("[a-fA-F]")]),
+          YearofPassing: new FormControl('', [Validators.required,Validators.pattern("^2023$|^19[0-9][0-9]$|^20[0-2][0-3]$")]),
         }),
 
         Twelth: new FormGroup({
-          Marks: new FormControl('', [Validators.required]),
-          Grade: new FormControl('', [Validators.required]),
-          YearofPassing: new FormControl('', [Validators.required]),
+          Marks: new FormControl('', [Validators.required,Validators.pattern("^[0-9][0-9]")]),
+          Grade: new FormControl('', [Validators.required,Validators.pattern("[a-fA-F]")]),
+          YearofPassing: new FormControl('', [Validators.required,Validators.pattern("^2023$|^19[0-9][0-9]$|^20[0-2][0-3]$")]),
         }),
 
         Degree: new FormGroup({
-          Marks: new FormControl('', [Validators.required]),
-          Grade: new FormControl('', [Validators.required]),
-          YearofPassing: new FormControl('', [Validators.required]),
+          Marks: new FormControl('', [Validators.required,Validators.pattern("^[0-9][0-9]")]),
+          Grade: new FormControl('', [Validators.required,Validators.pattern("[a-fA-F]")]),
+          YearofPassing: new FormControl('', [Validators.required,Validators.pattern("^2023$|^19[0-9][0-9]$|^20[0-2][0-3]$")]),
         }),
       }),
     });
 
 
+    this.studentdata=this.serv.studentdata;
+
   }
+
+
+  get Skill_List() {
+    return this.studentForm.get('skills') as FormArray;
+  }
+  addskill() {
+    this.Skill_List.push(
+        new FormGroup({
+          skill: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+")])
+
+
+
+        })
+      );
+      console.log(this.Skill_List)
+    }
+
+    get Skill_List_arr(){
+      return this.studentForm.get('FormGroup[i]')
+    }
 
 
   submit(){
@@ -105,6 +130,8 @@ export class HomeComponent implements OnInit {
     this.serv.studentdata=this.studentdata;
     // console.log("from ser")
     console.log(this.serv.studentdata);
+    alert("Form sucessfully submitted")
+    this.studentForm.reset()
 
 
   }
@@ -112,9 +139,7 @@ export class HomeComponent implements OnInit {
   get Skillsarr(){
     return this.studentForm.get('skills') as FormArray
   }
-//   clickme(){
-// this.serv.getstate()
-//   }
+
 
 
 del(id:number){
