@@ -586,8 +586,8 @@
             !(Mother?.get('Phone'))!.valid &&
             ((Mother?.get('Phone'))!.touched || (Mother?.get('Phone'))!.dirty)
           "
+          >
           class="text-danger"
-        >
        *Invalid number
 
 
@@ -631,7 +631,6 @@
       </button>
     </div>
   </div>
-
   <div class="text-center">
     <br />
     <button
@@ -642,11 +641,13 @@
       Submit
     </button>
   </div>
+
 </form>
 <div class="border border-2 m-5">
   <p class="h3 fw-bold text-center">Data</p>
   <p class="h3 fw-bold text-center">
     {{ student | json }}
+    <th>DOB</th>
   </p>
 </div>
 
@@ -654,7 +655,6 @@
   <thead>
     <tr>
       <th>Student Name</th>
-      <th>DOB</th>
       <th>Place_of_Birth</th>
       <th>First_Language</th>
       <th>Address</th>
