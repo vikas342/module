@@ -1,0 +1,8 @@
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\bin\Debug\D4p1.exe.config
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\bin\Debug\D4p1.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\bin\Debug\D4p1.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\obj\Debug\D4p1.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\obj\Debug\D4p1.csproj.SuggestedBindingRedirects.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\obj\Debug\D4p1.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\obj\Debug\D4p1.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\D4p1\D4p1\obj\Debug\D4p1.pdb

@@ -1,0 +1,15 @@
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\bin\Debug\net6.0\D8p2.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\bin\Debug\net6.0\D8p2.deps.json
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\bin\Debug\net6.0\D8p2.runtimeconfig.json
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\bin\Debug\net6.0\D8p2.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\bin\Debug\net6.0\D8p2.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.AssemblyInfoInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.AssemblyInfo.cs
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\refint\D8p2.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\D8p2.genruntimeconfig.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\D8p2\D8p2\obj\Debug\net6.0\ref\D8p2.dll

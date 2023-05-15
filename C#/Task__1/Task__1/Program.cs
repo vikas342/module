@@ -10,11 +10,13 @@ namespace Task__1
 {
     internal class Program
     {
+        private const string ConnectionString = "data source=PC0334\\MSSQL2019;database=Products; integrated security=SSPI";
+
         static void Main(string[] args)
         {
 
 
-            SqlConnection con = new SqlConnection("data source=DESKTOP-1CPKOO6\\SQLEXPRESS;database=Products; integrated security=SSPI");
+            SqlConnection con = new SqlConnection(ConnectionString);
             //SqlConnection con = new SqlConnection("data source=PC0334\\MSSQL2019;database=Products; integrated security=SSPI");
             
             con.Open();
