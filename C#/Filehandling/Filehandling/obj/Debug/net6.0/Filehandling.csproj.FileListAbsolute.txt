@@ -1,0 +1,15 @@
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\bin\Debug\net6.0\Filehandling.exe
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\bin\Debug\net6.0\Filehandling.deps.json
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\bin\Debug\net6.0\Filehandling.runtimeconfig.json
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\bin\Debug\net6.0\Filehandling.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\bin\Debug\net6.0\Filehandling.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.csproj.AssemblyReference.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.AssemblyInfoInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.AssemblyInfo.cs
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.csproj.CoreCompileInputs.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\refint\Filehandling.dll
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.pdb
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\Filehandling.genruntimeconfig.cache
+C:\Users\vikas.sonwane\Desktop\module\C#\Filehandling\Filehandling\obj\Debug\net6.0\ref\Filehandling.dll
