@@ -1,4 +1,5 @@
 using Api_2.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api_2
 {
