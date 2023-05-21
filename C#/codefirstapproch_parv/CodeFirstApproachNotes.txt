@@ -1,0 +1,83 @@
+Steps for code first approach: (refer: https://www.entityframeworktutorial.net/efcore/entity-framework-core-console-application.aspx)
+
+Used Packages: Microsoft.EntityFrameWork.SqlServer, Tools
+
+1. Setting Up Connection With Database
+
+	1. Inside MSSQL Create new database that would be used for project
+	2. Inside appsettings.json file add new configuration
+		  "ConnectionStrings": {
+			"DefaultConnection": "Server=PC0404\\MSSQL2019;Database=CodeFirst1;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true"
+		  }
+	3. Create new class inside models folder that would be the datacontext file (EmployeeContext)
+		public StudentContext()
+        {
+        }
+
+        public StudentContext(DbContextOptions<StudentContext> options)
+            : base(options)
+        {
+        }
+		
+	4. Inside Program.cs file add dbcontext service
+		builder.Services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+2. Creating new entities inside Models folder (Employee, Department)
+3. Specified Relationship inside model (refer configure relationship)
+4. Inside EmployeeContext file specify the DbSet
+	public DbSet<ModelName> TableName { get; set; }
+5. Executed add Migration Command -> Checked the code generated.
+6. Executed database update command -> tables generated in database.
+
+--------------------------------------------------------------------------------------------------------
+
+dbFirst Approch
+
+1.Create Database
+
+Used Packages: Microsoft.EntityFrameWork.SqlServer, Tools
+
+2.
+Scaffold-DbContext "Server=PC0599\MSSQL2019;Database=DATABASENAME;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+3.
+In Program File
+builder.Services.AddDbContext<MyPracticeContext>( opt =>
+	{
+		opt.UseSqlServer("Server=PC0404\\MSSQL2019;Database=MyPractice;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true;");
+	});
+		
+4.create controller
+ex(using Microsoft.EntityFrameworkCore;
+using cars.Models;
+
+namespace cars.Controllers
+{
+    [ApiController]
+    [Route("api/[Controller]")]
+    public class Query1 : ControllerBase
+    {
+
+        private readonly MyPracticeContext _context;
+
+        public Query1(MyPracticeContext context)
+        {
+            _context = context;
+        }
+        [HttpGet]
+        public async Task<IActionResult> data()
+        {
+            try
+            {
+                var result = _context.Destributers.FromSqlRaw($"select * from destributer");
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+       
+    }
+})		
