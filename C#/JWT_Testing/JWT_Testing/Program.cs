@@ -16,8 +16,10 @@ namespace JWT_Testing
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddDbContext<xyzContext>(sql => sql.UseSqlServer(builder.Configuration["ConnectionStrings"]));
 
+
+            //added
+            builder.Services.AddDbContext<xyzContext>(sql => sql.UseSqlServer(builder.Configuration["ConnectionStrings"]));
 
 
             builder.Services.AddIdentity<AppUser,IdentityRole>().AddEntityFrameworkStores<xyzContext>();
@@ -36,11 +38,13 @@ namespace JWT_Testing
             app.UseHttpsRedirection();
 
 
+            //added
             app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
 
+            ///
 
             app.MapControllers();
 
