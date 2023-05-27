@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<p>
+    Different storage classes are available in AWS S3 and when we should use each one. 
+</p>
+
+<hr>
+<hr>
+
+
+<br>
+<br>
+<div>
+    <b>S3 Standard</b>
+S3 Standard is the default storage class if none of the storage class is specified during upload. It is ideal for frequently accessed data because it provides low latency and high availability. It has a wide range of use cases from cloud applications and web services, websites hosting, big data analytics, mobile gaming, and content distribution. It is the most expensive storage class among all others.
+
+
+<br>
+<br>
+
+<b>S3 Standard-IA</b>
+S3 Standard-Infrequent Access is optimized for long-lived and less frequently accessed data but requires rapid access whenever required. Similar to S3 Standard, it also offers high durability, low latency, and high throughput but has a low per GB storage price and per GB retrieval fee. The S3 Standard-IA is ideal for backups, long-term storage, and as a data store for disaster recovery
+
+<br>
+<br>
+
+
+<b>
+
+    S3 Intelligent-Tiering
+</b>
+S3 Intelligent-Tiering optimizes costs by automatically moving data to the most cost-effective access tier, without performance impact or operational overhead. It moves objects that have not been accessed for 30 consecutive days to the infrequent access tier. If the object is accessed then it is automatically moved back to the frequent access tier. No retrieval fees or additional tiering fees are using the S3 Intelligent-Tiering storage class. It is ideal for storing long-lived data where the access patterns are unknown.
+
+<br>
+<br>
+
+<b>
+
+    S3 One Zone-IA
+</b>
+S3 One Zone- Infrequent Access is for the data that is accessed less frequently but available for millisecond access. Since the other S3 storage class store data in a minimum of 3 Availability Zones (AZ), S3 One Zone-IA stores data in only one AZ which makes the costs 20% lesser than the S3 Standard-IA. It offers the same high durability, high throughput, and low latency. It can be considered as a good choice for storing secondary backup copies or easily re-creatable data if an AZ fails
+
+<br>
+<br>
+
+
+<b>
+
+    S3 Glacier
+</b>
+S3 Glacier is a low-cost storage class for data archiving where data access is infrequent. It provides a configurable retrieval time for the data from minutes to hours. This storage class uses a very low-cost Glacier storage service but the objects are still managed through S3.
+
+
+<br>
+<br>
+
+
+<b>
+
+    S3 Glacier Deep Archive
+</b>
+    The S3 Glacier Deep Archive provides the lowest-cost storage class and supports long-term retention and digital preservation for data that may be accessed only once or twice in a year. It is ideal for those industries which store data for 5-10 years or longer like healthcare, finance, etc. It can also be used for backup and disaster recovery.
+
+<br>
+<br>
+
+    <b>
+        
+        S3 Outposts
+    </b>
+S3 on Outposts provides object storage to our on-premises AWS outposts environment. S3 on Outposts makes it easy to store, retrieve, secure, control access, tag, and report on the data. It is ideal for workloads with local data residency requirements, and to satisfy demanding performance needs by keeping data close to on-premises.
+</div>
+</body>
+</html>

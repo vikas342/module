@@ -1,0 +1,6 @@
+C:\Users\vikas.sonwane\Desktop\module\AWS\AWSLambda1\AWSLambda1\bin\Release\net6.0\publish\AWSLambda1.deps.json
+C:\Users\vikas.sonwane\Desktop\module\AWS\AWSLambda1\AWSLambda1\bin\Release\net6.0\publish\AWSLambda1.runtimeconfig.json
+C:\Users\vikas.sonwane\Desktop\module\AWS\AWSLambda1\AWSLambda1\bin\Release\net6.0\publish\AWSLambda1.pdb
+C:\Users\vikas.sonwane\Desktop\module\AWS\AWSLambda1\AWSLambda1\bin\Release\net6.0\publish\Amazon.Lambda.Core.dll
+C:\Users\vikas.sonwane\Desktop\module\AWS\AWSLambda1\AWSLambda1\bin\Release\net6.0\publish\Amazon.Lambda.Serialization.SystemTextJson.dll
+C:\Users\vikas.sonwane\Desktop\module\AWS\AWSLambda1\AWSLambda1\bin\Release\net6.0\publish\AWSLambda1.dll

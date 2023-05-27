@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "xn2GXpieJo5b+oFyUpineN/27GP1zZ0Te6aVwFK8v96170fYVce6CTf+903Cdi+km6N/84hC5KycBOAYYZ9fTw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\AWS\\AWSLambda1\\AWSLambda1\\AWSLambda1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vikas.sonwane\\.nuget\\packages\\amazon.lambda.core\\2.1.0\\amazon.lambda.core.2.1.0.nupkg.sha512",
+    "C:\\Users\\vikas.sonwane\\.nuget\\packages\\amazon.lambda.serialization.systemtextjson\\2.3.1\\amazon.lambda.serialization.systemtextjson.2.3.1.nupkg.sha512",
+    "C:\\Users\\vikas.sonwane\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\6.0.16\\microsoft.netcore.app.runtime.linux-x64.6.0.16.nupkg.sha512",
+    "C:\\Users\\vikas.sonwane\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\6.0.16\\microsoft.aspnetcore.app.runtime.linux-x64.6.0.16.nupkg.sha512",
+    "C:\\Users\\vikas.sonwane\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.16\\microsoft.netcore.app.crossgen2.win-x64.6.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
