@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj": {}
+    "C:\\Users\\Twinkle\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj": {
+    "C:\\Users\\Twinkle\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj",
+        "projectUniqueName": "C:\\Users\\Twinkle\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj",
         "projectName": "test1",
-        "projectPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj",
-        "packagesPath": "C:\\Users\\vikas.sonwane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project testing\\test1\\test1\\obj\\",
+        "projectPath": "C:\\Users\\Twinkle\\Desktop\\module\\Project testing\\test1\\test1\\test1.csproj",
+        "packagesPath": "C:\\Users\\Twinkle\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Twinkle\\Desktop\\module\\Project testing\\test1\\test1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\vikas.sonwane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Twinkle\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
