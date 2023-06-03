@@ -10,8 +10,8 @@ class Program
     public static void Main(string[] args)
     {
         // Specify your AWS access key and secret access key
-        string accessKey = "AKIAZ4ZY5FPSLBCGSKXQ";
-        string secretKey = "cqorIqoolIwer6lpnrAS2AUDHN556qI0aYNb4hQg";
+        string accessKey = "";
+        string secretKey = "";
 
         // Specify the bucket name and region
         string bucketName = "vikas-buket-5374";
