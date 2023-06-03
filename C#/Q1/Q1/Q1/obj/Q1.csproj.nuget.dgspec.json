@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotnetCore\\DotnetCore0014\\vsonwane_2768\\Q001\\Source\\Q1\\Q1\\Q1.csproj": {}
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\C#\\Q1\\Q1\\Q1\\Q1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotnetCore\\DotnetCore0014\\vsonwane_2768\\Q001\\Source\\Q1\\Q1\\Q1.csproj": {
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\C#\\Q1\\Q1\\Q1\\Q1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotnetCore\\DotnetCore0014\\vsonwane_2768\\Q001\\Source\\Q1\\Q1\\Q1.csproj",
+        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Desktop\\module\\C#\\Q1\\Q1\\Q1\\Q1.csproj",
         "projectName": "Q1",
-        "projectPath": "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotnetCore\\DotnetCore0014\\vsonwane_2768\\Q001\\Source\\Q1\\Q1\\Q1.csproj",
+        "projectPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\C#\\Q1\\Q1\\Q1\\Q1.csproj",
         "packagesPath": "C:\\Users\\vikas.sonwane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotnetCore\\DotnetCore0014\\vsonwane_2768\\Q001\\Source\\Q1\\Q1\\obj\\",
+        "outputPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\C#\\Q1\\Q1\\Q1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vikas.sonwane\\AppData\\Roaming\\NuGet\\NuGet.Config",
