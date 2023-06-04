@@ -9,6 +9,8 @@ import { StructureLogRegComponent } from './structure-log-reg/structure-log-reg.
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HomeComponent } from './home/home.component';
     SignUpComponent,
     LoginComponent,
     StructureLogRegComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

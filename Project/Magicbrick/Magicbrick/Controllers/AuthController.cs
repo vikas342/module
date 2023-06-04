@@ -88,6 +88,7 @@ namespace Magicbrick.Controllers
             var crad = new SigningCredentials(secrate, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
+                new Claim(ClaimTypes.SerialNumber,usr.Uid.ToString()),
                 new Claim(ClaimTypes.Name,usr.Name),
                 new Claim(ClaimTypes.Role,usr.Role),
                 new Claim(ClaimTypes.Email,usr.Email)

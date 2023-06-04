@@ -4,6 +4,8 @@ import { StructureLogRegComponent } from './structure-log-reg/structure-log-reg.
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -31,7 +33,11 @@ const routes: Routes = [
   {
     path:'home',
     component:HomeComponent
-  }
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+  },
 ];
 
 @NgModule({
