@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient,private router:Router) { }
 
     postdata(formdata:any){
       return this.http.post('https://localhost:7210/api/Auth/register',formdata)
@@ -23,6 +24,19 @@ export class AuthService {
 
 
       };
+
+      storetoken(tokenValue:any){
+        let data= tokenValue.token;
+        localStorage.setItem('token',data);
+      }
+      gettoken(){
+        return localStorage.getItem('token');
+      }
+
+      logout(){
+        localStorage.clear();
+        this.router.navigateByUrl("");
+      }
 
     // postdata(formdata:any){
     //   this.http.post('https://localhost:7210/api/Auth/register',formdata).subscribe(x=>{

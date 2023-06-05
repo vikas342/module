@@ -26,6 +26,11 @@ namespace Magicbrick.Models
         public virtual DbSet<Role> Roles { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
         public virtual DbSet<Wishlist> Wishlists { get; set; } = null!;
+        public virtual DbSet<userSP> userSP { get; set; } = null!;
+
+        public virtual DbSet<PropertySps> PropertySps { get; set; } = null!;
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

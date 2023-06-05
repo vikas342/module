@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Twinkle\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj": {}
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Twinkle\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj": {
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Twinkle\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj",
+        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj",
         "projectName": "Magicbrick",
-        "projectPath": "C:\\Users\\Twinkle\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj",
-        "packagesPath": "C:\\Users\\Twinkle\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Twinkle\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\obj\\",
+        "projectPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\Magicbrick.csproj",
+        "packagesPath": "C:\\Users\\vikas.sonwane\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\Magicbrick\\Magicbrick\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Twinkle\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\vikas.sonwane\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

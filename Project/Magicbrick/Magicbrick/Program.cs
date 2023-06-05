@@ -1,7 +1,10 @@
 using Magicbrick.Interfaces;
 using Magicbrick.Models;
 using Magicbrick.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Magicbrick
 {
@@ -13,6 +16,26 @@ namespace Magicbrick
 
             var builder = WebApplication.CreateBuilder(args);
 
+var tc = builder.Configuration.GetSection("Jwt");
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(op =>
+            {
+                op.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+
+                    ValidateAudience = true,
+
+                    ValidateLifetime = true,
+
+                    ValidateIssuerSigningKey = true,
+
+                    ValidIssuer = tc["Issuer"],
+
+                    ValidAudience = tc["Audience"],
+
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tc["Key"]))
+                };
+            });
             // Add services to the container.
 
             builder.Services.AddControllers();

@@ -2,8 +2,18 @@
     <div class="col-md-12 bg-danger d-flex justify-content-around">
 
 
-        <p class="h3 text-light p-2">magicbricks</p>
+        <p class="h3 text-light p-2">
+          <a routerLink="/home" class="text-decoration-none text-white">
 
-        <button class="btn btn-danger fw-bold">My Profile</button>
+            magicbricks
+          </a>
+        </p>
+
+        <div class="my-auto">
+
+          <button class="btn btn-danger fw-bold" routerLink="/profile">My Profile</button>
+          <button class="btn btn-danger fw-bold" (click)="logout()">Logout</button>
+
+        </div>
     </div>
   </div>

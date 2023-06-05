@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl,FormGroup } from "@angular/forms";
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,15 +34,17 @@ export class LoginComponent implements OnInit {
     console.log(this.sigin_form.value);
     this.data=this.sigin_form.value;
 
-    this.serv.logindata(this.data).subscribe(x=>{
+    this.serv.logindata(this.data).subscribe({
+      next:(x)=>{
       console.log(x);
+      this.serv.storetoken(x);
       this.route.navigateByUrl('\home');
     },
-    (error)=>{console.log(error);
+   error: (error)=>{console.log(error);
     alert("Invalid credetials");
 
     }
-    )
+  })
 
 
 

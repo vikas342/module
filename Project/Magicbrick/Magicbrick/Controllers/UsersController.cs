@@ -11,9 +11,15 @@ using System.Data;
 using NuGet.Common;
 using System.IdentityModel.Tokens.Jwt;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Cors;
+using Newtonsoft.Json.Linq;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace Magicbrick.Controllers
 {
+    [EnableCors("Policy1")]
+
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -26,26 +32,23 @@ namespace Magicbrick.Controllers
         }
 
 
+
         // GET: api/Users/5
 
         [Authorize(AuthenticationSchemes = "Bearer")]
-
         [HttpGet]
-        public ActionResult GetUser()
+        public async Task<IActionResult> GetUser()
         {
 
             try
             {
                 var jwt = Request.Headers["Authorization"].First().Replace("Bearer ", string.Empty);
 
-                var handler = new JwtSecurityTokenHandler();
-                var token = new JwtSecurityToken(jwt);
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var jwtToken = tokenHandler.ReadJwtToken(jwt);
+                var userid = Convert.ToInt64(jwtToken.Claims.First().Value);
 
-                var jti = token.Claims.First().Value;
-                var founduser = _context.Users.First(x => x.Email == jti).UId;
-
-                var data = _context.Users.First(x => x.UId == founduser);
-
+                var data = _context.userSP.FromSqlRaw($"Exec userdetails @userid={userid}");
                 return Ok(data);
 
 
@@ -58,75 +61,6 @@ namespace Magicbrick.Controllers
 
         }
 
-        // PUT: api/Users/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutUser(int id, User user)
-        //{
-        //    if (id != user.UId)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    _context.Entry(user).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!UserExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return NoContent();
-        //}
-
-        // POST: api/Users
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        //[HttpPost]
-        //public async Task<ActionResult<User>> PostUser(User user)
-        //{
-        //  if (_context.Users == null)
-        //  {
-        //      return Problem("Entity set 'MagicBricksDbContext.Users'  is null.");
-        //  }
-        //    _context.Users.Add(user);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction("GetUser", new { id = user.UId }, user);
-        //}
-
-        // DELETE: api/Users/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
-        {
-            if (_context.Users == null)
-            {
-                return NotFound();
-            }
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        //private bool UserExists(int id)
-        //{
-        //    return (_context.Users?.Any(e => e.UId == id)).GetValueOrDefault();
-        //}
+       
     }
 }
