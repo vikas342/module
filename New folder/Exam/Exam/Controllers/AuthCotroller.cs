@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 
 namespace Exam.Controllers
@@ -21,12 +22,14 @@ namespace Exam.Controllers
         private readonly ExamDbContext _context;
         private readonly IConfiguration _config;
         private readonly IHash _hash;
+        private readonly EmailService _emailService;
 
-        public AuthCotroller(ExamDbContext context,IConfiguration config,IHash hash)
+        public AuthCotroller(ExamDbContext context,IConfiguration config,IHash hash,EmailService email)
         {
             _context = context; 
             _config = config;
             _hash = hash;
+            _emailService = email;
         }
 
         [EnableCors("Policy1")]
@@ -42,14 +45,42 @@ namespace Exam.Controllers
             string salt = Convert.ToBase64String(hmac.Key);
             int roleid = 2;
 
-            string userId = "2023" + reg.FirstName.Substring(0,2)+reg.LastName.Substring(0,2)+"06";
+            string userId = DateTime.Now.Year.ToString() + reg.FirstName.Substring(0,2)+reg.LastName.Substring(0,2)+DateTime.Now.Month.ToString(); ;
 
-            reg.Password=_hash.Hash(reg.Password,salt);
+            var pass = reg.FirstName.Substring(0, 2) + DateTime.Now.Year.ToString() + reg.LastName.Substring(0, 2) ;
+
+            reg.Password=_hash.Hash(pass,salt);
       
-            var user = new User { Uid = userId, Firstname = reg.FirstName, Middlename = reg.MiddleName, Lastname = reg.LastName, Photo = reg.Photo, Role = roleid, PasswordHash = reg.Password, PasswordSalt = salt, Email = reg.Email };
+            var user = new User { Uid = userId, Firstname = reg.FirstName, Middlename = reg.MiddleName, Lastname = reg.LastName, Photo = reg.Photo, Role = roleid, PasswordHash = reg.Password, PasswordSalt = salt, Email = reg.Email,Createddate=reg.Createddate };
        
             await _context.AddAsync(user);
+
+           
+
+
+
             await _context.SaveChangesAsync();
+            try
+            {
+                // Send the email
+                var r = reg.Email;
+                var s = "Accout credentials";
+                var b = $"Userid:{userId} \t  registeremail:{reg.Email}   \t  password:{pass}";
+                _emailService.SendEmail(r, s, b);
+                var resp = new
+                {
+                    message = $"Email sent to {r}"
+                };
+            }
+            catch (Exception)
+            {
+
+                return BadRequest();
+            }
+
+          
+
+
             return Ok(user);
         
         }
@@ -124,10 +155,11 @@ namespace Exam.Controllers
             var tk = new JwtSecurityToken(
 
 
-                _config.GetSection("Jwt:Issuer").Value,
+_config.GetSection("Jwt:Issuer").Value,
                 _config.GetSection("Jwt:Audience").Value,
                 expires: DateTime.Now.AddDays(1),
-                signingCredentials: crad
+                signingCredentials: crad,
+                claims:claims
                 );
 
 

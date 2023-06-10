@@ -21,7 +21,13 @@ namespace Exam.Models
         public int? Role { get; set; }
         public string? PasswordHash { get; set; }
         public string? PasswordSalt { get; set; }
-        public DateTime? Createddate { get; set; }
+        public DateTime? Createddate { get; set; } = DateTime.Now;
+
+        public string? Flatno { get; set; }
+        public string? Area { get; set; }
+        public string? State { get; set; }
+        public string? City { get; set; }
+        public string? Pincode { get; set; }
 
         public virtual Role? RoleNavigation { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }

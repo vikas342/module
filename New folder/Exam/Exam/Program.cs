@@ -40,6 +40,7 @@ namespace Exam
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<ExamDbContext>(x => x.UseSqlServer(builder.Configuration["ConnectionString"]));
             builder.Services.AddScoped<IHash,Hashrepo>();
+            builder.Services.AddScoped<EmailService, EmailService>();
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: "Policy1",

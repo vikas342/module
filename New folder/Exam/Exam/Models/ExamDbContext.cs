@@ -45,28 +45,28 @@ namespace Exam.Models
 
                 entity.Property(e => e.Aid).HasColumnName("AID");
 
-                entity.Property(e => e.Area)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("area");
+                //entity.Property(e => e.Area)
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false)
+                //    .HasColumnName("area");
 
-                entity.Property(e => e.City)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("city");
+                //entity.Property(e => e.City)
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false)
+                //    .HasColumnName("city");
 
-                entity.Property(e => e.Flatno)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Flatno)
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.Pincode)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                //entity.Property(e => e.Pincode)
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false);
 
-                entity.Property(e => e.State)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("state");
+                //entity.Property(e => e.State)
+                //    .HasMaxLength(50)
+                //    .IsUnicode(false)
+                //    .HasColumnName("state");
 
                 entity.Property(e => e.Uid).HasColumnName("UID");
 
