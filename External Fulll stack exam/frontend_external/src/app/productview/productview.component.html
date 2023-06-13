@@ -1,0 +1,196 @@
+<div class="container">
+  <app-navbar> </app-navbar>
+
+  {{ categories | json }}
+
+  <div class="row mt-5">
+    <div class="form-group d-flex my-5">
+      <input type="text" [(ngModel)]="product" class="form-control w-50" />
+      <button class="btn btn-danger" (click)="serchproduct()">serch</button>
+
+      <select
+        name="cat"
+        id="cat"
+        class="mx-3"
+        (change)="getfilter($event.target)"
+      >
+        <option value="none" selected>Select category</option>
+        <ng-container *ngFor="let x of categories">
+          <option value="{{ x.id }}">{{ x.category }}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <ng-container *ngIf="filterevent==false;else elsepart2">
+
+    <ng-container *ngIf="product.length == 0; else otherpart">
+      <ng-container *ngFor="let x of productlist; let i = index">
+        <div class="col col-sm-4 col-md-3 d-flex">
+          <div class="card">
+            <img src="{{ x.photo }}" class="card-img-top" alt="{{ x.photo }}" />
+            <div class="card-body">
+              <h5 class="card-title">{{ x.pname }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ x.price }}</h6>
+              <button
+                class="btn btn-warning m-2"
+                (click)="edit(x.pid, i)"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger m-2" (click)="delete(x.pid)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-template #otherpart>
+      <ng-container *ngFor="let x of filteredproductlist; let i = index">
+        <div class="col col-sm-4 col-md-3 d-flex">
+          <div class="card">
+            <img src="{{ x.photo }}" class="card-img-top" alt="{{ x.photo }}" />
+            <div class="card-body">
+              <h5 class="card-title">{{ x.pname }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ x.price }}</h6>
+              <button
+                class="btn btn-warning m-2"
+                (click)="edit(x.pid, i)"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Edit
+              </button>
+              <button class="btn btn-danger m-2" (click)="delete(x.pid)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-template>
+
+  </ng-container>
+
+  <ng-template #elsepart2>
+    <ng-container *ngFor="let x of filteredproductlist; let i = index">
+      <div class="col col-sm-4 col-md-3 d-flex">
+        <div class="card">
+          <img src="{{ x.photo }}" class="card-img-top" alt="{{ x.photo }}" />
+          <div class="card-body">
+            <h5 class="card-title">{{ x.pname }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ x.price }}</h6>
+            <button
+              class="btn btn-warning m-2"
+              (click)="edit(x.pid, i)"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Edit
+            </button>
+            <button class="btn btn-danger m-2" (click)="delete(x.pid)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+  </div>
+</div>
+
+<div></div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Details</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submiteditform()" [formGroup]="editform">
+          <div class="form-group">
+            <label for="Pname">Product name:</label>
+            <input
+              type="text"
+              name="Pname"
+              id="Pname"
+              class="form-control"
+              formControlName="Pname"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Pdescription">Product description:</label>
+            <input
+              type="text"
+              name="Pdescription"
+              id="Pdescription"
+              class="form-control"
+              formControlName="description"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Photo">Photo:</label>
+            <input
+              type="file"
+              name="Photo"
+              id="Photo"
+              class="form-control"
+              formControlName="Photo"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Qty">Qty:</label>
+            <input
+              type="number"
+              name="Qty"
+              id="Qty"
+              class="form-control"
+              formControlName="Qty"
+              min="1"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Price">Price:</label>
+            <input
+              type="text"
+              name="Price"
+              id="Price"
+              class="form-control"
+              formControlName="Price"
+            />
+          </div>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

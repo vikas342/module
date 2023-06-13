@@ -1,0 +1,20 @@
+
+  <ul class="nav nav-tabs" id="navId" role="tablist">
+    <li class="nav-item">
+      <a routerLink="/products" class="nav-link " data-bs-toggle="tab" aria-current="page">Products</a>
+    </li>
+
+    <li class="nav-item" role="presentation">
+      <a routerLink="/addproduct" class="nav-link" data-bs-toggle="tab">Add Products</a>
+    </li>
+      <button (click)="logout()" class=" nav-link">Logout</button>
+
+  </ul>
+
+
+  <!-- (Optional) - Place this js code after initializing bootstrap.min.js or bootstrap.bundle.min.js -->
+  <script>
+    var triggerEl = document.querySelector('#navId a')
+    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+  </script>
+

@@ -1,0 +1,100 @@
+<div class="container">
+  <app-navbar> </app-navbar>
+</div>
+
+  <div class="container mt-5 w-25">
+    <form (ngSubmit)="submit()" [formGroup]="addproduct">
+      <div class="form-group">
+        <label for="Pname">Product name:</label>
+        <input
+          type="text"
+          name="Pname"
+          id="Pname"
+          class="form-control"
+          formControlName="Pname"
+        />
+      </div>
+
+
+      <div class="form-group">
+        <label for="Pdescription">Product description:</label>
+        <input
+          type="text"
+          name="Pdescription"
+          id="Pdescription"
+          class="form-control"
+          formControlName="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Category">Category:</label>
+        <select name="Category" id="Category" formControlName="cat" class="form-control" (change)="getsubcat($event.target)">
+          <ng-container *ngFor="let x of categories">
+            <option value="{{x.id}}">{{x.category}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="Subcategory">Subcategory:</label>
+        <select name="Subcategory" id="Subcategory" formControlName="subcat" class="form-control">
+          <ng-container *ngFor="let x of subcategories">
+            <option value="{{x.id}}">{{x.category}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="Photo">Photo:</label>
+        <input
+          type="file"
+          name="Photo"
+          id="Photo"
+          class="form-control"
+          formControlName="Photo"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Qty">Qty:</label>
+        <input
+          type="number"
+          name="Qty"
+          id="Qty"
+          class="form-control"
+          formControlName="Qty"
+          min="1"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="Price">Price:</label>
+        <input
+          type="text"
+          name="Price"
+          id="Price"
+          class="form-control"
+          formControlName="Price"
+        />
+      </div>
+
+
+      <div class="form-group mt-3">
+        <button type="submit" class="w-100 btn btn-primary">Add Product</button>
+      </div>
+    </form>
+  </div>
+
+
+  {{
+    subcategories|json
+  }}
+
+
+
+
+  {{
+    categories|json
+  }}
