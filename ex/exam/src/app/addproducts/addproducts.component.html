@@ -1,0 +1,83 @@
+<div class="container">
+
+  <app-navbar></app-navbar>
+
+
+  <div class="container mt-5 w-25">
+
+    <p class="fw-bold h4 my-5">Add Product</p>
+    <form [formGroup]="Addproduct" (ngSubmit)="onSubmit()">
+
+      <div class="formGroup">
+        <label for="product_name">product_name</label>
+        <input type="product_name" id="product_name" class="form-control" formControlName="product_name">
+      </div>
+
+
+
+
+      <div class="formGroup">
+        <label for="Category">Category</label>
+        <select name="Category" id="Category"  class="form-control w-25" formControlName="Category">
+          <ng-container *ngFor="let x of cat">
+
+            <option value="{{x.id}}">{{x.category}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+
+
+
+
+
+      <div class="formGroup">
+        <label for="Subcategory">Subcategory</label>
+        <select name="Subcategory" id="Subcategory" class="form-control w-25" formControlName="Subcategory" >
+          <ng-container *ngFor="let x of subcat">
+
+            <option value="{{x.id}}">{{x.category}}</option>
+          </ng-container>
+        </select>
+      </div>
+
+
+
+      <div class="formGroup">
+        <label for="Decription">Decription:</label>
+        <input type="text" id="Decription" class="form-control" formControlName="Decription">
+      </div>
+
+
+
+
+      <div class="formGroup">
+        <label for="price">price:</label>
+        <input type="number" min="0" id="price" class="form-control" formControlName="price">
+      </div>
+
+
+
+
+      <div class="formGroup">
+        <label for="Qtyphoto">Qty</label>
+        <input type="number" min="0"  id="Qty" class="form-control" formControlName="Qty">
+      </div>
+
+
+
+
+      <div class="formGroup">
+        <label for="photo">photo</label>
+        <input type="file" id="photo" class="form-control" formControlName="photo">
+      </div>
+
+<br>
+      <button class="btn btn-primary w-100" type="submit" >Add Product</button>
+
+    </form>
+
+  </div>
+
+
+  </div>

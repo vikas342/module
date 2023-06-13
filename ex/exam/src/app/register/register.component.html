@@ -1,0 +1,43 @@
+
+
+
+<div class="container mt-5 w-25">
+
+
+
+  <form [formGroup]="registerform" (ngSubmit)="submitform()">
+
+
+    <div class="formGroup">
+      <label for="Username">Email</label>
+      <input type="Username" id="Username" class="form-control" formControlName="Username">
+    </div>
+
+
+    <div class="formGroup">
+      <label for="Email">Email</label>
+      <input type="email" id="Email" class="form-control" formControlName="Email">
+    </div>
+
+
+
+    <div class="formGroup">
+      <label for="Phoneno">Phoneno</label>
+      <input type="Phoneno" id="Phoneno" class="form-control" formControlName="Phoneno">
+    </div>
+
+    <div class="formGroup">
+      <label for="Password">Password</label>
+      <input type="password" id="Password" class="form-control" formControlName="Password">
+    </div>
+
+
+    <br>
+    <p>
+      <a routerLink="/login" class="text-dark text-decoration-none fw-bold ">Alredy have an account?</a>
+    </p>
+    <br>
+    <button type="submit" class="btn btn-primary w-100">submit</button>
+  </form>
+
+</div>
