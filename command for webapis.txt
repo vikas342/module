@@ -1,0 +1,26 @@
+db_first:
+
+Scaffold-DbContext "Server=PC0334\MSSQL2019;Database=testing;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+connection_string:
+
+Server=PC0334\\MSSQL2019;Database=xyz;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true;
+
+
+
+codefirst:
+
+add-migration
+
+update-database
+
+
+
+Scaffold-DbContext "Server=PC0334\MSSQL2019;Database=Exam2DB;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+
+
+
+
