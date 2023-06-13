@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotNetCoreFullStackDevelopment\\DotNetCoreFullStackDevelopment002\\vsonwane_2768\\Q001\\Source\\FInal\\FInal\\FInal.csproj": {}
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\ex\\FInal\\FInal\\FInal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotNetCoreFullStackDevelopment\\DotNetCoreFullStackDevelopment002\\vsonwane_2768\\Q001\\Source\\FInal\\FInal\\FInal.csproj": {
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\ex\\FInal\\FInal\\FInal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotNetCoreFullStackDevelopment\\DotNetCoreFullStackDevelopment002\\vsonwane_2768\\Q001\\Source\\FInal\\FInal\\FInal.csproj",
+        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Desktop\\module\\ex\\FInal\\FInal\\FInal.csproj",
         "projectName": "FInal",
-        "projectPath": "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotNetCoreFullStackDevelopment\\DotNetCoreFullStackDevelopment002\\vsonwane_2768\\Q001\\Source\\FInal\\FInal\\FInal.csproj",
+        "projectPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\ex\\FInal\\FInal\\FInal.csproj",
         "packagesPath": "C:\\Users\\vikas.sonwane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotNetCoreFullStackDevelopment\\DotNetCoreFullStackDevelopment002\\vsonwane_2768\\Q001\\Source\\FInal\\FInal\\obj\\",
+        "outputPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\ex\\FInal\\FInal\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vikas.sonwane\\AppData\\Roaming\\NuGet\\NuGet.Config",

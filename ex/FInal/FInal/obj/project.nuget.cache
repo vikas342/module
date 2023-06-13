@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RtuXjzkaFIilsedFuaK7BoS85jwLxUCLx8b7tFaF7L9QfXrXqTE3ZqQJAiQD1ZUDdgazSJADaOq8sIfyvWcSxQ==",
+  "dgSpecHash": "MR9oB/WmjZT5yjCmwhQW2mRpO7oc/c/9tiOB0MiZ4syIhJAtlMcYVQlyrxqW2+uTYInR0SqwjG8nYmn9/h7zng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vikas.sonwane\\Workspace\\Feb-23-Dotnet\\DotNetCoreFullStackDevelopment\\DotNetCoreFullStackDevelopment002\\vsonwane_2768\\Q001\\Source\\FInal\\FInal\\FInal.csproj",
+  "projectFilePath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\ex\\FInal\\FInal\\FInal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vikas.sonwane\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vikas.sonwane\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.16\\microsoft.aspnetcore.authentication.jwtbearer.6.0.16.nupkg.sha512",
