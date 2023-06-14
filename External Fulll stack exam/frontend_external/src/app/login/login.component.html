@@ -10,6 +10,17 @@
 
     <label for="email">Email:</label>
     <input type="email" name="email" id="email" class="form-control" formControlName="Email">
+    <span
+    *ngIf="
+      !email?.valid &&
+      (email?.touched || email?.dirty)
+    "
+    class="text-danger"
+  >
+    <span *ngIf="email?.errors?.['required']">
+      *Email required
+    </span>
+  </span>
   </div>
 
 
@@ -21,6 +32,17 @@
 
     <label for="">Password:</label>
     <input type="password" name="password" id="password" class="form-control" formControlName="Password" maxlength="8">
+    <span
+    *ngIf="
+      !password?.valid &&
+      (password?.touched || password?.dirty)
+    "
+    class="text-danger"
+  >
+    <span *ngIf="password?.errors?.['required']">
+      *Password required
+    </span>
+  </span>
   </div>
 
   <br>
@@ -30,9 +52,7 @@
 
   <div class="form-group mt-3">
 
-    <button type="submit" class="w-100 btn btn-primary">Login</button>
+    <button type="submit" class="w-100 btn btn-primary" [disabled]="!loginform.valid">Login</button>
   </div>
 </form>
-
 </div>
-<p></p>

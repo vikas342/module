@@ -11,6 +11,21 @@
 
       <label for="Uname">Username:</label>
       <input type="Uname" name="Uname" id="Uname" class="form-control" formControlName="Uname">
+      <span
+      *ngIf="
+        !Uname?.valid &&
+        (Uname?.touched || Uname?.dirty)
+      "
+      class="text-danger"
+    >
+      <span *ngIf="Uname?.errors?.['required']">
+        *Uname required
+      </span>
+
+      <span *ngIf="Uname?.errors?.['pattern']">
+        *Enter valid uname
+      </span>
+    </span>
     </div>
 
 
@@ -20,6 +35,17 @@
 
       <label for="email">Email:</label>
       <input type="email" name="email" id="email" class="form-control" formControlName="Email">
+      <span
+      *ngIf="
+        !email?.valid &&
+        (email?.touched || email?.dirty)
+      "
+      class="text-danger"
+    >
+      <span *ngIf="email?.errors?.['required']">
+        *Email required
+      </span>
+    </span>
     </div>
 
 
@@ -29,6 +55,20 @@
 
       <label for="Phone_No">Phone_No:</label>
       <input type="Phone_No" name="Phone_No" id="Phone_No" class="form-control" formControlName="Phone_No" maxlength="10">
+      <span
+      *ngIf="
+        !Phone_No?.valid &&
+        (Phone_No?.touched || Phone_No?.dirty)
+      "
+      class="text-danger"
+    >
+      <span *ngIf="Phone_No?.errors?.['required']">
+        *Phone_No required
+      </span>
+      <span *ngIf="Phone_No?.errors?.['pattern']">
+        *Enter digits only
+      </span>
+    </span>
     </div>
 
 
@@ -40,6 +80,17 @@
 
       <label for="">Password:</label>
       <input type="password" name="password" id="password" class="form-control" formControlName="Password" maxlength="8">
+      <span
+      *ngIf="
+        !password?.valid &&
+        (password?.touched || password?.dirty)
+      "
+      class="text-danger"
+    >
+      <span *ngIf="password?.errors?.['required']">
+        *Password required
+      </span>
+    </span>
     </div>
 
     <br>
@@ -51,7 +102,7 @@
 
     <div class="form-group mt-3">
 
-      <button type="submit" class="w-100 btn btn-primary">Signup</button>
+      <button type="submit" class="w-100 btn btn-primary" [disabled]="!registerform.valid">Signup</button>
     </div>
   </form>
   </div>

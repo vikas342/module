@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
 })
 export class ProductviewComponent implements OnInit {
 
+
+
+  p: number = 1; // Current page number
+
   product:string='';
 
 

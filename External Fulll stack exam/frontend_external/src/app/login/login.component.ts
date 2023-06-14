@@ -19,6 +19,13 @@ export class LoginComponent implements OnInit {
 
   }
 
+  get email(){
+    return this.loginform.get("Email")
+  }
+  get password(){
+    return this.loginform.get("Password")
+  }
+
 
 
   ngOnInit(): void {

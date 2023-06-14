@@ -1,11 +1,11 @@
 <div class="container">
   <app-navbar> </app-navbar>
 
-  {{ categories | json }}
+  <!-- {{ categories | json }} -->
 
   <div class="row mt-5">
-    <div class="form-group d-flex my-5">
-      <input type="text" [(ngModel)]="product" class="form-control w-50" />
+    <div class="form-group d-flex my-5 justify-content-center">
+      <input type="text" [(ngModel)]="product" class="form-control w-50"  placeholder="serch by name"/>
       <button class="btn btn-danger" (click)="serchproduct()">serch</button>
 
       <select
@@ -14,7 +14,7 @@
         class="mx-3"
         (change)="getfilter($event.target)"
       >
-        <option value="none" selected>Select category</option>
+        <option value="none" disabled selected>Select category</option>
         <ng-container *ngFor="let x of categories">
           <option value="{{ x.id }}">{{ x.category }}</option>
         </ng-container>
@@ -24,9 +24,9 @@
     <ng-container *ngIf="filterevent==false;else elsepart2">
 
     <ng-container *ngIf="product.length == 0; else otherpart">
-      <ng-container *ngFor="let x of productlist; let i = index">
+      <ng-container *ngFor="let x of productlist | paginate: { itemsPerPage: 10, currentPage: p }; let i = index  ">
         <div class="col col-sm-4 col-md-3 d-flex">
-          <div class="card">
+          <div class="card m-2">
             <img src="{{ x.photo }}" class="card-img-top" alt="{{ x.photo }}" />
             <div class="card-body">
               <h5 class="card-title">{{ x.pname }}</h5>
@@ -50,7 +50,7 @@
     <ng-template #otherpart>
       <ng-container *ngFor="let x of filteredproductlist; let i = index">
         <div class="col col-sm-4 col-md-3 d-flex">
-          <div class="card">
+          <div class="card m-2">
             <img src="{{ x.photo }}" class="card-img-top" alt="{{ x.photo }}" />
             <div class="card-body">
               <h5 class="card-title">{{ x.pname }}</h5>
@@ -76,8 +76,8 @@
 
   <ng-template #elsepart2>
     <ng-container *ngFor="let x of filteredproductlist; let i = index">
-      <div class="col col-sm-4 col-md-3 d-flex">
-        <div class="card">
+      <div class="col col-sm-4 col-md-3 d-flex ">
+        <div class="card m-2">
           <img src="{{ x.photo }}" class="card-img-top" alt="{{ x.photo }}" />
           <div class="card-body">
             <h5 class="card-title">{{ x.pname }}</h5>
@@ -194,3 +194,8 @@
     </div>
   </div>
 </div>
+<br>
+<br>
+
+<pagination-controls (pageChange)="p = $event" class="text-center mt-5"></pagination-controls>
+

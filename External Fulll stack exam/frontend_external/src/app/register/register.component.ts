@@ -26,11 +26,24 @@ export class RegisterComponent implements OnInit {
         [
           Validators.required,
           Validators.maxLength(10),
-          Validators.pattern('^d{1,10}$'),
+          Validators.pattern('^[0-9]+$'),
         ],
       ],
       Password: ['', [Validators.required, Validators.maxLength(8)]],
     });
+  }
+
+  get Phone_No(){
+    return this.registerform.get("Phone_No")
+  }
+  get Uname(){
+    return this.registerform.get("Uname")
+  }
+  get email(){
+    return this.registerform.get("Email")
+  }
+  get password(){
+    return this.registerform.get("Password")
   }
 
   submit() {

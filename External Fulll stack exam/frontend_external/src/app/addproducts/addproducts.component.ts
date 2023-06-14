@@ -32,16 +32,52 @@ export class AddproductsComponent implements OnInit {
     });
 
     this.addproduct = this.fb.group({
-      Pname: ['', [Validators.required]],
+      Pname: ['', [Validators.required,Validators.pattern('^[a-zA-Z]+$')]],
       description: ['', [Validators.required, Validators.maxLength(100)]],
-      Price: ['', [Validators.required, Validators.pattern('')]],
-      Qty: ['', [Validators.required, Validators.pattern('')]],
+      Price: ['', [Validators.required,
+        Validators.pattern('^[0-9]+$'),
+
+        ]],
+      Qty: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       Photo: ['', [Validators.required]],
       cat: ['', [Validators.required]],
 
       subcat: ['', [Validators.required]],
     });
   }
+
+
+
+  get Pname(){
+    return this.addproduct.get("Pname")
+  }
+  get description(){
+    return this.addproduct.get("description")
+  }
+  get Qty(){
+    return this.addproduct.get("Qty")
+  }
+  get Photo(){
+    return this.addproduct.get("Photo")
+  }
+  get Price(){
+    return this.addproduct.get("Price")
+  }
+
+  get cat(){
+    return this.addproduct.get("cat")
+  }
+  get subcat(){
+    return this.addproduct.get("subcat")
+  }
+
+
+
+
+
+
+
+
 
   submit() {
     console.log(this.addproduct.value);

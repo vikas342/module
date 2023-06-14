@@ -13,6 +13,21 @@
           class="form-control"
           formControlName="Pname"
         />
+
+        <span
+        *ngIf="
+          !Pname?.valid &&
+          (Pname?.touched || Pname?.dirty)
+        "
+        class="text-danger"
+      >
+        <span *ngIf="Pname?.errors?.['required']">
+          *Pname required
+        </span>
+        <span *ngIf="Pname?.errors?.['pattern']">
+          *Pname shulld be text
+        </span>
+      </span>
       </div>
 
 
@@ -25,6 +40,22 @@
           class="form-control"
           formControlName="description"
         />
+        <span
+        *ngIf="
+          !description?.valid &&
+          (description?.touched || description?.dirty)
+        "
+        class="text-danger"
+      >
+        <span *ngIf="description?.errors?.['required']">
+          *description required
+        </span>
+
+
+        <span *ngIf="Pname?.errors?.['maxLength']">
+          *maxlength excedded
+        </span>
+      </span>
       </div>
 
       <div class="form-group">
@@ -34,6 +65,18 @@
             <option value="{{x.id}}">{{x.category}}</option>
           </ng-container>
         </select>
+        <span
+        *ngIf="
+          !cat?.valid &&
+          (cat?.touched || cat?.dirty)
+        "
+        class="text-danger"
+      >
+        <span *ngIf="cat?.errors?.['required']">
+          *category is required
+        </span>
+
+      </span>
       </div>
 
       <div class="form-group">
@@ -43,6 +86,19 @@
             <option value="{{x.id}}">{{x.category}}</option>
           </ng-container>
         </select>
+
+        <span
+        *ngIf="
+          !subcat?.valid &&
+          (subcat?.touched || subcat?.dirty)
+        "
+        class="text-danger"
+      >
+        <span *ngIf="subcat?.errors?.['required']">
+          *Subcategory is required
+        </span>
+
+      </span>
       </div>
 
 
@@ -55,18 +111,45 @@
           class="form-control"
           formControlName="Photo"
         />
+        <span
+        *ngIf="
+          !Photo?.valid &&
+          (Photo?.touched || Photo?.dirty)
+        "
+        class="text-danger"
+      >
+        <span *ngIf="Photo?.errors?.['required']">
+          *Photo is required
+        </span>
+
+      </span>
       </div>
 
       <div class="form-group">
         <label for="Qty">Qty:</label>
         <input
-          type="number"
+          type="text"
           name="Qty"
           id="Qty"
           class="form-control"
           formControlName="Qty"
-          min="1"
         />
+
+        <span
+        *ngIf="
+          !Qty?.valid &&
+          (Qty?.touched || Qty?.dirty)
+        "
+        class="text-danger"
+      >
+        <span *ngIf="Qty?.errors?.['required']">
+          *Qty is required
+        </span>
+        <span *ngIf="Qty?.errors?.['pattern']">
+          *Qty must be in digit only
+        </span>
+
+      </span>
       </div>
 
       <div class="form-group">
@@ -78,11 +161,28 @@
           class="form-control"
           formControlName="Price"
         />
+
+        <span
+        *ngIf="
+          !Price?.valid &&
+          (Price?.touched || Price?.dirty)
+        "
+        class="text-danger"
+      >
+        <span *ngIf="Price?.errors?.['required']">
+          *Price is required
+        </span>
+
+        <span *ngIf="Price?.errors?.['pattern']">
+          *Price must be in digit only
+        </span>
+
+      </span>
       </div>
 
 
       <div class="form-group mt-3">
-        <button type="submit" class="w-100 btn btn-primary">Add Product</button>
+        <button type="submit" class="w-100 btn btn-primary" [disabled]="!addproduct.valid">Add Product</button>
       </div>
     </form>
   </div>
