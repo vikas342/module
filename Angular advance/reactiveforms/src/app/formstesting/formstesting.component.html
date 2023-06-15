@@ -1,0 +1,24 @@
+<div class="container">
+
+
+<form [formGroup]="loginform" (ngSubmit)="submit()">
+
+
+  <div>
+
+    <label for="email">email</label>
+    <input type="email" name="email" id="email"  formControlName="email">
+
+  </div>
+
+  <div>
+
+
+    <label for="pass">pass</label>
+    <input type="pass" name="pass" id="pass"  formControlName="pass">
+  </div>
+
+
+  <button class="btn btn-primary" [disabled]="!loginform.valid">login</button>
+</form>
+</div>

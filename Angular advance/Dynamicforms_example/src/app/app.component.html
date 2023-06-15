@@ -1,0 +1,54 @@
+<!-- 
+<app-dynamicgrops [data]="inputdata | async"></app-dynamicgrops> -->
+
+
+
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div *ngFor="let question of inputdata" class="form-row">
+  
+     
+        <div [ngSwitch]="question.controlType">
+  
+          <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+              [id]="question.key" [type]="question.type" >
+      
+
+              <div *ngSwitchCase="'radio'">
+                <label *ngFor="let opt of question.options">
+                  {{opt.key}}
+                  <input
+                    type="radio"
+                    [name]="question.key"
+                    [formControlName]="question.key"
+                    [value]="opt.value">
+                </label>
+              </div>
+
+
+              <div *ngSwitchCase="'select'">
+                <label for="">{{question.label}}</label>
+                <select [formControlName]="question.key" >
+                  <option *ngFor="let item of question.options" [value]="item.value">{{item.key}}</option>
+                </select>
+              </div>
+              <div *ngSwitchCase="'checkbox'" >
+                
+
+                <input type="checkbox" 
+                [formControlName]="question.key"
+                [id]="question.key"
+
+
+                >
+      </div>
+
+      </div>
+      
+    </div>
+    <button type="submit" >
+      Save
+    </button>
+  </form>
+  
+  <h1>{{payLoad}}</h1>

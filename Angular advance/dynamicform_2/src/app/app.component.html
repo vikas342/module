@@ -1,0 +1,6 @@
+<form [formGroup]="registerForm">
+  <div *ngFor="let field of fileds">
+         <label>{{field}}</label>
+  <input type="text" [formControlName]="field">
+</div>
+</form>

@@ -1,0 +1,19 @@
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+<div *ngFor="let question of data" class="form-row">
+
+    <div [formGroup]="form">
+        <div [ngSwitch]="question.controlType">
+
+        <input *ngSwitchCase="'textbox'" [formControlName]="question.key"
+            [id]="question.key" [type]="question.type">
+    </div>
+    </div>
+    
+  </div>
+  <button type="submit" >
+    Save
+  </button>
+</form>
+
+<h1>{{payLoad}}</h1>
