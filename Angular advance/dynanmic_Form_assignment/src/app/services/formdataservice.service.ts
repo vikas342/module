@@ -13,6 +13,11 @@ export class FormdataserviceService {
 
   constructor() { }
 
+
+  //this will be use for which type of form you want like login/signup
+
+
+
   getcontroller(){
     const data:Questionmodel<string>[]=[
       new TextboxQuestion({
@@ -60,13 +65,12 @@ export class FormdataserviceService {
           }
         ],
         required:true,
-        order:3
+        order:4
       }),
 
       new SelectQuestion({
         key:"city",
         label:"city",
-        type:"select",
         options:[{
           key:"mumbai",
           value:"mumbai"
@@ -79,7 +83,7 @@ export class FormdataserviceService {
 
       ],
       required:true,
-      order:4
+      order:5
 
       })
 

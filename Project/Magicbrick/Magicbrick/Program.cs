@@ -49,7 +49,7 @@ var tc = builder.Configuration.GetSection("Jwt");
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IHash, HashRepo>();
-            builder.Services.AddScoped<Iproperty, PropertyRepo>();
+            builder.Services.AddScoped<IGenric<Property>, propertyservice>();
 
             builder.Services.AddCors(options =>
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks\\MagicBricks\\MagicBricks\\MagicBricks.csproj": {}
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks_\\MagicBricks\\MagicBricks\\MagicBricks.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks\\MagicBricks\\MagicBricks\\MagicBricks.csproj": {
+    "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks_\\MagicBricks\\MagicBricks\\MagicBricks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks\\MagicBricks\\MagicBricks\\MagicBricks.csproj",
+        "projectUniqueName": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks_\\MagicBricks\\MagicBricks\\MagicBricks.csproj",
         "projectName": "MagicBricks",
-        "projectPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks\\MagicBricks\\MagicBricks\\MagicBricks.csproj",
+        "projectPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks_\\MagicBricks\\MagicBricks\\MagicBricks.csproj",
         "packagesPath": "C:\\Users\\vikas.sonwane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks\\MagicBricks\\MagicBricks\\obj\\",
+        "outputPath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks_\\MagicBricks\\MagicBricks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\vikas.sonwane\\AppData\\Roaming\\NuGet\\NuGet.Config",

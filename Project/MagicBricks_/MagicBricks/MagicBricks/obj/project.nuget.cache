@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d91KptDyD/npN6F6JBw2grG7FrxE+kHI1Ue2dm/QEMXyCVqbha0RNJ+TNWkcK45xqfxp/AEFA2gngu97qCDP4A==",
+  "dgSpecHash": "jPxslvcC1RKF0wMp9t/IwWBeIQp4WclV9TEzBKKFUIJMdoyAVRECtmP5zwq7LgrgMJxsMm0VwjS/EHZQkH09KQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks\\MagicBricks\\MagicBricks\\MagicBricks.csproj",
+  "projectFilePath": "C:\\Users\\vikas.sonwane\\Desktop\\module\\Project\\MagicBricks_\\MagicBricks\\MagicBricks\\MagicBricks.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vikas.sonwane\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vikas.sonwane\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

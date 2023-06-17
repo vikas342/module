@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace Magicbrick.Controllers
@@ -15,15 +16,22 @@ namespace Magicbrick.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class PropertyController : ControllerBase
+    public class PropertyController : GenricController<Property>
     {
 
         private readonly MagicBricksDbContext _context;
 
-        public PropertyController(MagicBricksDbContext context, IConfiguration config, IHash hash)
+        public PropertyController(IGenric<Property> igenric, MagicBricksDbContext context) : base(igenric)
         {
             _context = context;
         }
+
+
+
+        //public PropertyController(MagicBricksDbContext context, IConfiguration config, IHash hash)
+        //{
+        //    _context = context;
+        //}
 
 
 
@@ -82,6 +90,20 @@ namespace Magicbrick.Controllers
             }
 
         }
+
+
+
+        [HttpGet("all_properties")]
+
+        public async Task<IActionResult> getallprops()
+        {
+
+            return Ok();
+            
+
+
+        }
+
 
 
 

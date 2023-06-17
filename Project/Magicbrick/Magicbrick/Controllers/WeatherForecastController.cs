@@ -18,12 +18,12 @@ namespace Magicbrick.Controllers
       
 
 
-        [HttpGet(Name = "GetWeatherForecast")]
-        public  Task<IEnumerable<Property>> Get()
-        {
-            return _prop.GetAll();
+        //[HttpGet(Name = "GetWeatherForecast")]
+        //public  Task<IEnumerable<Property>> Get()
+        //{
+        //    return _prop.GetAll();
            
-        }
+        //}
 
         
     }

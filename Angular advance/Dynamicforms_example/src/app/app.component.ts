@@ -29,6 +29,6 @@ export class AppComponent {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
-    
+
   }
 }
