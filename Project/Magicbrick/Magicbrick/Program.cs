@@ -17,7 +17,7 @@ namespace Magicbrick
 
             var builder = WebApplication.CreateBuilder(args);
 
-var tc = builder.Configuration.GetSection("Jwt");
+         var tc = builder.Configuration.GetSection("Jwt");
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(op =>
             {
                 op.TokenValidationParameters = new TokenValidationParameters
@@ -42,13 +42,6 @@ var tc = builder.Configuration.GetSection("Jwt");
             builder.Services.AddControllers();
 
 
-            //builder.Services.AddControllers().AddJsonOptions(options =>
-            //{
-            //    options.JsonSerializerOptions.PropertyNamingPolicy = null; // Disable property name casing
-            //    options.JsonSerializerOptions.IgnoreNullValues = true; // Ignore null values during serialization
-            //    options.JsonSerializerOptions.WriteIndented = true; // Enable indented formatting for readability
-            //                                                        // Add any other necessary configuration options
-            //});
 
             builder.Services.AddDbContext<MagicBricksDbContext>(op => op.UseSqlServer(builder.Configuration["ConnectionString"]));
 

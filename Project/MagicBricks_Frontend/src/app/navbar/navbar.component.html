@@ -13,28 +13,23 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          <ng-container *ngIf="selectedcity == ''; else elsepart2">
-            city
+          <!-- <ng-container *ngIf="selectedcity == ''; else elsepart2">
+            Ahmedabad
           </ng-container>
-          <ng-template #elsepart2>
-            {{ selectedcity }}
-          </ng-template>
+          <ng-template #elsepart2> -->
+          {{ selectedcity }}
+          <!-- </ng-template> -->
         </button>
         <div class="dropdown-menu" aria-labelledby="triggerId">
-          <button
-            class="dropdown-item text-danger"
-            value="ahmedabad"
-            (click)="func('ahmedabad')"
-          >
-            ahmedabad
-          </button>
-          <button
-            class="dropdown-item text-danger"
-            value="mumbai"
-            (click)="func('mumbai')"
-          >
-          mumbai
-          </button>
+          <ng-container *ngFor="let item of cities">
+            <button
+              class="dropdown-item text-danger"
+              value="ahmedabad"
+              (click)="func(item.city)"
+            >
+              {{ item.city }}
+            </button>
+          </ng-container>
         </div>
       </div>
     </div>
@@ -51,14 +46,21 @@
 
       <ng-template #elsepart>
         <button class="btn btn-danger fw-bold" (click)="login()">Login</button>
+        <button class="btn btn-danger fw-bold" >Post Property</button>
+
+
+
+
+
+
       </ng-template>
     </div>
   </div>
 
-  <div class="container d-flex">
-    <div class="dropdown">
+  <div class="container d-flex justify-content-center    border">
+    <div class="dropdownr ">
       <button
-        class="bg-white btn dropdown-toggle"
+      class="bg-white btn dropdown-toggle   fs-5 mx-3"
         type="button"
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
@@ -66,67 +68,130 @@
       >
         Buy
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#" (click)="prop('flat',selectedcity)">flats in {{selectedcity}}</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <div class="d-flex">
+          <div class="m-3">
+            <p class="text-center fw-bold">Property Types</p>
+            <hr />
+
+            <ng-container *ngFor="let x of types">
+              <a class="dropdown-item" (click)="prop(x.type, selectedcity)"
+                >{{ x.type }} in {{ selectedcity }}</a
+              >
+            </ng-container>
+          </div>
+
+          <div class="m-3">
+            <p class="text-center fw-bold">Budget</p>
+            <hr />
+
+            <a class="dropdown-item" (click)="propbudget(0, 5000000)"
+              >Under 50 Lac</a
+            >
+            <a class="dropdown-item" (click)="propbudget(50000000, 10000000)"
+              >50 Lac - 1 Cr</a
+            ><a class="dropdown-item" (click)="propbudget(10000000, 15000000)"
+              >1 Cr - 1.5 Crc</a
+            >
+            <a class="dropdown-item" (click)="propbudget(15000000, 10000000)"
+              >Above 1.5 Cr</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
     <div class="dropdown">
       <button
-        class="bg-white btn dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Sell
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button
-        class="bg-white btn dropdown-toggle"
-        type="button"
+      class="bg-white btn dropdown-toggle   fs-5 mx-3"
+      type="button"
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         Rent
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <div class="d-flex">
+          <div class="m-3">
+            <p class="text-center fw-bold">Property Types</p>
+            <hr />
+
+            <ng-container *ngFor="let x of types">
+              <a class="dropdown-item" (click)="prop(x.type, selectedcity)"
+                >{{ x.type }} in {{ selectedcity }}</a
+              >
+            </ng-container>
+          </div>
+
+          <div class="m-3">
+            <p class="text-center fw-bold">Budget</p>
+            <hr />
+
+            <a class="dropdown-item" (click)="propbudget(0, 10000)"
+              >Under 10,000</a
+            >
+            <a class="dropdown-item" (click)="propbudget(10000, 15000)"
+              >10,000 - 15,000</a
+            ><a class="dropdown-item" (click)="propbudget(15000, 20000)"
+              >15,000 - 20,000</a
+            >
+            <a class="dropdown-item" (click)="propbudget(20000, 100000)"
+              >Above 20,000</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
     <div class="dropdown">
-      <button class="bg-white btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-       Help
+      <button
+      class="bg-white btn dropdown-toggle   fs-5 mx-3"
+      type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Sell
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <div class="d-flex">
+          <div class="m-3">
+            <p class="text-center fw-bold">For Owners</p>
+            <hr />
+
+            <a class="dropdown-item" (click)="postprop()">Post Property</a>
+            <a class="dropdown-item" (click)="postproplistings()"
+              >My Property Listings</a
+            >
+          </div>
+          <div class="m-3">
+            <p class="text-center fw-bold">For Brokers</p>
+            <hr />
+
+            <a class="dropdown-item" (click)="postprop()">Post Property</a>
+            <a class="dropdown-item" (click)="postproplistings()"
+              >My Property Listings</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button
+      class="bg-white btn dropdown-toggle   fs-5 mx-3"
+      type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Help
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <div class="d-flex">
           <div>
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <a class="dropdown-item">Help Center</a>
+            <a class="dropdown-item">Sales Enquiry</a>
           </div>
-          <div>
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </div> <div>
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </div>
-
         </div>
-
       </ul>
     </div>
   </div>

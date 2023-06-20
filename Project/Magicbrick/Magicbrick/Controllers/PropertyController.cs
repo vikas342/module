@@ -136,7 +136,54 @@ namespace Magicbrick.Controllers
 
 
 
+        //get prop by city
 
+
+        [HttpGet("getpropbycities")]
+
+        public async Task<IActionResult> getpropbycities()
+        {
+            var data = (
+                from ot in _context.Objecttypes join o in _context.Objects on ot.Id equals o.ObjTypeId where ot.ParentId == 4 select new
+                {
+                    city=o.Name
+                }
+                
+                ).ToList();
+
+
+            return Ok(data);
+
+
+
+        }
+
+
+        //get proptype
+
+
+
+        [HttpGet("getproptype")]
+
+        public async Task<IActionResult> getproptype()
+        {
+            var data = (
+                from ot in _context.Objecttypes
+                join o in _context.Objects on ot.Id equals o.ObjTypeId
+                where ot.Id == 2
+                select new
+                {
+                    type = o.Name
+                }
+
+                ).ToList();
+
+
+            return Ok(data);
+
+
+
+        }
 
 
 

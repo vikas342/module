@@ -547,3 +547,6 @@ C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\ne
 C:\Users\Twinkle\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Twinkle\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\Twinkle\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll

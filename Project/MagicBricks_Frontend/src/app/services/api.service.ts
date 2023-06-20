@@ -22,6 +22,19 @@ export class ApiService {
 
 
 
+  //get cities
+
+
+  getcities(){
+    return this.http.get<any>("https://localhost:7210/api/Property/getpropbycities");
+  }
+
+
+  //get proptype
+
+  getproptype(){
+    return this.http.get<any>("https://localhost:7210/api/Property/getproptype");
+  }
 
 
 }
