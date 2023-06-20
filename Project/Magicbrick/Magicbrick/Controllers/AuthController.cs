@@ -78,7 +78,7 @@ namespace Magicbrick.Controllers
             UsrDTO u=new UsrDTO() { Uid=usr.Uid,Name=usr.Name,Email=usr.Email,PasswordHash=usr.Passwordhash,PasswordSalt=usr.Passwordsalt,Role=usr.Role};
 
             var tkn = tokengenrator(u);
-            return Ok(new {token=tkn, message = "user logged in success"});
+            return Ok(new {token=tkn,role=usr.Role,uid=usr.Uid, message = "user logged in success"});
         }
 
         private object tokengenrator(UsrDTO usr)

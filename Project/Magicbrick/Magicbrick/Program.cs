@@ -3,6 +3,7 @@ using Magicbrick.Models;
 using Magicbrick.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -41,6 +42,14 @@ var tc = builder.Configuration.GetSection("Jwt");
             builder.Services.AddControllers();
 
 
+            //builder.Services.AddControllers().AddJsonOptions(options =>
+            //{
+            //    options.JsonSerializerOptions.PropertyNamingPolicy = null; // Disable property name casing
+            //    options.JsonSerializerOptions.IgnoreNullValues = true; // Ignore null values during serialization
+            //    options.JsonSerializerOptions.WriteIndented = true; // Enable indented formatting for readability
+            //                                                        // Add any other necessary configuration options
+            //});
+
             builder.Services.AddDbContext<MagicBricksDbContext>(op => op.UseSqlServer(builder.Configuration["ConnectionString"]));
 
 
@@ -50,7 +59,7 @@ var tc = builder.Configuration.GetSection("Jwt");
 
             builder.Services.AddScoped<IHash, HashRepo>();
             builder.Services.AddScoped<IGenric<Property>, propertyservice>();
-
+          
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: "Policy1",

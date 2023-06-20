@@ -11,6 +11,11 @@ export class AuthService {
 
     constructor(private http: HttpClient,private router:Router) { }
 
+    userlogedin:boolean=false;
+    userid!:number;
+    role!:string;
+
+
     postdata(formdata:any){
       return this.http.post('https://localhost:7210/api/Auth/register',formdata)
 
@@ -26,7 +31,10 @@ export class AuthService {
       };
 
       storetoken(tokenValue:any){
+        this.userlogedin=true;
         let data= tokenValue.token;
+        this.role=tokenValue.role;
+        this.userid=tokenValue.uid;
         localStorage.setItem('token',data);
       }
       gettoken(){
@@ -34,6 +42,8 @@ export class AuthService {
       }
 
       logout(){
+        this.userlogedin=false;
+
         localStorage.clear();
         this.router.navigateByUrl("");
       }

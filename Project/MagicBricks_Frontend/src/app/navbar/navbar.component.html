@@ -1,19 +1,133 @@
-  <div class="row">
-    <div class="col-md-12 bg-danger d-flex justify-content-around">
-
-
-        <p class="h3 text-light p-2">
-          <a routerLink="/home" class="text-decoration-none text-white">
-
-            magicbricks
-          </a>
-        </p>
-
-        <div class="my-auto">
-
-          <button class="btn btn-danger fw-bold" routerLink="/profile">My Profile</button>
-          <button class="btn btn-danger fw-bold" (click)="logout()">Logout</button>
-
+<div class="row">
+  <div class="col-md-12 bg-danger d-flex justify-content-around">
+    <div class="h3 text-light p-2 d-flex">
+      <a routerLink="/home" class="text-decoration-none text-white">
+        magicbricks
+      </a>
+      <div class="dropdown open">
+        <button
+          class="btn btn-danger dropdown-toggle mx-5"
+          type="button"
+          id="triggerId"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <ng-container *ngIf="selectedcity == ''; else elsepart2">
+            city
+          </ng-container>
+          <ng-template #elsepart2>
+            {{ selectedcity }}
+          </ng-template>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="triggerId">
+          <button
+            class="dropdown-item text-danger"
+            value="ahmedabad"
+            (click)="func('ahmedabad')"
+          >
+            ahmedabad
+          </button>
+          <button
+            class="dropdown-item text-danger"
+            value="mumbai"
+            (click)="func('mumbai')"
+          >
+          mumbai
+          </button>
         </div>
+      </div>
+    </div>
+
+    <div class="my-auto">
+      <ng-container *ngIf="userlogedin == true; else elsepart">
+        <button class="btn btn-danger fw-bold" routerLink="/profile">
+          My Profile
+        </button>
+        <button class="btn btn-danger fw-bold" (click)="logout()">
+          Logout
+        </button>
+      </ng-container>
+
+      <ng-template #elsepart>
+        <button class="btn btn-danger fw-bold" (click)="login()">Login</button>
+      </ng-template>
     </div>
   </div>
+
+  <div class="container d-flex">
+    <div class="dropdown">
+      <button
+        class="bg-white btn dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Buy
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#" (click)="prop('flat',selectedcity)">flats in {{selectedcity}}</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <button
+        class="bg-white btn dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Sell
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <button
+        class="bg-white btn dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        Rent
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <button class="bg-white btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+       Help
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <div class="d-flex">
+          <div>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </div>
+          <div>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </div> <div>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </div>
+
+        </div>
+
+      </ul>
+    </div>
+  </div>
+</div>

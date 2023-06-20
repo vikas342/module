@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+
 using System.IdentityModel.Tokens.Jwt;
+using System.Threading.Tasks;
+
 
 namespace Magicbrick.Controllers
 {
@@ -28,15 +32,16 @@ namespace Magicbrick.Controllers
 
 
 
-        //public PropertyController(MagicBricksDbContext context, IConfiguration config, IHash hash)
+        //public PropertyController(MagicBricks_context context, IConfiguration config, IHash hash)
         //{
         //    _context = context;
         //}
 
 
 
+        ///get users prop_listings
 
-        [Authorize(AuthenticationSchemes = "Bearer")]
+       [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpGet("GetuserPropertylisting")]
         public async Task<IActionResult> GetuserPropertylisting()
         {
@@ -63,6 +68,8 @@ namespace Magicbrick.Controllers
         }
 
 
+
+        //get othres_proplistings
 
 
         [Authorize(AuthenticationSchemes = "Bearer")]
@@ -93,16 +100,42 @@ namespace Magicbrick.Controllers
 
 
 
+        //get allusers proplistings
+
+
         [HttpGet("all_properties")]
 
         public async Task<IActionResult> getallprops()
         {
+            var data =  _context.PropertySps.FromSqlRaw($"Exec AllListing");
 
-            return Ok();
-            
+
+            return Ok(data);
+
+
 
 
         }
+
+
+        //get prop by id
+
+
+        [HttpGet("getpropbyid")]
+
+        public async Task<IActionResult> getpropbyid(int id)
+        {
+            var data = _context.PropertySps.FromSqlRaw($"Exec  Propby_id @pid={id}");
+
+
+            return Ok(data);
+
+
+
+        }
+
+
+
 
 
 

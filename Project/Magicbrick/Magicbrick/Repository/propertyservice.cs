@@ -1,6 +1,9 @@
 ﻿using Magicbrick.Interfaces;
 using Magicbrick.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace Magicbrick.Repository
 {
@@ -8,12 +11,14 @@ namespace Magicbrick.Repository
     {
         private readonly MagicBricksDbContext _context;
 
-        public propertyservice( MagicBricksDbContext context)
+        public propertyservice(MagicBricksDbContext context)
         {
             _context = context;
         }
 
-       async Task<List<Property>>  IGenric<Property>.Delete(int id)
+      
+
+        async Task<List<Property>> IGenric<Property>.Delete(int id)
         {
             var data = await _context.Properties.FirstOrDefaultAsync(p => p.PropId == id);
             _context.Properties.Remove(data);
@@ -21,23 +26,35 @@ namespace Magicbrick.Repository
             return _context.Properties.ToList();
         }
 
-       async Task<List<Property>> IGenric<Property>.GetAll()
+        async Task<List<Property>> IGenric<Property>.GetAll()
         {
-           
-
 
             return _context.Properties.ToList();
         }
 
-       async Task<Property> IGenric<Property>.GetById(int id)
+
+
+
+
+
+
+
+
+
+        async Task<Property> IGenric<Property>.GetById(int id)
         {
 
-            var data = await _context.Properties.FirstOrDefaultAsync(p => p.PropId == id);
+            var data = await _context.Properties.FirstOrDefaultAsync(p => p.PropId == id); 
             return data;
 
         }
 
-      async  Task<List<Property>> IGenric<Property>.Insert(Property item)
+
+
+
+
+
+        async Task<List<Property>> IGenric<Property>.Insert(Property item)
         {
 
 

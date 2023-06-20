@@ -31,9 +31,12 @@ namespace Magicbrick.Controllers
 
         // GET api/<GenricController>/5
         [HttpGet("{id}")]
+
         public Task<T> GetById(int id)
         {
             return _igenric.GetById(id);
+
+
         }
 
         // POST api/<GenricController>

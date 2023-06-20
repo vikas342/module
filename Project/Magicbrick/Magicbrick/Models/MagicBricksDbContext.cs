@@ -30,7 +30,10 @@ namespace Magicbrick.Models
 
         public virtual DbSet<PropertySps> PropertySps { get; set; } = null!;
 
+       // public virtual DbSet<ListingModel> xsps { get; set; } = null!;
 
+
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
