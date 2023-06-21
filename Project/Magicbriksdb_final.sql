@@ -1688,3 +1688,20 @@ Exec Propby_id @pid=1
 
 select * from Property
 
+
+
+SELECT *
+  FROM Objecttype
+
+
+select * from Object
+
+
+
+select o.Name  from Objecttype ot   join Object o on ot.id=o.Obj_type_Id
+where ot.parent_Id=4 
+
+
+
+select o.Name  from Objecttype ot   join Object o on ot.id=o.Obj_type_Id
+where ot.id=2

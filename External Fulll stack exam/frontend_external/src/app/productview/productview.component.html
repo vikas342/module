@@ -11,10 +11,10 @@
       <select
         name="cat"
         id="cat"
-        class="mx-3"
+        class="mx-3 form-select w-25"
         (change)="getfilter($event.target)"
       >
-        <option value="none" disabled selected>Select category</option>
+        <option value="none" disabled selected >Select category</option>
         <ng-container *ngFor="let x of categories">
           <option value="{{ x.id }}">{{ x.category }}</option>
         </ng-container>
@@ -98,8 +98,10 @@
       </div>
     </ng-container>
   </ng-template>
-  </div>
+
 </div>
+  </div>
+
 
 <div></div>
 
