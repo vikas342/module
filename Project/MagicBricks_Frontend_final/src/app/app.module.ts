@@ -14,13 +14,14 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { UsermmoduleModule } from './usermmodule/usermmodule.module';
 import { AdminmoduleModule } from './adminmodule/adminmodule.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
     LoginComponent,
     StructureLogRegComponent,
-    
+
   ],
   imports: [
     BrowserModule,
