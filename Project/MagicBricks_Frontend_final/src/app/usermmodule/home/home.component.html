@@ -1,10 +1,196 @@
 <div class="container-fluid">
   <app-navbar></app-navbar>
 </div>
-<div class="container">
+<div class="container mt-5">
+  <p class="text-center fs-1">Welcome back! Let’s continue your search</p>
 
-  <p>
+  <!-- Nav tabs -->
+  <div class="container mt-5">
+    <nav class=" d-flex justify-content-center">
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-pills danger  " id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active  text-dark fs-5"
+            id="home-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#home"
+            type="button"
+            role="tab"
+            aria-controls="home"
+            aria-selected="true"
+
+            (click)="setpropfor('Buy')"
+          >
+            Buy
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+          class="nav-link   text-dark fs-5"
+            id="profile-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#profile"
+            type="button"
+            role="tab"
+            aria-controls="profile"
+            aria-selected="false"
+            (click)="setpropfor('Rent')"
+
+          >
+            Rent
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+          class="nav-link   text-dark fs-5"
+            id="messages-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#messages"
+            type="button"
+            role="tab"
+            aria-controls="messages"
+            aria-selected="false"
+          >
+            Post Free Property Ad
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Nav tabs -->
+
+  <!-- <p>
     {{otheruserlistings|json}}
-  </p>
+  </p> -->
 </div>
 
+
+
+<div>
+  <!-- Tab panes -->
+
+  <div class="tab-content d-flex justify-content-center mt-5">
+    <div
+      class="tab-pane active"
+      id="home"
+      role="tabpanel"
+      aria-labelledby="home-tab"
+    >
+      <div class="border border-2 p-5 rounded-5 ">
+        <div>
+          <label for="city">city</label>
+          <select [(ngModel)]="city" id="city" class="form-select">
+            <option *ngFor="let item of cities" [value]="item.city">
+              {{ item.city }}
+            </option>
+          </select>
+        </div>
+        <br />
+
+        <div>
+          <label for="type">Property Type</label>
+          <select [(ngModel)]="type" id="type" class="form-select =">
+            <option *ngFor="let item of types" [value]="item.type">
+              {{ item.type }}
+            </option>
+          </select>
+        </div>
+        <br />
+
+        <div>
+          <label for="Min">Min</label>
+          <input
+            type="number"
+            id="Min"
+            min="0 "
+            [(ngModel)]="min"
+            class="form-control"
+            placeholder="Min"
+          />
+          <br />
+
+          <label for="Max">Max</label>
+
+          <input
+            type="number"
+            id="Max"
+            min="0 "
+            [(ngModel)]="max"
+            class="form-control"
+            placeholder="Max"
+          />
+        </div>
+        <br />
+
+        <button class="btn btn-danger w-100" (click)="serch()">Serch</button>
+      </div>
+    </div>
+    <div
+      class="tab-pane"
+      id="profile"
+      role="tabpanel"
+      aria-labelledby="profile-tab"
+    >
+    <div class="border border-2 p-5 rounded-5">
+      <div>
+        <label for="city">city</label>
+        <select [(ngModel)]="city" id="city" class="form-select">
+          <option *ngFor="let item of cities" [value]="item.city">
+            {{ item.city }}
+          </option>
+        </select>
+      </div>
+      <br />
+
+      <div>
+        <label for="type">Property Type</label>
+        <select [(ngModel)]="type" id="type" class="form-select =">
+          <option *ngFor="let item of types" [value]="item.type">
+            {{ item.type }}
+          </option>
+        </select>
+      </div>
+      <br />
+
+      <div>
+        <label for="Min">Min</label>
+        <input
+          type="number"
+          id="Min"
+          min="0 "
+          [(ngModel)]="min"
+          class="form-control"
+          placeholder="Min"
+        />
+        <br />
+
+        <label for="Max">Max</label>
+
+        <input
+          type="number"
+          id="Max"
+          min="0 "
+          [(ngModel)]="max"
+          class="form-control"
+          placeholder="Max"
+        />
+      </div>
+      <br />
+
+      <button class="btn btn-danger w-100" (click)="serch()">Serch</button>
+    </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<div class="container mt-5">
+
+  <app-adviceandtools></app-adviceandtools>
+</div>

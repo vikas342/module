@@ -55,6 +55,7 @@ namespace Magicbrick.Controllers
                 var userid = Convert.ToInt64(jwtToken.Claims.First().Value);
 
                 var data = _context.PropertySps.FromSqlRaw($"Exec UserListing @userid={userid}");
+
                 return Ok(data);
 
 

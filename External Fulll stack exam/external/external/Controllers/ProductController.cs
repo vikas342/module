@@ -76,9 +76,9 @@ namespace external.Controllers
             var data=_context.Products.FirstOrDefault(x=>x.Pid==pid);
             data.Pname = product.Pname;
             data.Photo = product.Photo;
-            data.Description = data.Description;
-            data.Price = data.Price;
-            data.Qty = data.Qty;
+            data.Description = product.Description;
+            data.Price = product.Price;
+            data.Qty = product.Qty;
 
 
             await _context.SaveChangesAsync();

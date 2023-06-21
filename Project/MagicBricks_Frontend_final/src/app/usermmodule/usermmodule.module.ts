@@ -5,17 +5,24 @@ import { UsermmoduleRoutingModule } from './usermmodule-routing.module';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdviceandtoolsComponent } from './adviceandtools/adviceandtools.component';
+import { RealestateGuideComponent } from './realestate-guide/realestate-guide.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    AdviceandtoolsComponent,
+    RealestateGuideComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
-    UsermmoduleRoutingModule
+    UsermmoduleRoutingModule,FormsModule,ReactiveFormsModule
   ]
 })
 export class UsermmoduleModule { }
