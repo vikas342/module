@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdviceandtoolsComponent } from './adviceandtools/adviceandtools.component';
 import { RealestateGuideComponent } from './realestate-guide/realestate-guide.component';
 import { FooterComponent } from './footer/footer.component';
+import { ResultpageComponent } from './resultpage/resultpage.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     AdviceandtoolsComponent,
     RealestateGuideComponent,
-    FooterComponent
+    FooterComponent,
+    ResultpageComponent
   ],
   imports: [
     CommonModule,

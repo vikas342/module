@@ -12,13 +12,11 @@
 
  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   background-color: rgb(248, 50, 50);
-  
+  color: white !important;
+
+
 }
-#tile-1 .nav-tabs .active{
-  background-color:transparent!important;
-  border:none!important;
-  color:#39bcd3!important;
-}
+
 
 #tile-1 .slider{
   display:inline-block;
@@ -60,4 +58,14 @@
 .tile{
   width:80%;
   margin:60px auto;
+}
+
+
+#pfp_AD:active
+{
+
+background-color: red;
+border: 0px;
+
+
 }

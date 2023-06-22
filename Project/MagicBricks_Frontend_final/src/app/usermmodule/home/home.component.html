@@ -1,5 +1,6 @@
-<div class="container-fluid">
-  <app-navbar></app-navbar>
+
+<div class="container-fluid  navbar-white bg-white fixed-top" >
+  <app-navbar ></app-navbar>
 </div>
 <div class="container mt-5">
   <p class="text-center fs-1">Welcome back! Let’s continue your search</p>
@@ -12,7 +13,7 @@
       <ul class="nav nav-pills danger  " id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button
-            class="nav-link active  text-dark fs-5"
+            class="nav-link active  text-dark fs-5   "
             id="home-tab"
             data-bs-toggle="tab"
             data-bs-target="#home"
@@ -43,18 +44,20 @@
           </button>
         </li>
         <li class="nav-item" role="presentation">
-          <button
+          <!-- <button
           class="nav-link   text-dark fs-5"
             id="messages-tab"
             data-bs-toggle="tab"
-            data-bs-target="#messages"
+
             type="button"
-            role="tab"
+
             aria-controls="messages"
             aria-selected="false"
           >
             Post Free Property Ad
-          </button>
+          </button> -->
+
+         <a  class="nav-link   text-dark fs-5 ">Post Free Property Ad</a>
         </li>
       </ul>
     </nav>
@@ -72,7 +75,7 @@
 <div>
   <!-- Tab panes -->
 
-  <div class="tab-content d-flex justify-content-center mt-5">
+  <div class="tab-content d-flex justify-content-center mt-5 ">
     <div
       class="tab-pane active"
       id="home"
@@ -194,3 +197,17 @@
 
   <app-adviceandtools></app-adviceandtools>
 </div>
+<div class="container mt-5">
+<app-realestate-guide></app-realestate-guide>
+
+</div>
+
+<div class="container-fluid mt-5">
+  <app-footer></app-footer>
+
+</div>
+
+
+<!-- <p class="text-center bg-dark text-light p-3">
+  All trademarks, logos and names are properties of their respective owners. All Rights Reserved. © Copyright 2023 Magicbricks Realty Services Limited.
+</p> -->

@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit {
 
 
   serch(){
-    alert(this.city +"  "+this.type+ "  "+this.min+"  " +this.max+" "+this.propfor)
+    alert(this.city+" "+this.type +"  "+this.propfor+ "  "+this.min+"  " +this.max)
   }
 
 

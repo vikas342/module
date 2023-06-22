@@ -14,7 +14,11 @@ export class NavbarComponent  implements OnInit{
   cities:any[]=[];
   types:any[]=[];
   userlogedin:boolean=this.serv.userlogedin;
+
+
   selectedcity:string='Ahmedabad';
+
+  selctedpropFor:string='';
 
   logout(){
     this.serv.logout();
@@ -36,10 +40,7 @@ export class NavbarComponent  implements OnInit{
 
 
 
-  //willl be call in service and service will call api in api crete dto for type and city on basis fetch data
-  prop(x:string,y:string){
-    alert(x+" "+y)
-  }
+
 
 ngOnInit(): void {
 
@@ -60,8 +61,17 @@ ngOnInit(): void {
 
 
 
+
+
+  //willl be call in service and service will call api in api crete dto for type and city on basis fetch data
+  proptype(city:string,proptype:string){
+    alert(city+" " +proptype+" "+this.selctedpropFor)
+  }
+
+
+
 propbudget(min:number,max:number){
-  alert(min+" "+max)
+  alert(this.selectedcity+" " +this.selctedpropFor+" " +min+" "+max)
 }
 
 postproplistings(){
@@ -70,7 +80,9 @@ postproplistings(){
 
 
 postprop(){
-  
+
 }
+
+
 
 }
