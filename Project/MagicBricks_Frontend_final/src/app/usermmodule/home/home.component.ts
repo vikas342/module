@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   min:number=0;
   max:number=500000;
 
-  propfor:string="Buy";
+  propfor:string="Sell";
 
 
   //serch
@@ -31,13 +32,14 @@ export class HomeComponent implements OnInit {
   cities:any=[];
   types:any=[];
 
-  constructor(private apiserv: ApiService) {}
+  constructor(private apiserv: ApiService,private route:Router) {}
   ngOnInit(): void {
 
 
 
     this.apiserv.getotheruserlisting().subscribe((res) => {
       this.otheruserlistings = res;
+      
       for (let i of this.otheruserlistings) {
         if (i.imageUrl) {
           let x = JSON.parse(i.imageUrl);
@@ -69,6 +71,8 @@ export class HomeComponent implements OnInit {
 
   serch(){
     alert(this.city+" "+this.type +"  "+this.propfor+ "  "+this.min+"  " +this.max)
+    this.route.navigateByUrl('\serchresult')
+
   }
 
 

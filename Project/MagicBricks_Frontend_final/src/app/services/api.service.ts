@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
+
   constructor( private http:HttpClient) { }
 
   getuserdetail(){
@@ -36,5 +37,37 @@ export class ApiService {
     return this.http.get<any>("https://localhost:7210/api/Property/getproptype");
   }
 
+
+
+  //navbar BUY/Rent > on click  propertytype  .....data
+  //city,ptype,pfor
+
+
+  getprop_CTF( city:string,  proptype:string,  propfor:string){
+    return this.http.get<any>("https://localhost:7210/api/Property/getprop_CTF?city="+ city+"&proptype="+proptype+"&propfor="+propfor);
+  }
+
+
+
+
+  //navbar BUY/Rent > on click  budget  .....data
+  //   on click on buy/rent ->budget section    on navbar for budget
+
+
+  getpropbudget_CFMinMax(city:string,proptype:string,  propfor:string,  min:number,max:number){
+    return this.http.get<any>("https://localhost:7210/api/Property/getpropbudget_CFMinMax?city="+city+"&proptype="+proptype+"&propfor="+propfor+"&min="+min+"&max="+max);
+    //https://localhost:7210/api/Property/allpropserch_CTFMinMax?city=Ahmedabad&proptype=flat&propfor=sell&min=0&max=123456789
+  }
+
+
+
+
+
+
+  //click on cities and get all properties in that city
+
+  getprop_serchcity(city:string){
+    return this.http.get<any>("https://localhost:7210/api/Property/allpropserch_city?city="+city);
+  }
 
 }

@@ -10,6 +10,7 @@ import { AdviceandtoolsComponent } from './adviceandtools/adviceandtools.compone
 import { RealestateGuideComponent } from './realestate-guide/realestate-guide.component';
 import { FooterComponent } from './footer/footer.component';
 import { ResultpageComponent } from './resultpage/resultpage.component';
+import { PostpropertyComponent } from './postproperty/postproperty.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ResultpageComponent } from './resultpage/resultpage.component';
     AdviceandtoolsComponent,
     RealestateGuideComponent,
     FooterComponent,
-    ResultpageComponent
+    ResultpageComponent,
+    PostpropertyComponent
   ],
   imports: [
     CommonModule,

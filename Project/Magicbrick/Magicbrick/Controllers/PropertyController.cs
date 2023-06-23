@@ -188,5 +188,87 @@ namespace Magicbrick.Controllers
 
 
 
+
+        //   on click on buy/rent -> property section    on navbar for proptype_section
+
+
+
+        [HttpGet("getprop_CTF")]
+
+        public async Task<IActionResult> getprop_CTF(string city, string proptype, string propfor)
+        {
+            var data = _context.PropertySps.FromSqlRaw($"Exec allPropOn_CTF @city={city},@proptype={proptype},@propfor={propfor}");
+
+
+
+
+            return Ok(data);
+
+        }
+
+
+
+
+
+        //   on click on buy/rent ->budget section    on navbar for budget
+
+
+
+        [HttpGet("getpropbudget_CFMinMax")]
+
+        public async Task<IActionResult> getpropbudget_CFMinMax(string city, string propfor, int min,int max)
+        {
+            var data = _context.PropertySps.FromSqlRaw($"Exec allpropbudget_CFMinMax @city={city},@propfor={propfor}, @low={min},@high={max}");
+
+
+
+
+            return Ok(data);
+
+        }
+
+
+
+
+
+
+        //   on click on buy/rent ->serch box    on home component
+
+
+
+        [HttpGet("allpropserch_CTFMinMax")]
+
+        public async Task<IActionResult> allpropserch_CTFMinMax(string city,string proptype, string propfor, int min, int max)
+        {
+            var data = _context.PropertySps.FromSqlRaw($"Exec allpropserch_CTFMinMax @city={city},@proptype={proptype},@propfor={propfor}, @low={min},@high={max}");
+
+
+
+
+            return Ok(data);
+
+        }
+
+
+
+
+
+        //   on click link city to see all propertys in that city
+
+
+
+        [HttpGet("allpropserch_city")]
+
+        public async Task<IActionResult> allpropserch_city(string city )
+        {
+            var data = _context.PropertySps.FromSqlRaw($"Exec Allcity_Prop @city={city} ");
+
+
+
+
+            return Ok(data);
+
+        }
+
     }
 }

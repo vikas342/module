@@ -1463,6 +1463,9 @@ Exec Allstate_Prop @state='gujrat'
 
 
 /*
+
+
+property for click on city
 8.0*/
 
 
@@ -1514,7 +1517,7 @@ where  obj.Name = @city
 order by  prop.CreatedDate
 
 
-Exec Allcity_Prop @city='ahmedabad'
+Exec Allcity_Prop @city='Ahmedabad'
 
 
 /*
@@ -1705,3 +1708,182 @@ where ot.parent_Id=4
 
 select o.Name  from Objecttype ot   join Object o on ot.id=o.Obj_type_Id
 where ot.id=2
+
+
+
+
+
+/*
+12.0
+
+
+app propert on click on buy/rent on navbar for proptype_section
+
+*/
+
+
+create or alter procedure allPropOn_CTF @city varchar(50),@proptype varchar(50),@propfor varchar(50)
+as
+select distinct
+usr.U_ID,
+prop.Prop_Id,
+
+o.Owner_Name,
+o.Email as o_email,
+o.contact_no as o_contact
+,ad.Building_Name,ad.Area,ad.Pincode
+,otyp.Name as state
+,obj.Name as city,
+obj2.Name as PostedBy,
+obj3.Name PropertyFor,
+obj4.Name PropertyType,
+obj5.Name Status,
+prop.Price,
+prop.CreatedDate,
+
+
+
+(select obj1.Name as amenity  from 
+Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
+join  Property prop on o.Id=prop.Owner_details
+join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
+join Object obj1 on prop_ame.Am_Id=obj1.Id
+where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
+for json auto ) as prop_amenities,
+(select prop_imgs.Img_Id, prop_imgs.Image_url 
+from 
+Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
+join  Property prop on o.Id=prop.Owner_details
+join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
+where usrr.U_ID=usr.U_ID
+for json auto   )  as imageUrl
+from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
+join Property prop on o.Id= prop.Owner_details
+join Address  ad on prop.Address= ad.add_id 
+join  Objecttype otyp on ad.State=otyp.Id 
+join Object obj on ad.City = obj.Id
+join Object obj2 on prop.PostedBy = obj2.Id
+join Object obj3 on prop.Prop_for = obj3.Id
+join Object obj4 on prop.Prop_Type = obj4.Id
+join Object obj5 on prop.Status=obj5.Id
+join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
+where  obj3.Name =@propfor and obj.Name=@city and obj4.Name=@proptype
+order by  prop.CreatedDate
+
+
+Exec allPropOn_CTF @city='Ahmedabad',@proptype='flat',@propfor='sell'
+
+
+/*13. all_prop_budhget
+
+        //   on click on buy/rent ->budget section    on navbar for budget
+
+
+*/
+
+create or alter procedure allpropbudget_CFMinMax @city varchar(50),@propfor varchar(50), @low int,@high int
+as
+select distinct
+usr.U_ID,
+prop.Prop_Id,
+o.Owner_Name,
+o.Email as o_email,
+o.contact_no as o_contact
+,ad.Building_Name,ad.Area,ad.Pincode
+,otyp.Name as state
+,obj.Name as city,
+obj2.Name as PostedBy,
+obj3.Name PropertyFor,
+obj4.Name PropertyType,
+obj5.Name Status,
+prop.Price,
+prop.CreatedDate,
+
+
+(select obj1.Name as amenity  from 
+Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
+join  Property prop on o.Id=prop.Owner_details
+join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
+join Object obj1 on prop_ame.Am_Id=obj1.Id
+where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
+for json auto ) as prop_amenities,
+(select prop_imgs.Img_Id, prop_imgs.Image_url 
+from 
+Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
+join  Property prop on o.Id=prop.Owner_details
+join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
+where usrr.U_ID=usr.U_ID
+for json auto   )  as imageUrl
+from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
+join Property prop on o.Id= prop.Owner_details
+join Address  ad on prop.Address= ad.add_id 
+join  Objecttype otyp on ad.State=otyp.Id 
+join Object obj on ad.City = obj.Id
+join Object obj2 on prop.PostedBy = obj2.Id
+join Object obj3 on prop.Prop_for = obj3.Id
+join Object obj4 on prop.Prop_Type = obj4.Id
+join Object obj5 on prop.Status=obj5.Id
+join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
+where  prop.Price between @low and @high and obj.Name=@city and obj3.Name=@propfor
+order by  prop.CreatedDate
+
+Exec allpropbudget_CFMinMax @city='Ahmedabad',@propfor='sell', @low=50000,@high=123456789
+
+
+
+
+
+/*14. allpropserch_CTFMinMax from homecomponent serch
+
+        //   on click on buy/rent ->serch box    on home component
+
+
+*/
+
+create or alter procedure allpropserch_CTFMinMax @city varchar(50),@proptype varchar(50), @propfor varchar(50), @low int,@high int
+as
+select distinct
+usr.U_ID,
+prop.Prop_Id,
+o.Owner_Name,
+o.Email as o_email,
+o.contact_no as o_contact
+,ad.Building_Name,ad.Area,ad.Pincode
+,otyp.Name as state
+,obj.Name as city,
+obj2.Name as PostedBy,
+obj3.Name PropertyFor,
+obj4.Name PropertyType,
+obj5.Name Status,
+prop.Price,
+prop.CreatedDate,
+
+
+(select obj1.Name as amenity  from 
+Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
+join  Property prop on o.Id=prop.Owner_details
+join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
+join Object obj1 on prop_ame.Am_Id=obj1.Id
+where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
+for json auto ) as prop_amenities,
+(select prop_imgs.Img_Id, prop_imgs.Image_url 
+from 
+Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
+join  Property prop on o.Id=prop.Owner_details
+join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
+where usrr.U_ID=usr.U_ID
+for json auto   )  as imageUrl
+from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
+join Property prop on o.Id= prop.Owner_details
+join Address  ad on prop.Address= ad.add_id 
+join  Objecttype otyp on ad.State=otyp.Id 
+join Object obj on ad.City = obj.Id
+join Object obj2 on prop.PostedBy = obj2.Id
+join Object obj3 on prop.Prop_for = obj3.Id
+join Object obj4 on prop.Prop_Type = obj4.Id
+join Object obj5 on prop.Status=obj5.Id
+join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
+where  prop.Price between @low and @high and obj.Name=@city and obj3.Name=@propfor and obj4.Name=@proptype
+order by  prop.CreatedDate
+
+Exec allpropserch_CTFMinMax @city='Ahmedabad',@proptype='flat',@propfor='sell', @low=50000,@high=123456789

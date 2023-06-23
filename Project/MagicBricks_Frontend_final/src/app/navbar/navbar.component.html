@@ -26,7 +26,7 @@
             <button
               class="dropdown-item text-danger"
               value="ahmedabad"
-              (click)="func(item.city)"
+              (click)="selectcity(item.city)"
             >
               {{ item.city }}
             </button>
@@ -47,7 +47,7 @@
 
       <ng-template #elsepart>
         <button class="btn btn-danger fw-bold" (click)="login()">Login</button>
-        <button class="btn btn-danger fw-bold" >Post Property</button>
+        <button class="btn btn-danger fw-bold" (click)="postproperty()" >Post Property</button>
 
 
 
@@ -66,7 +66,7 @@
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        (click)="selctedpropFor='Buy'"
+        (click)="selctedpropFor='Sell'"
       >
         Buy
       </button>
@@ -77,7 +77,7 @@
             <hr />
 
             <ng-container *ngFor="let x of types">
-              <a class="dropdown-item" (click)="proptype(selectedcity,x.type)"
+              <a class="dropdown-item" (click)="propserch(selectedcity,x.type)"
                 >{{ x.type }} in {{ selectedcity }}</a
               >
             </ng-container>
@@ -90,7 +90,7 @@
             <a class="dropdown-item" (click)="propbudget(0, 5000000)"
               >Under 50 Lac</a
             >
-            <a class="dropdown-item" (click)="propbudget(50000000, 10000000)"
+            <a class="dropdown-item" (click)="propbudget(5000000, 10000000)"
               >50 Lac - 1 Cr</a
             ><a class="dropdown-item" (click)="propbudget(10000000, 15000000)"
               >1 Cr - 1.5 Crc</a
@@ -120,7 +120,7 @@
             <hr />
 
             <ng-container *ngFor="let x of types">
-              <a class="dropdown-item" (click)="proptype( selectedcity,x.type)"
+              <a class="dropdown-item" (click)="propserch( selectedcity,x.type)"
                 >{{ x.type }} in {{ selectedcity }}</a
               >
             </ng-container>
@@ -161,7 +161,7 @@
             <p class="text-center fw-bold">For Owners</p>
             <hr />
 
-            <a class="dropdown-item" (click)="postprop()">Post Property</a>
+            <a class="dropdown-item" (click)="postproperty()">Post Property</a>
             <a class="dropdown-item" (click)="postproplistings()"
               >My Property Listings</a
             >
@@ -170,7 +170,7 @@
             <p class="text-center fw-bold">For Brokers</p>
             <hr />
 
-            <a class="dropdown-item" (click)="postprop()">Post Property</a>
+            <a class="dropdown-item" (click)="postproperty()">Post Property</a>
             <a class="dropdown-item" (click)="postproplistings()"
               >My Property Listings</a
             >
