@@ -1,1 +1,64 @@
-<p>resultpage works!</p>
+<div class="container-fluid">
+
+
+  <app-navbar [hideSomeProperties]="true"></app-navbar>
+
+
+  <p>{{data|json}}</p>
+
+  <div class="container">
+
+    <div *ngFor="let x of data">
+
+
+      <div class="row " style="height: 200px;">
+        <div class="card py-0">
+          <div class="row p-3">
+            <div class="col-md-4  ">
+              <img src="{{x.imageUrl[0].Image_url}} " alt="prop_Image" class="card-img " class="card-img custom-img">
+              <br>
+              <p class=" fs-4"> Owner Name: {{x.owner_Name}}</p>
+            </div>
+            <div class="col-md-8">
+              <h5 class="card-title fs-3">{{x.building_Name}}</h5>
+              <p class="card-text"><span class="fw-bold">Address: </span>{{x.area}},{{x.city}},{{x.state}},{{x.building_Name}}</p>
+              <p class="card-text"><small class="text-body-secondary"><span class="fw-bold">Posted On:</span> {{x.createdDate}}</small></p>
+              <p class="card-text"><span class="fw-bold">Price:</span> {{x.price}}</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>
+  {{x|json}}
+</p> -->
+
+
+
+
+
+
+

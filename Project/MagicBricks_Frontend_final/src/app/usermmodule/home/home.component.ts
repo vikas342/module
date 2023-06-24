@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { DataService } from 'src/app/services/data.service';
 
 
 @Component({
@@ -32,14 +33,14 @@ export class HomeComponent implements OnInit {
   cities:any=[];
   types:any=[];
 
-  constructor(private apiserv: ApiService,private route:Router) {}
+  constructor(private apiserv: ApiService,private route:Router,private dataservice:DataService) {}
   ngOnInit(): void {
 
 
 
     this.apiserv.getotheruserlisting().subscribe((res) => {
       this.otheruserlistings = res;
-      
+
       for (let i of this.otheruserlistings) {
         if (i.imageUrl) {
           let x = JSON.parse(i.imageUrl);
@@ -71,7 +72,12 @@ export class HomeComponent implements OnInit {
 
   serch(){
     alert(this.city+" "+this.type +"  "+this.propfor+ "  "+this.min+"  " +this.max)
-    this.route.navigateByUrl('\serchresult')
+
+    this.apiserv.getpropserch_CTFMinMax(this.city,this.type,this.propfor,this.min,this.max).subscribe((x)=>{
+
+      this.dataservice.putdata(x);
+      this.route.navigateByUrl('\serchresult')
+    })
 
   }
 
