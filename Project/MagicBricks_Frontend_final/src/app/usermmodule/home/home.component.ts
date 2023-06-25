@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   city:any='Ahmedabad';
   type:string="Flat";
   min:number=0;
-  max:number=500000;
+  max:number=5000000;
 
   propfor:string="Sell";
 
@@ -85,6 +85,9 @@ export class HomeComponent implements OnInit {
   setpropfor(x:string){
 
     this.propfor=x
+    if(x=='Rent'){
+      this.max=25000
+    }
 
   }
 }

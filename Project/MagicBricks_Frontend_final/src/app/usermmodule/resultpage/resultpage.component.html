@@ -1,64 +1,99 @@
 <div class="container-fluid">
-
-
   <app-navbar [hideSomeProperties]="true"></app-navbar>
 
 
-  <p>{{data|json}}</p>
+  <div class="d-flex">
+
+  
+  </div>
+
+
+  <p>{{ data | json }}</p>
 
   <div class="container">
-
     <div *ngFor="let x of data">
-
-
-      <div class="row " style="height: 200px;">
+      <div class="row" style="height: 200px" >
         <div class="card py-0">
           <div class="row p-3">
-            <div class="col-md-4  ">
-              <img src="{{x.imageUrl[0].Image_url}} " alt="prop_Image" class="card-img " class="card-img custom-img">
-              <br>
-              <p class=" fs-4"> Owner Name: {{x.owner_Name}}</p>
+            <div class="col-md-4" (click)="propview(x.prop_Id)">
+              <img
+                src="{{ x.imageUrl[0].Image_url }} "
+                alt="prop_Image"
+                class="card-img"
+                class="card-img custom-img"
+              />
+              <br />
+              <p class="fs-4" >Owner Name: {{ x.owner_Name }}</p>
             </div>
             <div class="col-md-8">
-              <h5 class="card-title fs-3">{{x.building_Name}}</h5>
-              <p class="card-text"><span class="fw-bold">Address: </span>{{x.area}},{{x.city}},{{x.state}},{{x.building_Name}}</p>
-              <p class="card-text"><small class="text-body-secondary"><span class="fw-bold">Posted On:</span> {{x.createdDate}}</small></p>
-              <p class="card-text"><span class="fw-bold">Price:</span> {{x.price}}</p>
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="d-flex justify-content-between">
+                    <h5 class="card-title fs-3">{{ x.building_Name }}</h5>
+                    <button
+                      class="btn border border-white"
+                      (click)="putinwhishlist(x.prop_Id)"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        [ngStyle]="{
+                          fill: arr.includes(x.prop_Id) ? 'red' : 'black'
+                        }"
+                        class="bi bi-heart"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div  (click)="propview(x.prop_Id)">
+                     <p class="card-text">
+                      <span class="fw-bold">Address: </span>{{ x.area }},{{
+                        x.city
+                      }},{{ x.state }},{{ x.building_Name }}
+                    </p>
+                    <p class="card-text">
+                      <small class="text-body-secondary"
+                      ><span class="fw-bold">Posted On:</span>
+                      {{ x.createdDate }}</small
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <p class="card-text fs-4">
+                    <span class="fw-bold">Rs:</span> {{ x.price }}
+                  </p>
+
+                  <p>
+                    <button
+                      class="btn btn-white border border-2 border-danger text-danger p-2 rounded-5"
+                    >
+                      Request Callback
+                    </button>
+                  </p>
+
+                  <p>
+                    <button class="btn btn-danger p-2 rounded-5">
+                      Get Property Info
+                    </button>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
-
-
-
-    </div>
-
-
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- <p>
   {{x|json}}
 </p> -->
-
-
-
-
-
-
-

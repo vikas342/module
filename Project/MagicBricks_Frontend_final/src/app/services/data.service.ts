@@ -5,9 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+  pid!:number;
+
   data!:any[];
 
-  constructor() { }
+  constructor() {
+
+
+  }
 
   putdata(data:any){
     this.data=data;
@@ -27,7 +32,11 @@ export class DataService {
   }
 
 
-
+setpid(id:number){
+  this.pid=id
+  localStorage.setItem('pid',id.toString());
+  console.log(this.pid);
+}
 
 
 
@@ -45,5 +54,10 @@ export class DataService {
         i.prop_amenities = x;
       }
     }
+  }
+
+  getpid(){
+    const pidValue = localStorage.getItem('pid');
+     return pidValue !== null ? parseInt(pidValue) : 0;
   }
 }

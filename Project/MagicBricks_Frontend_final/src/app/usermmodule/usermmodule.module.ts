@@ -11,6 +11,7 @@ import { RealestateGuideComponent } from './realestate-guide/realestate-guide.co
 import { FooterComponent } from './footer/footer.component';
 import { ResultpageComponent } from './resultpage/resultpage.component';
 import { PostpropertyComponent } from './postproperty/postproperty.component';
+import { PropertyviewComponent } from './propertyview/propertyview.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PostpropertyComponent } from './postproperty/postproperty.component';
     RealestateGuideComponent,
     FooterComponent,
     ResultpageComponent,
-    PostpropertyComponent
+    PostpropertyComponent,
+    PropertyviewComponent
   ],
   imports: [
     CommonModule,

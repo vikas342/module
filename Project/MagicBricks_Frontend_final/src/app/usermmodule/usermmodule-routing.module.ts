@@ -4,8 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ResultpageComponent } from './resultpage/resultpage.component';
 import { PostpropertyComponent } from './postproperty/postproperty.component';
+import { PropertyviewComponent } from './propertyview/propertyview.component';
 
 const routes: Routes = [
+  {
+    path: 'propertyview',
+    component: PropertyviewComponent,
+  },
   {
     path: 'postproperty',
     component: PostpropertyComponent,

@@ -5,7 +5,7 @@
       <a routerLink="/home" class="text-decoration-none text-white">
         magicbricks
       </a>
-      <div class="dropdown open">
+      <div class="dropdown open" *ngIf="!hideSomeProperties">
         <button
           class="btn btn-danger dropdown-toggle mx-5"
           type="button"
@@ -21,12 +21,14 @@
           {{ selectedcity }}
           <!-- </ng-template> -->
         </button>
-        <div class="dropdown-menu" aria-labelledby="triggerId">
+        <div class="dropdown-menu" aria-labelledby="triggerId" >
           <ng-container *ngFor="let item of cities">
             <button
               class="dropdown-item text-danger"
               value="ahmedabad"
               (click)="selectcity(item.city)"
+
+
             >
               {{ item.city }}
             </button>
