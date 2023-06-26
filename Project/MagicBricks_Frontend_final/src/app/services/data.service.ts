@@ -7,6 +7,8 @@ export class DataService {
 
   pid!:number;
 
+  selctedcity:any;
+
   data!:any[];
 
   constructor() {
@@ -60,4 +62,6 @@ setpid(id:number){
     const pidValue = localStorage.getItem('pid');
      return pidValue !== null ? parseInt(pidValue) : 0;
   }
+
+
 }

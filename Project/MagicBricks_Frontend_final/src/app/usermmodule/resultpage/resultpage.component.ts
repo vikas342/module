@@ -26,6 +26,12 @@ export class ResultpageComponent implements OnInit {
 
 
   cities: any[] = [];
+  prop_type: any[] = [];
+  prop_for: any[] = [];
+
+  prop_postedby: any[] = [];
+
+
 
 
 
@@ -48,6 +54,9 @@ export class ResultpageComponent implements OnInit {
     this.data=this.dataserv.getdata();
 
 
+    this.api.getproptype().subscribe((x)=>{
+      this.prop_type=x;
+    })
 
   }
 

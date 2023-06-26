@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
   selectcity(city: string) {
     this.selectedcity = city;
     alert(city + ' city is selcted');
-    
+
   }
 
   ngOnInit(): void {
