@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -24,9 +25,12 @@ export class ResultpageComponent implements OnInit {
 
 
 
+  cities: any[] = [];
 
 
-  constructor(private dataserv:DataService,private route:Router) {
+
+
+  constructor(private dataserv:DataService,private route:Router,private api:ApiService) {
 
 
   }
@@ -36,6 +40,10 @@ export class ResultpageComponent implements OnInit {
     // this.data= this.dataserv.data;
     // console.warn(this.data);
     // this.x.push(this.data)
+    this.api.getcities().subscribe((x) => {
+      this.cities = x;
+      console.log(this.cities);
+    });
 
     this.data=this.dataserv.getdata();
 
@@ -67,4 +75,14 @@ export class ResultpageComponent implements OnInit {
     this.dataserv.setpid(pid)
 this.route.navigateByUrl('/propertyview')
  }
+
+
+ //willl used for setting city in below components
+ selectcity(city: string) {
+  this.selectedcity = city;
+  alert(city + ' city is selcted');
+
+}
+
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({

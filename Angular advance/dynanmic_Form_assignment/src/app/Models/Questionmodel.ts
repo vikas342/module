@@ -7,6 +7,8 @@ export class Questionmodel<T> {
   controlType: string;
   type: string;
   options: {key: string, value: string}[];
+  checkboxs?:{key:string,value:string,checked:false}[];
+
 
   constructor(options: {
       value?: T;
@@ -16,6 +18,8 @@ export class Questionmodel<T> {
       order?: number;
       controlType?: string;
       type?: string;
+    checkboxs?:{key:string,value:string,checked:false}[];
+
       options?: {key: string, value: string}[];
     } = {}) {
     this.value = options.value;
@@ -24,6 +28,8 @@ export class Questionmodel<T> {
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
     this.controlType = options.controlType || '';
+    this.checkboxs=options.checkboxs||[];
+
     this.type = options.type || '';
     this.options = options.options || [];
   }

@@ -1,0 +1,40 @@
+<div [formGroup]="form">
+    <div class="mb-3">
+        <label [attr.for]="question.key" class="form-label">{{question.label}}</label>
+        <div [ngSwitch]="question.controlType">
+
+            <input *ngSwitchCase="'textbox'" [type]="question.type" [formControlName]="question.key" [id]="question.key" class="form-control" placeholder="" aria-describedby="helpId">
+
+            <select class="form-select form-select-lg" name="" [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+                    <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+            </select>
+
+            <textarea *ngSwitchCase="'textarea'" class="form-control" [formControlName]="question.key" [id]="question.key" rows="5"></textarea>
+
+
+
+            <div *ngSwitchCase="'radio'" class="form-check form-check-inline">
+                <div *ngFor="let op of question.checkboxs;let i=index">
+                    <input type="radio" class="form-check-input" [formControlName]="question.key" [id]="question.key" [value]="op.value">
+                    <label class="form-check-label" for="">
+                        {{op.value}}
+                    </label>
+                </div>
+            </div>
+
+
+            <div *ngSwitchCase="'checkbox'">
+                <ng-container *ngFor="let op of question.checkboxs;let i = index">
+                    <div [formArrayName]="question.key">
+                        <input class="form-check-input" type="checkbox" [formControlName]="i" [id]="op.key" [value]="op.value" [checked]="op.value">
+                        <label class="form-check-label" for="">
+                            {{op.value}}
+                        </label>
+                    </div>
+                </ng-container>
+            </div>
+
+        </div>
+        <small id="helpId" class="text-muted">Help text</small>
+    </div>
+</div>
