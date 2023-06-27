@@ -284,6 +284,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -328,7 +329,7 @@ where usr.U_ID=@userid
 
 
 
-Exec UserListing @userid=3
+Exec UserListing @userid=2
 
 
 Exec OtherUserListing @userid=2
@@ -353,6 +354,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -419,6 +422,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 
 o.Owner_Name,
 o.Email as o_email,
@@ -478,6 +483,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -537,6 +543,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -596,6 +603,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -658,6 +666,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -719,6 +728,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -779,6 +789,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -840,6 +851,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -904,6 +916,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -972,6 +985,7 @@ as
 select distinct
 wlist.User_id,
 
+prop.prop_desc,
 pro.Prop_Id,
 o.Owner_Name,
 o.Email as o_email,
@@ -1075,6 +1089,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -1130,6 +1145,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -1187,6 +1203,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -1243,6 +1260,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -1301,6 +1319,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -1358,6 +1377,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -1415,6 +1435,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -1474,6 +1496,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -1529,6 +1553,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -1585,6 +1611,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -1643,6 +1671,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -1727,6 +1757,7 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
 
 o.Owner_Name,
 o.Email as o_email,
@@ -1786,6 +1817,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -1845,6 +1878,8 @@ as
 select distinct
 usr.U_ID,
 prop.Prop_Id,
+prop.prop_desc,
+
 o.Owner_Name,
 o.Email as o_email,
 o.contact_no as o_contact
@@ -1887,3 +1922,23 @@ where  prop.Price between @low and @high and obj.Name=@city and obj3.Name=@propf
 order by  prop.CreatedDate
 
 Exec allpropserch_CTFMinMax @city='Ahmedabad',@proptype='flat',@propfor='sell', @low=50000,@high=123456789
+
+
+
+
+select * from Object
+select * from Objecttype
+
+
+
+select  name as propfor  from Object where Obj_type_Id = 3
+
+
+select  name as postedby  from Object where Obj_type_Id = 10
+
+
+  alter table property
+  add Prop_desc varchar(500)
+
+
+  select * from Property

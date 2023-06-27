@@ -7,7 +7,7 @@ export class DataService {
 
   pid!:number;
 
-  selctedcity:any;
+  selctedcity:string='';
 
   data!:any[];
 
@@ -58,10 +58,39 @@ setpid(id:number){
     }
   }
 
+
+  dataparser(data1:any){
+    for (let i of data1) {
+      if (i.imageUrl) {
+        let x = JSON.parse(i.imageUrl);
+
+        i.imageUrl = x;
+      }
+      if (i.prop_amenities) {
+        let x = JSON.parse(i.prop_amenities);
+
+        i.prop_amenities = x;
+      }
+
+      return data1;
+    }
+  }
+
+
+
   getpid(){
     const pidValue = localStorage.getItem('pid');
      return pidValue !== null ? parseInt(pidValue) : 0;
   }
 
+
+
+  setcity(x:string){
+    this.selctedcity=x;
+    localStorage.setItem('selctedCity',x);
+  }
+  getSelctedCity(){
+    return localStorage.getItem('selctedCity')
+  }
 
 }

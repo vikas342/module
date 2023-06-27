@@ -24,6 +24,7 @@ namespace Magicbrick.Models
         public DateTime? ModifiedDate { get; set; }
         public int? CreatedBy { get; set; }
         public int? ModifedBy { get; set; }
+        public string? Prop_desc { get; set; }
 
         public virtual Address? AddressNavigation { get; set; }
         public virtual Owner? OwnerDetailsNavigation { get; set; }

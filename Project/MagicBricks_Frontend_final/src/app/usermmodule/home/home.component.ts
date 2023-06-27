@@ -73,6 +73,7 @@ export class HomeComponent implements OnInit {
   serch(){
     alert(this.city+" "+this.type +"  "+this.propfor+ "  "+this.min+"  " +this.max)
 
+    this.dataservice.setcity(this.city);
     this.apiserv.getpropserch_CTFMinMax(this.city,this.type,this.propfor,this.min,this.max).subscribe((x)=>{
 
       this.dataservice.putdata(x);

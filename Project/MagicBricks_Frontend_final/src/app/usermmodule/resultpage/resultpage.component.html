@@ -2,53 +2,91 @@
   <app-navbar [hideSomeProperties]="true"></app-navbar>
   <div class="bg-danger">
 
-    <div class="d-flex  justify-content-around">
+    <div class=" container d-flex ">
 
 
-      <select id="city" class="form-select m-3"  >
-        <option value="" selcted >--Select city--</option>
+      <!-- <select id="city" class="form-select m-3"  (change)="selectcity_serch($event.target)">
+        <option value="" selcted >Select city </option>
         <option *ngFor="let item of cities" [value]="item.city">
           {{ item.city }}
         </option>
-      </select>
+      </select> -->
+
+      <button class="btn bg-white form-select m-3 text-start " type="button" id="triggerId" data-bs-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+
+        {{ selectedcity }}
+
+      </button>
+      <div class="dropdown-menu" aria-labelledby="triggerId">
+        <ng-container *ngFor="let item of cities">
+          <button class="dropdown-item  " [value]="item.city" (click)="selectcity_serch(item.city)">
+            {{ item.city }}
+          </button>
+        </ng-container>
+      </div>
 
 
-      <select id="city" class="form-select m-3" >
-        <option value="" selcted >--Property For--</option>
+      <select id="city" class="form-select m-3" (change)="selectpropfor_serch($event.target)">
+        <option value="" selcted>Select Property For</option>
 
-        <option *ngFor="let item of cities" [value]="item.city" >
-          {{ item.city }}
+        <option *ngFor="let item of prop_for" [value]="item.propfor">
+          {{ item.propfor }}
         </option>
       </select>
 
 
-      <select id="city"class="form-select m-3">
-        <option value="" selcted >--Property Type--</option>
+      <select id="city" class="form-select m-3 " (change)="selectproptype_serch($event.target)">
+        <option value="" selcted>Select Property Type</option>
 
-        <option *ngFor="let item of prop_type" [value]="item.city">
+        <option *ngFor="let item of prop_type" [value]="item.type">
           {{ item.type }}
         </option>
       </select>
 
-      <select id="city" class="form-select m-3">
-        <option value="" selcted >--Posted By--</option>
+      <select id="city" class="form-select m-3" (change)="selectPropPostedBy_serch($event.target)">
+        <option value="" selcted>Select Posted By</option>
 
-        <option *ngFor="let item of cities" [value]="item.city">
-          {{ item.city }}
+        <option *ngFor="let item of prop_postedby" [value]="item.postedby">
+          {{ item.postedby }}
         </option>
       </select>
 
 
-      <select id="city" class="form-select m-3">
-        <option value="" selcted >--Budget--</option>
-
-        <option *ngFor="let item of cities" [value]="item.city">
-          {{ item.city }}
-        </option>
-      </select>
+      <!-- <select id="city" class="form-select m-3">
+        <option value="" selcted >Budget</option>
 
 
-      <button  type="button" class="btn btn-light m-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Filters</button>
+      </select> -->
+
+
+      <button class="btn btn-danger form-select  m-3 bg-white text-dark text-start" type="button" id="triggerId"
+        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+        Budget
+      </button>
+      <div class="dropdown-menu p-2" aria-labelledby="triggerId">
+
+
+        <div class="d-flex justify-content-evenly">
+
+          <input type="number" class="form-control " name="min" id="min" [(ngModel)]="min" placeholder="min" min="0">
+
+          <input type="number" class="form-control " name="max" id="max " [(ngModel)]="max" placeholder="max" min="0">
+
+        </div>
+
+        <button class="btn btn-danger mt-2 " (click)="selectBudget_serch()">Find</button>
+
+
+      </div>
+
+
+
+
+
+      <button type="button" class="btn btn-light m-3" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">Filters</button>
 
     </div>
   </div>
@@ -65,8 +103,25 @@
 
 <!-- <p>{{ data | json }}</p> -->
 
+
+
+
+
 <div class="container mt-5">
 
+  <select id="sorting" class="form-select mb-5 w-25" (change)="sorting($event.target)">
+    <option value="default" selcted>Sort by: Relevance</option>
+    <option value="lth">Sort by: Low to High</option>
+    <option value="htl">Sort by: High to Low</option>
+
+
+
+  </select>
+
+
+
+
+  <!-- data displaying -->
 
   <div *ngFor="let x of data">
     <div class="row" style="height: 200px">
@@ -101,6 +156,10 @@
                   <p class="card-text">
                     <small class="text-body-secondary"><span class="fw-bold">Posted On:</span>
                       {{ x.createdDate }}</small>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-secondary">
+                      {{ x.prop_desc }}</small>
                   </p>
                 </div>
               </div>
@@ -145,11 +204,63 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+
+
+        <div>
+          <label for="city">city</label>
+          <select [(ngModel)]="city" id="city" class="form-select">
+            <option value="" disabled>Select city</option>
+
+            <option *ngFor="let item of cities" [value]="item.city">
+              {{ item.city }}
+            </option>
+          </select>
+        </div>
+        <br />
+        <div>
+          <label for="type">Property For</label>
+
+          <select [(ngModel)]="propfor" id="type" class="form-select =">
+            <option value="" disabled>Select Property For</option>
+
+            <option *ngFor="let item of prop_for" [value]="item.propfor">
+              {{ item.propfor }}
+            </option>
+          </select>
+        </div>
+        <br />
+
+        <div>
+          <label for="type">Property Type</label>
+
+          <select [(ngModel)]="proptype" id="type" class="form-select =">
+            <option value="" disabled>Select Property Type</option>
+
+            <option *ngFor="let item of prop_type" [value]="item.type">
+              {{ item.type }}
+            </option>
+          </select>
+        </div>
+        <br />
+
+        <div>
+          <label for="Min">Min</label>
+          <input type="number" id="Min" min="0 " [(ngModel)]="min" class="form-control" placeholder="Min" />
+          <br />
+
+          <label for="Max">Max</label>
+
+          <input type="number" id="Max" min="0 " [(ngModel)]="max" class="form-control" placeholder="Max" />
+        </div>
+        <br />
+
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-danger" (click)="getfilter()" data-bs-dismiss="modal">Apply filter</button>
       </div>
     </div>
   </div>

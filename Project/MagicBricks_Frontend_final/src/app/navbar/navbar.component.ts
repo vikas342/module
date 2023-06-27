@@ -50,6 +50,8 @@ export class NavbarComponent implements OnInit {
     this.selectedcity = city;
     alert(city + ' city is selcted');
 
+    this.dataserv.setcity(city);
+
   }
 
   ngOnInit(): void {

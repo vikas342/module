@@ -119,4 +119,28 @@ export class ApiService {
       'https://localhost:7210/api/Property/allpropserch_city?city=' + city
     );
   }
+
+
+  //get prop_for data
+
+  getprop_for(){
+    return this.http.get<any>('https://localhost:7210/api/Property/Propfor')
+}
+
+
+
+  //get postedby data
+
+  getprop_postedby(){
+    return this.http.get<any>('https://localhost:7210/api/Property/postedby')
+}
+
+
+//get property on sell or rent
+
+getprop_onRent() {
+  return this.http.get<any>('https://localhost:7210/api/Property/getpropertyon_rnt')}
+
+  getprop_onSell() {
+    return this.http.get<any>('https://localhost:7210/api/Property/getpropertyon_sell')}
 }

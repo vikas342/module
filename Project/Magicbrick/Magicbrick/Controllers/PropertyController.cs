@@ -9,7 +9,9 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
 namespace Magicbrick.Controllers
@@ -252,6 +254,7 @@ namespace Magicbrick.Controllers
 
 
 
+        //get property accordeing to city
 
         //   on click link city to see all propertys in that city
 
@@ -262,6 +265,88 @@ namespace Magicbrick.Controllers
         public async Task<IActionResult> allpropserch_city(string city )
         {
             var data = _context.PropertySps.FromSqlRaw($"Exec Allcity_Prop @city={city} ");
+
+
+
+
+            return Ok(data);
+
+        }
+
+
+
+
+        //prop for
+
+
+        [HttpGet("Propfor")]
+
+        public async Task<IActionResult> Propfor()
+        {
+            var data = from x in _context.Objects where x.ObjTypeId==3 select new { propfor=x.Name };
+             //   select  name as propfor  from Object where Obj_type_Id = 3
+
+
+
+
+
+            return Ok(data);
+
+        }
+
+
+
+
+
+        //prop posted by
+
+
+        [HttpGet("postedby")]
+
+        public async Task<IActionResult> postedby()
+        {
+            var data = from x in _context.Objects where x.ObjTypeId == 10 select new { postedby = x.Name };
+            //   select  name as propfor  from Object where Obj_type_Id = 10
+
+
+
+
+
+            return Ok(data);
+
+        }
+
+
+
+        //get property accordeing to rent
+
+
+        [HttpGet("getpropertyon_rnt")]
+
+        public async Task<IActionResult> getpropertyon_city()
+        {
+            var data = _context.PropertySps.FromSqlRaw($"Exec Allsell_Prop ");
+
+
+
+
+
+            return Ok(data);
+
+        }
+
+
+
+
+        //get property accordeing to sell
+
+
+        [HttpGet("getpropertyon_sell")]
+
+        public async Task<IActionResult> getpropertyon_sell()
+        {
+            var data = _context.PropertySps.FromSqlRaw($"Exec Allrent_Prop ");
+
 
 
 

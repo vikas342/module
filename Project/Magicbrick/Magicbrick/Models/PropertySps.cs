@@ -10,6 +10,8 @@ namespace Magicbrick.Models
     {
         public int? U_Id { get; set; }
         public int? Prop_Id { get; set; }
+        public string? Prop_desc { get; set; }
+
         public string? Owner_Name { get; set; }
         public string? o_email { get; set; }
         public string? o_contact { get; set; }
