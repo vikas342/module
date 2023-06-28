@@ -123,9 +123,9 @@
 
   <!-- data displaying -->
 
-  <div *ngFor="let x of data">
-    <div class="row" style="height: 200px">
-      <div class="card py-0">
+    <ng-container   *ngFor="let x of data">
+    <div class="row m-5" >
+      <div class="card ">
         <div class="row p-3">
           <div class="col-md-4" (click)="propview(x.prop_Id)">
             <img src="{{ x.imageUrl[0].Image_url }} " alt="prop_Image" class="card-img" class="card-img custom-img" />
@@ -186,8 +186,19 @@
         </div>
       </div>
     </div>
-  </div>
 
+
+
+    <br>
+
+  </ng-container>
+
+
+
+
+</div>
+<div class="container-fluid">
+  <app-footer></app-footer>
 </div>
 
 <!-- <p>
@@ -265,3 +276,6 @@
     </div>
   </div>
 </div>
+
+
+

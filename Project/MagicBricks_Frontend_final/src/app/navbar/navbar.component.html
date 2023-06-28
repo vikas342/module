@@ -39,6 +39,11 @@
 
     <div class="my-auto">
       <ng-container *ngIf="userlogedin == true; else elsepart">
+        <button class="btn btn-danger fw-bold" routerLink="/home">
+          Home
+        </button>
+        <button class="btn btn-danger fw-bold" routerLink="/postproperty" >Post Property</button>
+
         <button class="btn btn-danger fw-bold" routerLink="/profile">
           My Profile
         </button>
@@ -48,8 +53,7 @@
       </ng-container>
 
       <ng-template #elsepart>
-        <button class="btn btn-danger fw-bold" (click)="login()">Login</button>
-        <button class="btn btn-danger fw-bold" (click)="postproperty()" >Post Property</button>
+        <button class="btn btn-danger fw-bold" routerLink="/login'">Login</button>
 
 
 

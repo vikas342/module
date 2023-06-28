@@ -32,7 +32,7 @@ export class NavbarComponent implements OnInit {
   //tochecheck user status
   userlogedin: boolean = this.serv.userlogedin;
 
-  selectedcity: string = 'Ahmedabad';
+  selectedcity: any ;
 
   //for buy or sell
   selctedpropFor: string = '';
@@ -41,10 +41,7 @@ export class NavbarComponent implements OnInit {
     this.serv.logout();
   }
 
-  login() {
-    this.route.navigateByUrl('/login');
-  }
-
+ 
   //willl used for setting city in below components
   selectcity(city: string) {
     this.selectedcity = city;
@@ -57,6 +54,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     //get city
 
+
     this.api.getcities().subscribe((x) => {
       this.cities = x;
       console.log(this.cities);
@@ -66,6 +64,12 @@ export class NavbarComponent implements OnInit {
       this.types = x;
       console.log(this.types);
     });
+
+
+
+    localStorage.setItem('selctedCity','Ahmedabad')
+    this.selectedcity =localStorage.getItem('selctedCity');
+
   }
 
   //willl be call in service and service will call api in api crete dto for type and city on basis fetch data

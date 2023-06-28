@@ -29,8 +29,8 @@ import { AdminmoduleModule } from './adminmodule/adminmodule.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UsermmoduleModule,
-    AdminmoduleModule
+    AdminmoduleModule,
+    UsermmoduleModule
 
 
   ],

@@ -142,5 +142,14 @@ getprop_onRent() {
   return this.http.get<any>('https://localhost:7210/api/Property/getpropertyon_rnt')}
 
   getprop_onSell() {
-    return this.http.get<any>('https://localhost:7210/api/Property/getpropertyon_sell')}
+    return this.http.get<any>('https://localhost:7210/api/Property/getpropertyon_sell')
+
+  }
+
+
+  //get prop by id
+
+  getprop_byId(id:number){
+    return this.http.get<any>("https://localhost:7210/api/Property/getpropbyid?id="+id);
+  }
 }
