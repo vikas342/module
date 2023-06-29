@@ -149,6 +149,7 @@ namespace Magicbrick.Controllers
             var data = (
                 from ot in _context.Objecttypes join o in _context.Objects on ot.Id equals o.ObjTypeId where ot.ParentId == 4 select new
                 {
+                    id=o.Id,
                     city=o.Name
                 }
                 
@@ -160,6 +161,39 @@ namespace Magicbrick.Controllers
 
 
         }
+
+
+
+
+        //get prop by states
+
+
+        [HttpGet("getpropbystate")]
+
+        public async Task<IActionResult> getpropbystate()
+        {
+            var data = (
+                from ot in _context.Objecttypes
+
+                where ot.ParentId == 4
+                select new
+                {
+                    id=ot.Id,
+                    state = ot.Name
+                }
+
+                ).ToList();
+
+
+            return Ok(data);
+
+
+
+        }
+
+
+
+
 
 
         //get proptype
@@ -176,6 +210,7 @@ namespace Magicbrick.Controllers
                 where ot.Id == 2
                 select new
                 {
+                    id=o.Id,
                     type = o.Name
                 }
 
@@ -283,7 +318,9 @@ namespace Magicbrick.Controllers
 
         public async Task<IActionResult> Propfor()
         {
-            var data = from x in _context.Objects where x.ObjTypeId==3 select new { propfor=x.Name };
+            var data = from x in _context.Objects where x.ObjTypeId==3 select new {
+                id=x.Id,
+                propfor=x.Name };
              //   select  name as propfor  from Object where Obj_type_Id = 3
 
 
@@ -305,7 +342,7 @@ namespace Magicbrick.Controllers
 
         public async Task<IActionResult> postedby()
         {
-            var data = from x in _context.Objects where x.ObjTypeId == 10 select new { postedby = x.Name };
+            var data = from x in _context.Objects where x.ObjTypeId == 10 select new { id=x.Id, postedby = x.Name };
             //   select  name as propfor  from Object where Obj_type_Id = 10
 
 

@@ -33,6 +33,15 @@ export class ApiService {
     );
   }
 
+   //get states
+
+   getstates() {
+    return this.http.get<any>(
+      'https://localhost:7210/api/Property/getpropbystate'
+    );
+  }
+
+
 
 
 
