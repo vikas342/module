@@ -327,6 +327,30 @@ namespace Magicbrick.Controllers
 
 
 
+
+            return Ok(data);
+
+        }
+
+
+
+        //prop amenities
+
+
+        [HttpGet("PropAmenities")]
+
+        public async Task<IActionResult> PropAmenities()
+        {
+            var data = from x in _context.Objects
+                       where x.ObjTypeId == 8
+                       select new
+                       {
+                           id = x.Id,
+                           amenity = x.Name
+                       };
+
+
+
             return Ok(data);
 
         }

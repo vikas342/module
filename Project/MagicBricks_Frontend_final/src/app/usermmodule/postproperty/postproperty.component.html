@@ -1,152 +1,279 @@
 <div class="container-fluid">
-<app-navbar></app-navbar>
+  <app-navbar></app-navbar>
 
 
 
 
-<div class="container mt-5 border border-2">
+  <div class="container mt-5 border border-2">
 
-  <!-- <p>postproperty works!</p> -->
-
-
-
-  <form [formGroup]="ownerdetails" (submit)="ownerdetails_Submit()" *ngIf="ownerdetails_visiblity" class="p-5">
-
-    <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Owners Details</p>
+    <!-- <p>postproperty works!</p> -->
 
 
 
+    <form [formGroup]="ownerdetails" (submit)="ownerdetails_Submit()" *ngIf="ownerdetails_visiblity" class="p-5">
 
-    <div class="form-group">
-      <label for="Owner_Name">Owner Name:</label>
-      <input type="text" formControlName='Owner_Name' placeholder="John Wick" id="Owner_Name"  class="form-control" >
-    </div>
-
-    <div class="form-group">
-      <label for="contact_no">Owner contact_no:</label>
-      <input type="tel" formControlName='contact_no' placeholder="9638527410" id="contact_no"   class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label for="Email">Email:</label>
-      <input type="text" formControlName='Email' placeholder="johnwick@gmail.com" id="Email"   class="form-control">
-    </div>
-
-    <br>
-    <button class="btn btn-danger">Next</button>
+      <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Owners Details</p>
 
 
 
 
-  </form>
+      <div class="form-group">
+        <label for="Owner_Name">Owner Name:</label>
+        <input type="text" formControlName='Owner_Name' placeholder="John Wick" id="Owner_Name" class="form-control">
+      </div>
 
+      <div class="form-group">
+        <label for="contact_no">Owner contact_no:</label>
+        <input type="tel" formControlName='contact_no' placeholder="9638527410" id="contact_no" class="form-control">
+      </div>
 
+      <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="text" formControlName='Email' placeholder="johnwick@gmail.com" id="Email" class="form-control">
+      </div>
 
-  <form [formGroup]="adressdetails" (submit)="adressdetails_Submit()" *ngIf="adressdetails_visiblity" class="p-5">
-
-
-    <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Address Details</p>
-
-
-
-    <div class="form-group">
-      <label for="Owner_Name">Building Name:</label>
-      <input type="text" formControlName='Building_Name' placeholder="Vandematram Fabulo" id="Building_Name"  class="form-control" >
-    </div>
-
-    <div class="form-group">
-      <label for="Area">Area:</label>
-      <input type="text" formControlName='Area' placeholder="Satelite" id="Area"   class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="City">City:</label>
-      <select formControlName="City"  class="form-select" >
-        <option selected disabled >Select city</option>
-
-        <option *ngFor="let x of cities" [value]="x.id">{{x.city}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="State">State:</label>
-      <select formControlName="State" class="form-select"  >
-        <option selected disabled >Select state</option>
-        <option *ngFor="let x of state" [value]="x.id">{{x.state}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="Pincode">Pincode:</label>
-      <input type="text" formControlName='Pincode' placeholder="380015" id="Pincode"   class="form-control">
-    </div>
-
-
-    <br>
-    <button class="btn btn-danger">Next</button>
+      <br>
+      <button class="btn btn-danger">Next</button>
 
 
 
 
-  </form>
+    </form>
+
+
+
+    <form [formGroup]="adressdetails" (submit)="adressdetails_Submit()" *ngIf="adressdetails_visiblity" class="p-5">
+
+
+      <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Address Details</p>
+
+
+
+      <div class="form-group">
+        <label for="Owner_Name">Building Name:</label>
+        <input type="text" formControlName='Building_Name' placeholder="Vandematram Fabulo" id="Building_Name"
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="Area">Area:</label>
+        <input type="text" formControlName='Area' placeholder="Satelite" id="Area" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="City">City:</label>
+        <select formControlName="City" class="form-select">
+          <option selected disabled>Select city</option>
+
+          <option *ngFor="let x of cities" [value]="x.id">{{x.city}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="State">State:</label>
+        <select formControlName="State" class="form-select">
+          <option selected disabled>Select state</option>
+          <option *ngFor="let x of state" [value]="x.id">{{x.state}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="Pincode">Pincode:</label>
+        <input type="text" formControlName='Pincode' placeholder="380015" id="Pincode" class="form-control">
+      </div>
+
+
+      <br>
+      <button class="btn btn-danger">Next</button>
 
 
 
 
-  <form [formGroup]="propertydetails" (submit)="propertydetails_Submit()" *ngIf="propertydetails_visiblity" class="p-5">
-
-
-    <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Property Details</p>
-
-
-
-    <div class="form-group">
-      <label for="Prop_desc">Property description:</label>
-      <input type="text" formControlName='Prop_desc' placeholder="Vandematram Fabulo" id="Prop_desc"  class="form-control" >
-    </div>
-
-    <div class="form-group">
-      <label for="Price">Price:</label>
-      <input type="text" formControlName='Price' placeholder="15,00,0000" id="Price"   class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="Prop_for">Prop_for:</label>
-      <select formControlName="Prop_for"  class="form-select" >
-        <option selected disabled >Select Property for</option>
-
-        <option *ngFor="let x of propfor" [value]="x.id">{{x.propfor}}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="Prop_Type">Prop_Type:</label>
-      <select formControlName="Prop_Type"  class="form-select" >
-        <option selected disabled >Select Property Type</option>
-
-        <option *ngFor="let x of proptype" [value]="x.id">{{x.type}}</option>
-      </select>
-    </div>
-
-
-    <div class="form-group">
-      <label for="PostedBy">PostedBy:</label>
-      <select formControlName="PostedBy"  class="form-select" >
-        <option selected disabled >Select Posted By</option>
-
-        <option *ngFor="let x of postedby" [value]="x.id">{{x.postedby}}</option>
-      </select>
-    </div>
-
-
-
-    <br>
-    <button class="btn btn-danger">Next</button>
+    </form>
 
 
 
 
-  </form>
-</div>
+    <form [formGroup]="propertydetails" (submit)="propertydetails_Submit()" *ngIf="propertydetails_visiblity"
+      class="p-5">
 
+
+      <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Property Details</p>
+
+
+
+      <div class="form-group">
+        <label for="Prop_desc">Property description:</label>
+        <input type="text" formControlName='Prop_desc' placeholder="Vandematram Fabulo" id="Prop_desc"
+          class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="Price">Price:</label>
+        <input type="text" formControlName='Price' placeholder="15,00,0000" id="Price" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="Prop_for">Prop_for:</label>
+        <select formControlName="Prop_for" class="form-select">
+          <option selected disabled>Select Property for</option>
+
+          <option *ngFor="let x of propfor" [value]="x.id">{{x.propfor}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="Prop_Type">Prop_Type:</label>
+        <select formControlName="Prop_Type" class="form-select">
+          <option selected disabled>Select Property Type</option>
+
+          <option *ngFor="let x of proptype" [value]="x.id">{{x.type}}</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="PostedBy">PostedBy:</label>
+        <select formControlName="PostedBy" class="form-select">
+          <option selected disabled>Select Posted By</option>
+
+          <option *ngFor="let x of postedby" [value]="x.id">{{x.postedby}}</option>
+        </select>
+      </div>
+
+
+      <!-- <div  class="form-group" formArrayName="amenities">
+
+      <ng-container *ngFor="let x of getamenities.controls; let i = index">
+
+        <div [formGroupName]="i">
+
+          <input type="checkbox" name="i" id="i"  formControlName="exist" value="true">
+          <label for="i">{{amenities_arr[i].amenity}}</label>
+
+
+
+        </div>
+
+
+
+
+      </ng-container>
+
+    </div> -->
+
+
+
+
+
+
+      <br>
+      <button class="btn btn-danger">Next</button>
+
+
+
+
+
+
+    </form>
+
+
+
+
+    <form [formGroup]="amenitydetails" (submit)="amenitydetails_Submit()" *ngIf="amenitydetails_visiblity" class="p-5">
+
+
+      <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Select Amenities If
+        Your Property Has</p>
+      <br>
+
+
+      <div class="form-group" formArrayName="amenities">
+
+        <ng-container *ngFor="let x of getamenities.controls; let i = index">
+
+          <div [formGroupName]="i" class="fs-5 ">
+
+            <input type="checkbox" name="i" id="i" formControlName="exist" value="true" class="form-check-input mx-3  ">
+            <label for="i">{{amenities_arr[i].amenity}}</label>
+
+
+
+          </div>
+
+
+
+
+        </ng-container>
+
+      </div>
+
+
+
+
+
+
+      <br>
+      <button class="btn btn-danger">Next</button>
+
+
+
+
+
+
+    </form>
+
+
+    <form [formGroup]="propImages" (submit)="propImages_Submit()" *ngIf="propImages_visiblity" class="p-5">
+
+
+      <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Upload Property Images</p>
+      <br>
+
+
+      <div class="form-group" formArrayName="images">
+
+        <ng-container *ngFor="let x of getImages.controls; let i = index">
+
+          <div [formGroupName]="i" class="fs-5  mt-3">
+
+            <label for="i">IMAGE {{i+1}}.</label>
+            <input type="file" name="i" id="i" formControlName="imageurl"  class="  form-control" >
+
+
+
+
+
+          </div>
+
+
+
+
+
+        </ng-container>
+
+        <button (click)="addmoreImages()" class="btn btn-danger mt-5">Add More</button>
+
+      </div>
+
+
+
+
+
+
+      <br>
+      <button class="btn btn-danger w-100" (click)="submitted()">submit</button>
+
+
+
+
+
+
+    </form>
+
+  </div>
+
+  <p>
+
+  </p>
 
 
 </div>

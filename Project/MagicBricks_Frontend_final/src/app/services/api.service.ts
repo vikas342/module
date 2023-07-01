@@ -137,6 +137,12 @@ export class ApiService {
 }
 
 
+  //get prop_for data
+
+  getprop_amenities(){
+    return this.http.get<any>('https://localhost:7210/api/Property/PropAmenities')
+}
+
 
   //get postedby data
 
