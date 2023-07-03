@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-md-9">
+      <app-product-list [products]="(products$ | async)!"></app-product-list>
+    </div>
+    <div class="col col-md-3">
+      <app-add-product (add)="onAdd($event)"></app-add-product>
+    </div>
+  </div>
+</div>
+
+
