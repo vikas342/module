@@ -1,17 +1,25 @@
-import { ActionCreator, createReducer,on } from "@ngrx/store";
-import { products } from "../model";
-import { GetProductActionSuccess } from "./actions";
+import { createReducer, on } from "@ngrx/store";
+import { products } from "../model"
+import { productApiAction } from "./actions";
 import { state } from "@angular/animations";
-import { TypedAction } from "@ngrx/store/src/models";
 
 
+export const initialstate:ReadonlyArray<products>=[];
 
-export  const initialstate :ReadonlyArray<products>=[]
 
-
-export const getproductreducer=createReducer(
+export const productreducer= createReducer(
   initialstate,
-  on(GetProductActionSuccess, (state,{products}) => products),
+  on(productApiAction,(state,{products})=> products)
 )
 
 
+
+
+// const featureReducer = createReducer(
+//   initialState,
+//   on(featureActions.action, state => ({ ...state, prop: updatedValue })),
+// );
+
+// export function reducer(state: State | undefined, action: Action) {
+//   return featureReducer(state, action);
+// }
