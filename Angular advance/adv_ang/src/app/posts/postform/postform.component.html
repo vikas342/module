@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+
+<div class="container mt-5 w-25">
+  <form (ngSubmit)="onsubmit()" [formGroup]="form">
+
+    <div *ngFor="let question of inputdata" class="form-row">
+      <div [ngSwitch]="question.controlType">
+        <ng-container *ngSwitchCase="'textbox'">
+          <label class="fw-bold">{{ question.label }}</label>
+          <input
+            [type]="question.type"
+            class="form-control"
+            [id]="question.key"
+            [formControlName]="question.key"
+          />
+        </ng-container>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!form.valid" class="btn btn-danger mt-3 w-100">Post</button>
+  </form>
+</div>

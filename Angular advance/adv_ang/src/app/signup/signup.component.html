@@ -1,0 +1,39 @@
+
+
+
+
+<div class="container mt-5 w-25">
+
+  <p class="fs-2 text-center">
+    signUp form
+  </p>
+
+
+  <form [formGroup]="signup" class="  " (ngSubmit)="submit()">
+
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" formControlName="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="uname">Username</label>
+      <input type="uname" id="uname" name="uname" formControlName="uname" class="form-control">
+    </div>
+
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" formControlName="password" class="form-control">
+    </div>
+
+    <p class="mt-3">
+
+      <a routerLink="/signin" class="text-decoration-none text-danger fw-bold">Alredy have an account?</a>
+    </p>
+
+
+    <button class="btn btn-danger w-100" [disabled]="!signup.valid">signup</button>
+  </form>
+</div>

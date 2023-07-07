@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+  <!-- <p>{{userposts | json}}</p> -->
+
+
+
+  <div class="row">
+
+    <ng-container *ngFor="let x of userposts">
+      <div class="col col-md-3 my-3">
+        <div class="card" style="width: 18rem;">
+
+          <p class="  fs-3  mx-2">{{x.uname}}</p>
+
+          <img src="{{x.imageurl}}" class="card-img-top" alt="...">
+          <div class="card-body">
+
+            <p class="card-text">{{x.caption}}</p>
+
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
