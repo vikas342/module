@@ -106,7 +106,7 @@ export class PostpropertyComponent implements OnInit {
 
      // amenities: this.fb.array([]),
     });
-
+        
     this.amenitydetails = this.fb.group({
       amenities: this.fb.array([]),
     });

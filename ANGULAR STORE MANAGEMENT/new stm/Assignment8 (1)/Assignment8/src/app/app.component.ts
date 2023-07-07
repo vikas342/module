@@ -12,7 +12,8 @@ export class AppComponent implements OnInit{
   title = 'Assignment8';
   constructor(private store:Store){}
   ngOnInit(): void {
-    this.store.dispatch(GetProductAction())
+   var x= this.store.dispatch(GetProductAction())
+   console.warn(x);
   }
   onAdd(data:any){
     console.log(data);
