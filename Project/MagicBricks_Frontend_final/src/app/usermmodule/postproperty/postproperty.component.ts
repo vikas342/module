@@ -104,9 +104,11 @@ export class PostpropertyComponent implements OnInit {
       Price: ['', [Validators.required]],
       Prop_desc: ['', [Validators.required]],
 
+      Status: [14],
+
      // amenities: this.fb.array([]),
     });
-        
+
     this.amenitydetails = this.fb.group({
       amenities: this.fb.array([]),
     });

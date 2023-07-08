@@ -1,4 +1,5 @@
-﻿using Magicbrick.Interfaces;
+﻿using Magicbrick.DTOs;
+using Magicbrick.Interfaces;
 using Magicbrick.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -413,6 +414,118 @@ namespace Magicbrick.Controllers
 
 
             return Ok(data);
+
+        }
+
+
+
+        //////////////////////////////////////
+        //////////////////////////////////////
+        //////////////////////////////////////
+        //////////////////////////////////////
+        //////////////////////////////////////
+
+        //post propertyy//////
+
+
+
+        [HttpPost("post_ownerdetails")]
+
+        public async Task<IActionResult> post_ownerdetails(Ownerdetails_DTO ownerdetails_)
+        {
+
+            var data = new Owner();
+            data.OwnerId = ownerdetails_.Owner_Id;
+            data.CreatedDate = DateTime.Now;
+            data.ModifiedDate = DateTime.Now;
+            data.CreatedBy = ownerdetails_.Owner_Id;
+            data.ModifedBy = ownerdetails_.Owner_Id;
+            data.OwnerName = ownerdetails_.Owner_Name;
+            data.ContactNo = ownerdetails_.contact_no;
+            data.Email= ownerdetails_.Email;
+
+
+
+
+
+
+           _context.AddAsync(data);
+            _context.SaveChanges();
+
+            return Ok(data.Id);
+
+        }
+
+
+
+
+
+        [HttpPost("post_Addressdetails")]
+
+        public async Task<IActionResult> post_Addressdetails( int uid, Addressdetails_DTO addressdetails_)
+        {
+
+            var data = new Address();
+             data.CreatedDate = DateTime.Now;
+            data.ModifiedDate = DateTime.Now;
+            data.CreatedBy = uid;
+            data.ModifedBy = uid;
+            data.Area = addressdetails_.Area;
+            data.BuildingName = addressdetails_.Building_Name;
+            data.State = addressdetails_.State;
+
+          //  data.State = Convert.ToInt32(addressdetails_.State);
+
+            data.City = addressdetails_.City;
+            data.Pincode= addressdetails_.Pincode;
+      
+
+
+
+
+
+
+            _context.AddAsync(data);
+            _context.SaveChanges();
+
+            return Ok(data.AddId);
+
+        }
+
+
+
+
+        [HttpPost("post_Propdetails")]
+
+        public async Task<IActionResult> post_Propdetails(int uid,int add_id, int owner_detail_id ,Propertydetails_DTO propertydetails_)
+        {
+
+            var data = new Property();
+            data.CreatedDate = DateTime.Now;
+            data.ModifiedDate = DateTime.Now;
+            data.CreatedBy = uid;
+            data.ModifedBy = uid;
+
+            data.Address = add_id;
+            data.OwnerDetails = owner_detail_id;
+            data.PostedBy = propertydetails_.PostedBy;
+            data.PropFor = propertydetails_.Prop_for;
+            data.PropType = propertydetails_.Prop_Type;
+            data.Status=propertydetails_.Status;
+            data.Price = propertydetails_.Price;
+            data.Prop_desc = propertydetails_.Prop_desc;
+
+
+
+
+
+
+
+
+            _context.AddAsync(data);
+            _context.SaveChanges();
+
+            return Ok(data.PropId);
 
         }
 
