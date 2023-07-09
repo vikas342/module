@@ -165,6 +165,52 @@ getprop_onRent() {
   //get prop by id
 
   getprop_byId(id:number){
-    return this.http.get<any>("https://localhost:7210/api/Property/getpropbyid?id="+id);
+    return this.http.
+    get<any>("https://localhost:7210/api/Property/getpropbyid?id="+id);
+  }
+
+
+
+
+////
+////
+////
+////
+
+
+  //post property
+
+
+
+  ///Ownerdetails fill
+
+  post_ownerdetails(formdata:any){
+    return this.http.post('https://localhost:7210/api/Property/post_ownerdetails',formdata)
+
+  }
+
+
+  //Addressdetails fill
+
+  post_Addressdetails(id:number,formdata:any){
+    return this.http.post('https://localhost:7210/api/Property/post_Addressdetails?uid='+id,formdata)
+
+  }
+
+   //Propertydetails fill
+
+   post_Propdetails(id:number,formdata:any){
+    return this.http.post('https://localhost:7210/api/Property/post_Propdetails?uid='+id,formdata)
+
+  }
+
+
+
+   //post_PropAmenities fill
+
+   post_PropAmenities(id:number,prop_id:number,formdata:any){
+    return this.http.post('https://localhost:7210/api/Property/post_PropAmenities?uid='+id+'&prop_id='+prop_id,formdata)
+
+
   }
 }

@@ -30,7 +30,7 @@ export class PostpropertyComponent implements OnInit {
   ownerdetails_visiblity: boolean = true;
   adressdetails_visiblity: boolean = false;
   propertydetails_visiblity: boolean = false;
-  propImages_visiblity: boolean = false;
+  propImages_visiblity: boolean = true;
   amenitydetails_visiblity: boolean = false;
 
   //api data
@@ -41,6 +41,32 @@ export class PostpropertyComponent implements OnInit {
   proptype!: any[];
   postedby!: any[];
   amenities_arr: any[] = [];
+
+
+  //
+  //
+  //
+  //
+
+
+  //posting porerty things
+
+  owner_detail_Id!:any;
+  Address_detail_Id!:any;
+  Property_detail_Id!:any;
+
+
+
+
+
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
   constructor(
     private dataserv: DataService,
@@ -95,8 +121,8 @@ export class PostpropertyComponent implements OnInit {
     });
 
     this.propertydetails = this.fb.group({
-      Owner_details: [this.owner_id],
-      Address: [this.add_id],
+      Owner_details: [''],
+      Address: [''],
       PostedBy: ['', [Validators.required]],
       Prop_for: ['', [Validators.required]],
       Prop_Type: ['', [Validators.required]],
@@ -161,30 +187,65 @@ export class PostpropertyComponent implements OnInit {
 
   ownerdetails_Submit() {
     console.log(this.ownerdetails.value);
+
+
+    this.api.post_ownerdetails(this.ownerdetails.value).subscribe(
+      (x)=>{
+
+      this.owner_detail_Id=x;
+
+      console.log(this.owner_detail_Id);
+      console.log(typeof(this.owner_detail_Id));
       this.ownerdetails_visiblity=false
-    this.adressdetails_visiblity=true;
+      this.adressdetails_visiblity=true;
+
+      this.propertydetails.patchValue({Owner_details: this.owner_detail_Id })
+
+
+    },
+    );
+
   }
 
   adressdetails_Submit() {
     console.log(this.adressdetails.value);
-    this.adressdetails_visiblity=false;
-    this.propertydetails_visiblity=true;
+
+
+
+    this.api.post_Addressdetails(this.uid,this.adressdetails.value).subscribe((x)=>{
+      this.Address_detail_Id=x;
+      console.log(this.Address_detail_Id);
+      this.adressdetails_visiblity=false;
+      this.propertydetails_visiblity=true;
+
+      this.propertydetails.patchValue({Address: this.Address_detail_Id })
+
+    })
   }
 
   propertydetails_Submit() {
     console.log(this.propertydetails.value);
-    this.propertydetails_visiblity=false;
-    this.amenitydetails_visiblity=true;
+
+
+
+    // this.api.post_Propdetails(this.uid,this.Address_detail_Id,this.owner_detail_Id ,this.propertydetails.value).subscribe((x)=>{
+    this.api.post_Propdetails(this.uid ,this.propertydetails.value).subscribe((x)=>{
+      this.Property_detail_Id=x;
+      console.log(this.Property_detail_Id);
+      this.propertydetails_visiblity=false;
+      this.amenitydetails_visiblity=true;
+    })
   }
 
   amenitydetails_Submit(){
 
     console.log(this.amenitydetails.value);
-    this.amenitydetails_visiblity=false;
-    this.propImages_visiblity=true
+    this.api.post_PropAmenities(this.uid,this.Property_detail_Id,this.amenitydetails.value).subscribe((x)=>{
 
-
-
+      console.log('Amenity posted');
+      this.amenitydetails_visiblity=false;
+      this.propImages_visiblity=true;
+    })
 
 
   }
@@ -202,5 +263,13 @@ export class PostpropertyComponent implements OnInit {
 
   submitted(){
     alert('property listed sucessfully')
+
+    console.log(this.propImages.value);
+
+    this.ownerdetails_visiblity = true;
+    this.adressdetails_visiblity = false;
+    this.propertydetails_visiblity= false;
+    this.propImages_visiblity = false;
+    this.amenitydetails_visiblity = false;
   }
 }

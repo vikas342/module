@@ -463,7 +463,7 @@ namespace Magicbrick.Controllers
         [HttpPost("post_Addressdetails")]
 
         public async Task<IActionResult> post_Addressdetails( int uid, Addressdetails_DTO addressdetails_)
-        {
+         {
 
             var data = new Address();
              data.CreatedDate = DateTime.Now;
@@ -497,7 +497,7 @@ namespace Magicbrick.Controllers
 
         [HttpPost("post_Propdetails")]
 
-        public async Task<IActionResult> post_Propdetails(int uid,int add_id, int owner_detail_id ,Propertydetails_DTO propertydetails_)
+        public async Task<IActionResult> post_Propdetails(int uid,Propertydetails_DTO propertydetails_)
         {
 
             var data = new Property();
@@ -506,21 +506,14 @@ namespace Magicbrick.Controllers
             data.CreatedBy = uid;
             data.ModifedBy = uid;
 
-            data.Address = add_id;
-            data.OwnerDetails = owner_detail_id;
-            data.PostedBy = propertydetails_.PostedBy;
+            data.Address = propertydetails_.Address;
+            data.OwnerDetails = propertydetails_.Owner_details;
+            data.PostedBy =propertydetails_.PostedBy;
             data.PropFor = propertydetails_.Prop_for;
             data.PropType = propertydetails_.Prop_Type;
             data.Status=propertydetails_.Status;
             data.Price = propertydetails_.Price;
             data.Prop_desc = propertydetails_.Prop_desc;
-
-
-
-
-
-
-
 
             _context.AddAsync(data);
             _context.SaveChanges();
@@ -529,5 +522,60 @@ namespace Magicbrick.Controllers
 
         }
 
+
+
+
+        [HttpPost("post_PropAmenities")]
+
+        public async Task<IActionResult> post_PropAmenities(int uid,int prop_id, Amenity_DTO amenity_)
+        {
+
+            foreach (var x in amenity_.amenities)
+            {
+
+                if (x.exist == true)
+                {
+                    var data = new PropAmenity();
+                    data.CreatedDate = DateTime.Now;
+                    data.ModifiedDate = DateTime.Now;
+                    data.CreatedBy = uid;
+                    data.ModifedBy = uid;
+                    data.PropId = prop_id;
+                    data.AmId = x.id;
+                    _context.AddAsync(data);
+
+
+
+                }
+
+            }
+            _context.SaveChanges();
+            return Ok();
+
+        }
+
+
+
+
+        [HttpPost("post_PropImages")]
+
+        public async Task<IActionResult> post_PropImages(int uid, int prop_id, PropertyImages_DTO images_)
+        {
+
+            foreach (var x in images_.images)
+            {
+                    var data = new PropertyImage();
+                    data.CreatedDate = DateTime.Now;
+                    data.ModifiedDate = DateTime.Now;
+                    data.CreatedBy = uid;
+                    data.ModifedBy = uid;
+                    data.PropertyId = prop_id;
+                    data.ImageUrl = x.imageurl;
+                    _context.AddAsync(data);
+            }
+            _context.SaveChanges();
+            return Ok();
+
+        }
     }
 }
