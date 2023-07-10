@@ -550,3 +550,5 @@ C:\Users\Twinkle\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\r
 C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\vikas.sonwane\Desktop\module\Project\Magicbrick\Magicbrick\bin\Debug\net6.0\AWSSDK.S3.dll

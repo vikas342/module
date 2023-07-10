@@ -213,4 +213,28 @@ getprop_onRent() {
 
 
   }
+
+
+
+  //post image
+
+
+   //post_PropAmenities fill
+
+   post_PropImages(id:number,prop_id:number,formdata:any){
+    return this.http.post('https://localhost:7210/api/Property/post_PropImages?uid='+id+'&prop_id='+prop_id,formdata)
+
+
+  }
+
+  postimage(file:any){
+    return this.http.post('https://localhost:7210/api/Property/ImageUrl',file)
+  }
+
+  formfill(formdata:any){
+    return this.http.post('https://localhost:7210/api/Property/register',formdata)
+  }
+
+
+
 }

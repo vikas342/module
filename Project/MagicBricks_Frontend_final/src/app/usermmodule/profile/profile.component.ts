@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +10,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProfileComponent  implements OnInit{
 
-  constructor(private apiServ:ApiService){
+  constructor(private apiServ:ApiService,private datserv:DataService){
 
   }
   userdetails:any[]=[];
@@ -21,7 +22,7 @@ export class ProfileComponent  implements OnInit{
     })
 
     this.apiServ.getuserlisting().subscribe(res=>{
-      this.userlistings=res;
+      this.userlistings=this.datserv.dataparser(res);
     })
   }
 }

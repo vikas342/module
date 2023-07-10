@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { imagedata } from 'src/app/Model/prop_images';
 import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
 
@@ -30,7 +31,7 @@ export class PostpropertyComponent implements OnInit {
   ownerdetails_visiblity: boolean = true;
   adressdetails_visiblity: boolean = false;
   propertydetails_visiblity: boolean = false;
-  propImages_visiblity: boolean = true;
+  propImages_visiblity: boolean = false;
   amenitydetails_visiblity: boolean = false;
 
   //api data
@@ -56,6 +57,17 @@ export class PostpropertyComponent implements OnInit {
   Property_detail_Id!:any;
 
 
+//image upload
+
+imgFile!:File;
+url:any;
+imagedata:any[]=[];
+
+images_object={
+  images:this.imagedata
+
+}
+
 
 
 
@@ -75,7 +87,8 @@ export class PostpropertyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.api.getcities().subscribe((x) => {
+
+     this.api.getcities().subscribe((x) => {
       this.cities = x;
     });
 
@@ -198,8 +211,10 @@ export class PostpropertyComponent implements OnInit {
       console.log(typeof(this.owner_detail_Id));
       this.ownerdetails_visiblity=false
       this.adressdetails_visiblity=true;
+      this.ownerdetails.reset();
 
       this.propertydetails.patchValue({Owner_details: this.owner_detail_Id })
+
 
 
     },
@@ -217,6 +232,8 @@ export class PostpropertyComponent implements OnInit {
       console.log(this.Address_detail_Id);
       this.adressdetails_visiblity=false;
       this.propertydetails_visiblity=true;
+      this.adressdetails.reset();
+
 
       this.propertydetails.patchValue({Address: this.Address_detail_Id })
 
@@ -230,6 +247,8 @@ export class PostpropertyComponent implements OnInit {
 
     // this.api.post_Propdetails(this.uid,this.Address_detail_Id,this.owner_detail_Id ,this.propertydetails.value).subscribe((x)=>{
     this.api.post_Propdetails(this.uid ,this.propertydetails.value).subscribe((x)=>{
+      this.propertydetails.reset();
+
       this.Property_detail_Id=x;
       console.log(this.Property_detail_Id);
       this.propertydetails_visiblity=false;
@@ -241,6 +260,7 @@ export class PostpropertyComponent implements OnInit {
 
     console.log(this.amenitydetails.value);
     this.api.post_PropAmenities(this.uid,this.Property_detail_Id,this.amenitydetails.value).subscribe((x)=>{
+      this.amenitydetails.reset();
 
       console.log('Amenity posted');
       this.amenitydetails_visiblity=false;
@@ -251,12 +271,12 @@ export class PostpropertyComponent implements OnInit {
   }
 
 
-  propImages_Submit(){
+  // propImages_Submit(){
 
-    console.log(this.propImages.value);
+  //   console.log(this.propImages.value);
 
 
-  }
+  // }
 
 
 
@@ -264,12 +284,50 @@ export class PostpropertyComponent implements OnInit {
   submitted(){
     alert('property listed sucessfully')
 
+
     console.log(this.propImages.value);
 
-    this.ownerdetails_visiblity = true;
-    this.adressdetails_visiblity = false;
-    this.propertydetails_visiblity= false;
-    this.propImages_visiblity = false;
-    this.amenitydetails_visiblity = false;
+    this.api.post_PropImages(this.uid,this.Property_detail_Id,this.images_object).subscribe((x)=>{
+      console.log('property listed');
+    this.imagedata.splice(0,this.imagedata.length);
+    this.propImages.reset();
+
+
+      this.ownerdetails_visiblity = true;
+      this.adressdetails_visiblity = false;
+      this.propertydetails_visiblity= false;
+      this.propImages_visiblity = false;
+      this.amenitydetails_visiblity = false;
+    })
+
+
   }
+
+
+//image upload
+
+fileadd(event:any,i:number){
+  //console.log(event.target.files);
+
+  this.imgFile = event.target.files[0];
+  // console.log(this.imgFile);
+  const form = new FormData();
+  form.append('file',this.imgFile as File)
+  console.log(form);
+
+  this.api.postimage(form).subscribe((res) => {
+    // this.url=res;
+    // console.log(this.url.url);
+   // console.log(res);
+    this.imagedata.push(res)
+
+
+    console.warn(this.images_object);
+
+})
+
+}
+
+
+
 }

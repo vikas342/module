@@ -23,14 +23,14 @@ export class AppComponent implements OnInit {
  })
  }
  newuser(){
-   
+
    console.log(this.imageform.value);
 
   const data={
     url:this.url
   }
   console.log(data);
-  
+
   this.hc.post<string>("https://localhost:7146/api/Values/register",data).subscribe(
     {
       next:(res:string)=>{
@@ -39,7 +39,7 @@ console.log(res);
       },
       error:(err)=>{
         console.log(err);
-        
+
       }
     })
 
@@ -50,9 +50,9 @@ console.log(res);
   // form.append('file',this.imgFile as File)
 //   this.api.postimage(form).subscribe({
 //     next:(resp:any)=>{
-      
 
-      
+
+
 //         console.log(resp);
 //         let regData:User=this.registerForm.value;
 //         let imgUrl:string=resp.url
@@ -75,7 +75,7 @@ console.log(res);
 
  fileadd(event:any){
   //console.log(event.target.files);
-  
+
   this.imgFile = event.target.files[0];
   // console.log(this.imgFile);
   const form = new FormData();

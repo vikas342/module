@@ -10,7 +10,10 @@
 
 
 
-    <form [formGroup]="ownerdetails" (submit)="ownerdetails_Submit()" *ngIf="ownerdetails_visiblity" class="p-5">
+    <!-- ownerdetails -->
+
+
+    <form [formGroup]="ownerdetails" (ngSubmit)="ownerdetails_Submit()" *ngIf="ownerdetails_visiblity" class="p-5">
 
       <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Owners Details</p>
 
@@ -33,7 +36,7 @@
       </div>
 
       <br>
-  <button class="btn btn-danger"  type="submit" >Next</button>
+      <button class="btn btn-danger" type="submit" [disabled]="!ownerdetails.valid">Next</button>
 
 
 
@@ -42,7 +45,9 @@
 
 
 
-    <form [formGroup]="adressdetails" (submit)="adressdetails_Submit()" *ngIf="adressdetails_visiblity" class="p-5">
+
+    <!-- adressdetails -->
+    <form [formGroup]="adressdetails" (ngSubmit)="adressdetails_Submit()" *ngIf="adressdetails_visiblity" class="p-5">
 
 
       <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Address Details</p>
@@ -83,7 +88,7 @@
 
 
       <br>
-      <button class="btn btn-danger">Next</button>
+      <button class="btn btn-danger" type="submit" [disabled]="!adressdetails.valid">Next</button>
 
 
 
@@ -93,7 +98,8 @@
 
 
 
-    <form [formGroup]="propertydetails" (submit)="propertydetails_Submit()" *ngIf="propertydetails_visiblity"
+    <!-- propertydetails -->
+    <form [formGroup]="propertydetails" (ngSubmit)="propertydetails_Submit()" *ngIf="propertydetails_visiblity"
       class="p-5">
 
 
@@ -166,7 +172,7 @@
 
 
       <br>
-      <button class="btn btn-danger">Next</button>
+      <button class="btn btn-danger" type="submit" [disabled]="!propertydetails.valid">Next</button>
 
 
 
@@ -178,7 +184,8 @@
 
 
 
-    <form [formGroup]="amenitydetails" (submit)="amenitydetails_Submit()" *ngIf="amenitydetails_visiblity" class="p-5">
+<!-- amenitydetails -->
+    <form [formGroup]="amenitydetails" (ngSubmit)="amenitydetails_Submit()" *ngIf="amenitydetails_visiblity" class="p-5">
 
 
       <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Select Amenities If
@@ -212,7 +219,7 @@
 
 
       <br>
-      <button class="btn btn-danger">Next</button>
+      <button class="btn btn-danger" type="submit" [disabled]="!amenitydetails.valid">Next</button>
 
 
 
@@ -222,10 +229,13 @@
     </form>
 
 
-    <form [formGroup]="propImages" (submit)="propImages_Submit()" *ngIf="propImages_visiblity" class="p-5">
+
+    <!-- propImages_Submit -->
+    <form [formGroup]="propImages"  *ngIf="propImages_visiblity" class="p-5">
 
 
-      <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Upload Property Images</p>
+      <p class="fs-2 " style=" text-decoration:underline; text-decoration-color: rgb(248, 50, 50);">Upload Property
+        Images</p>
       <br>
 
 
@@ -236,7 +246,7 @@
           <div [formGroupName]="i" class="fs-5  mt-3">
 
             <label for="i">IMAGE {{i+1}}.</label>
-            <input type="file" name="i" id="i" formControlName="imageurl"  class="  form-control" >
+            <input type="file" name="i" id="i" formControlName="imageurl" class="  form-control"  (change)="fileadd($event,i)" >
 
 
 
@@ -260,7 +270,7 @@
 
 
       <br>
-      <button class="btn btn-danger w-100" (click)="submitted()">submit</button>
+      <button class="btn btn-danger w-100" (click)="submitted()" type="submit" [disabled]="!propImages.valid">submit</button>
 
 
 

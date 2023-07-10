@@ -12,7 +12,7 @@ export class ResultpageComponent implements OnInit {
 
 
   //
-  selectedcity: any ;
+  selectedcity: any='' ;
 
   // x:any[]=[];
   data:any;
@@ -78,7 +78,7 @@ export class ResultpageComponent implements OnInit {
     })
 
 
-    this.selectedcity=this.dataserv.getSelctedCity()
+    // this.selectedcity=this.dataserv.getSelctedCity()
   }
 
 

@@ -72,8 +72,8 @@ setpid(id:number){
         i.prop_amenities = x;
       }
 
-      return data1;
     }
+    return data1;
   }
 
 

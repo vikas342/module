@@ -1,4 +1,6 @@
-﻿using Magicbrick.DTOs;
+﻿using Amazon.S3.Transfer;
+using Amazon.S3;
+using Magicbrick.DTOs;
 using Magicbrick.Interfaces;
 using Magicbrick.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -13,7 +15,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-
+using Amazon;
 
 namespace Magicbrick.Controllers
 {
@@ -27,12 +29,15 @@ namespace Magicbrick.Controllers
     {
 
         private readonly MagicBricksDbContext _context;
+        private const string BucketName = "myimages.vikas";
 
         public PropertyController(IGenric<Property> igenric, MagicBricksDbContext context) : base(igenric)
         {
             _context = context;
         }
 
+
+      
 
 
         //public PropertyController(MagicBricks_context context, IConfiguration config, IHash hash)
@@ -44,7 +49,7 @@ namespace Magicbrick.Controllers
 
         ///get users prop_listings
 
-       [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpGet("GetuserPropertylisting")]
         public async Task<IActionResult> GetuserPropertylisting()
         {
@@ -575,6 +580,47 @@ namespace Magicbrick.Controllers
             }
             _context.SaveChanges();
             return Ok();
+
+        }
+
+
+
+
+        [HttpPost("ImageUrl")]
+        public async Task<IActionResult> geturl(IFormFile file)
+        {
+            if (file == null || file.Length <= 0)
+            {
+                return BadRequest("No file specified.");
+            }
+            var destKey = $"Images/{file.FileName.ToLower()}";
+
+
+
+            using (var client = new AmazonS3Client(Amazon.RegionEndpoint.APSouth1))
+            {
+                using (var transferUtility = new TransferUtility(client))
+                {
+                    var transferUtilityRequest = new TransferUtilityUploadRequest
+                    {
+                        BucketName = BucketName,
+                        Key = destKey,
+                        InputStream = file.OpenReadStream(),
+                        //CannedACL = S3CannedACL.PublicRead
+                    };
+
+                    await transferUtility.UploadAsync(transferUtilityRequest);
+                }
+            }
+            var reg = RegionEndpoint.APSouth1;
+            var url = $"https://{BucketName}.s3.{reg.SystemName}.amazonaws.com/{destKey}";
+            var resp = new
+            {
+                imageurl = url
+            };
+
+
+            return Ok(resp);
 
         }
     }

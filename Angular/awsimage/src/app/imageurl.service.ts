@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 export class ImageurlService {
 
   constructor(private hc:HttpClient) { }
-  
-  
+
+
   postimage(file:any){
     return this.hc.post('https://localhost:7146/api/Values/ImageUrl',file)
   }

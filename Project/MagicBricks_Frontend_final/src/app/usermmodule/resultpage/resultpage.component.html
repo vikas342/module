@@ -12,12 +12,26 @@
         </option>
       </select> -->
 
-      <button class="btn bg-white form-select m-3 text-start " type="button" id="triggerId" data-bs-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
+      <ng-container *ngIf="selectedcity.length==0;else elsepart">
+        <button class="btn bg-white form-select m-3 text-start " type="button" id="triggerId" data-bs-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
 
-        {{ selectedcity }}
 
-      </button>
+          Select City
+
+        </button>
+      </ng-container>
+      <ng-template #elsepart>
+
+        <button class="btn bg-white form-select m-3 text-start " type="button" id="triggerId" data-bs-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+
+
+          {{ selectedcity }}
+
+        </button>
+      </ng-template>
+
       <div class="dropdown-menu" aria-labelledby="triggerId">
         <ng-container *ngFor="let item of cities">
           <button class="dropdown-item  " [value]="item.city" (click)="selectcity_serch(item.city)">
@@ -123,8 +137,8 @@
 
   <!-- data displaying -->
 
-    <ng-container   *ngFor="let x of data">
-    <div class="row m-5" >
+  <ng-container *ngFor="let x of data">
+    <div class="row my-2">
       <div class="card ">
         <div class="row p-3">
           <div class="col-md-4" (click)="propview(x.prop_Id)">
@@ -197,7 +211,15 @@
 
 
 </div>
-<div class="container-fluid">
+<div class="container-fluid ">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
   <app-footer></app-footer>
 </div>
 
@@ -276,6 +298,3 @@
     </div>
   </div>
 </div>
-
-
-

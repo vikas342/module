@@ -19,7 +19,7 @@ namespace AWSIMAGE
                 options.AddPolicy(name: "MyPolicy",
                                   policy =>
                                   {
-                                      policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                                      policy.WithOrigins("http://localhost:8124").AllowAnyHeader().AllowAnyMethod();
                                   });
             });
             var app = builder.Build();

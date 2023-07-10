@@ -261,9 +261,11 @@ for json auto
 
 
 
+select obj.Name as amenity from Prop_amenities am join Object obj on am.Am_Id=obj.Id where Prop_Id=16 for json auto
 
+select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=14 for json auto
 
-
+ 
 /*
 
 0. user details
@@ -298,24 +300,14 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
+
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
-join Property prop on o.Owner_Id= prop.Owner_details
+join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
 join  Objecttype otyp on ad.State=otyp.Id 
 join Object obj on ad.City = obj.Id
@@ -329,7 +321,8 @@ where usr.U_ID=@userid
 
 
 
-Exec UserListing @userid=2
+
+Exec UserListing @userid=15
 
 
 Exec OtherUserListing @userid=2
@@ -368,21 +361,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
@@ -398,7 +381,7 @@ where usr.U_ID!=@userid
 order by  prop.CreatedDate
 
 
-Exec OtherUserListing @userid=15
+Exec OtherUserListing @userid=2
 
 select * from Prop_amenities
 
@@ -438,20 +421,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
+
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
@@ -498,21 +472,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -557,21 +521,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -617,21 +571,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -681,20 +625,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
+
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -742,21 +677,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -803,21 +728,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -865,21 +780,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -930,21 +835,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -999,20 +894,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj.Name as amenity from Wishlist w join Property p on w.Prop_Id=p.Prop_Id 
-join Owner o  on p.Owner_details=o.Id
-join Prop_amenities pa on p.Prop_Id=pa.Prop_Id
-join Object obj on pa.Am_Id=obj.Id
-where w.User_id=@userid
-for json auto) as prop_amenities,
 
-(select pi.Image_url as images from Wishlist w join Property p on w.Prop_Id=p.Prop_Id 
-join Owner o  on p.Owner_details=o.Id
-join PropertyImages pi on p.Prop_Id=pi.property_id
-where w.User_id=@userid
-for json auto  )  as imageUrl
-
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Wishlist wlist 
 join Property pro on wlist.Prop_Id= pro.Prop_Id 
 join Owner o on wlist.User_id =o.Owner_Id  
@@ -1103,21 +989,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1160,21 +1036,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1219,20 +1085,11 @@ prop.Price,
 prop.CreatedDate,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
+
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1274,22 +1131,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1335,21 +1181,11 @@ prop.Price,
 prop.CreatedDate,
 
 
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1391,22 +1227,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1449,22 +1274,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1510,22 +1324,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1567,22 +1370,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1626,21 +1418,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1686,21 +1468,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1772,22 +1544,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1832,21 +1593,11 @@ obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
 
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
@@ -1892,22 +1643,11 @@ obj4.Name PropertyType,
 obj5.Name Status,
 prop.Price,
 prop.CreatedDate,
+(select obj.Name as amenity from Prop_amenities  am join Object obj on am.Am_Id=obj.Id where am.Prop_Id=prop.Prop_Id for json auto) as prop_amenities,
 
 
-(select obj1.Name as amenity  from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join Prop_amenities prop_ame on prop.Prop_Id=prop_ame.Prop_Id
-join Object obj1 on prop_ame.Am_Id=obj1.Id
-where usrr.U_ID=usr.U_ID and prop.Prop_Id=prop_ame.Prop_Id
-for json auto ) as prop_amenities,
-(select prop_imgs.Img_Id, prop_imgs.Image_url 
-from 
-Users usrr  join Owner o on usr.U_ID =o.Owner_Id  
-join  Property prop on o.Id=prop.Owner_details
-join PropertyImages prop_imgs on prop.Prop_Id=prop_imgs.property_id
-where usrr.U_ID=usr.U_ID
-for json auto   )  as imageUrl
+(select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=prop.Prop_Id for json auto
+  )  as imageUrl
 from Users usr  join Owner o on usr.U_ID =o.Owner_Id  
 join Property prop on o.Id= prop.Owner_details
 join Address  ad on prop.Address= ad.add_id 
