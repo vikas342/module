@@ -316,7 +316,9 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID=@userid
+where usr.U_ID=@userid and obj5.Id=14
+
+
 
 
 
@@ -325,7 +327,7 @@ where usr.U_ID=@userid
 Exec UserListing @userid=15
 
 
-Exec OtherUserListing @userid=2
+Exec OtherUserListing @userid=15
 
 
 /*
@@ -377,7 +379,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID!=@userid
+where usr.U_ID!=@userid and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -487,7 +489,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID !=@userid  and obj4.Name ='Flat'
+where usr.U_ID !=@userid  and obj4.Name ='Flat'and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -536,7 +538,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID !=@userid  and obj4.Name ='Villa'
+where usr.U_ID !=@userid  and obj4.Name ='Villa' and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -586,7 +588,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID !=@userid  and obj3.Name ='Sell'
+where usr.U_ID !=@userid  and obj3.Name ='Sell'and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -640,7 +642,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID !=@userid  and obj3.Name ='Rent'
+where usr.U_ID !=@userid  and obj3.Name ='Rent'and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -692,7 +694,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID !=@userid  and obj.Name =@city
+where usr.U_ID !=@userid  and obj.Name =@city and obj5.Id=14
 order by  prop.CreatedDate
 
 Exec Prop_city @userid=15,@city='Ahmedabad'
@@ -743,7 +745,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID !=@userid  and otyp.Name =@state
+where usr.U_ID !=@userid  and otyp.Name =@state and obj5.Id=14
 order by  prop.CreatedDate
 
 Exec Prop_state @userid=4,@state='Gujrat'
@@ -795,7 +797,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where usr.U_ID !=@userid  and otyp.Name =@state and obj.Name =@city
+where usr.U_ID !=@userid  and otyp.Name =@state and obj.Name =@city and obj5.Id=14
 order by  prop.CreatedDate
 
 Exec Prop_state_city @userid=15,@state='Gujrat',@city='ahmedabad'
@@ -851,7 +853,7 @@ join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
 
-where usr.U_ID !=@userid  and prop.Price between @low and @high
+where usr.U_ID !=@userid  and prop.Price between @low and @high and obj5.Id=14
 order by  prop.CreatedDate
 
 Exec Prop_budget @userid=4,@low=50000,@high=123456789
@@ -912,7 +914,7 @@ join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
 
-where wlist.User_id=@userid
+where wlist.User_id=@userid and obj5.Id=14
 
 
 exec userWishlist @userid=2
@@ -1004,7 +1006,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-
+where  obj5.Id=14
 
 
 
@@ -1100,7 +1102,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  obj4.Name ='Flat'
+where  obj4.Name ='Flat' and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1147,7 +1149,7 @@ join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
 
-where  obj4.Name ='Villa'
+where  obj4.Name ='Villa' and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1196,7 +1198,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  obj3.Name ='Sell'
+where  obj3.Name ='Sell' and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1242,7 +1244,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  obj3.Name ='Rent'
+where  obj3.Name ='Rent' and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1289,7 +1291,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  otyp.Name = @state
+where  otyp.Name = @state and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1339,8 +1341,8 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-
-where  obj.Name = @city
+ 
+where  obj.Name = @city and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1385,7 +1387,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  obj.Name = @city and otyp.Name=@state
+where  obj.Name = @city and otyp.Name=@state and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1433,7 +1435,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  prop.Price between @low and @high
+where  prop.Price between @low and @high and obj5.Id=14
 order by  prop.CreatedDate
 
 Exec AllProp_budget @low=50000,@high=123456789
@@ -1484,7 +1486,7 @@ join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
 
-where  prop.Prop_Id =@pid
+where  prop.Prop_Id =@pid and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1559,7 +1561,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  obj3.Name =@propfor and obj.Name=@city and obj4.Name=@proptype
+where  obj3.Name =@propfor and obj.Name=@city and obj4.Name=@proptype and obj5.Id=14
 order by  prop.CreatedDate
 
 
@@ -1608,7 +1610,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  prop.Price between @low and @high and obj.Name=@city and obj3.Name=@propfor
+where  prop.Price between @low and @high and obj.Name=@city and obj3.Name=@propfor and obj5.Id=14
 order by  prop.CreatedDate
 
 Exec allpropbudget_CFMinMax @city='Ahmedabad',@propfor='sell', @low=50000,@high=123456789
@@ -1658,7 +1660,7 @@ join Object obj3 on prop.Prop_for = obj3.Id
 join Object obj4 on prop.Prop_Type = obj4.Id
 join Object obj5 on prop.Status=obj5.Id
 join PropertyImages prop_img on prop.prop_Id =prop_img.property_id
-where  prop.Price between @low and @high and obj.Name=@city and obj3.Name=@propfor and obj4.Name=@proptype
+where  prop.Price between @low and @high and obj.Name=@city and obj3.Name=@propfor and obj4.Name=@proptype and obj5.Id=14
 order by  prop.CreatedDate
 
 Exec allpropserch_CTFMinMax @city='Ahmedabad',@proptype='flat',@propfor='sell', @low=50000,@high=123456789
@@ -1682,3 +1684,27 @@ select  name as postedby  from Object where Obj_type_Id = 10
 
 
   select * from Property
+
+
+
+
+  /*
+ finding owner details and all
+ */
+    select p.Prop_Id,o.id as ownwerDetails_id,o.Owner_Name,o.contact_no,o.Email from Property p join Owner o on p.owner_details =o.id  where p.Prop_Id=13 and o.Owner_Id=15
+
+
+	  /*
+ finding address details and all
+ */
+    select p.Prop_Id as PropDetails_Id,ad.Add_Id ad AddressDetails_Id
+	,ad.Building_Name,ad.Area,ad.State,ad.City,ad.Pincode  from Property p join Address ad on p.Address = ad.Add_Id	where p.Prop_Id=13  
+
+
+
+	
+	  /*
+ finding property details and all
+ */
+   
+   select p.Prop_Id as PropDetails_id,p.Owner_details,p.Address,p.PostedBy,p.Prop_for,p.Price,p.Prop_desc from Property p where Prop_Id=13

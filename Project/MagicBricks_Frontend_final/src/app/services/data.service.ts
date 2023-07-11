@@ -11,6 +11,9 @@ export class DataService {
 
   data!:any[];
 
+
+  editPropid!:number;
+
   constructor() {
 
 

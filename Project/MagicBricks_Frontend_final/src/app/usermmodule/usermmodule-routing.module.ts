@@ -5,8 +5,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { ResultpageComponent } from './resultpage/resultpage.component';
 import { PostpropertyComponent } from './postproperty/postproperty.component';
 import { PropertyviewComponent } from './propertyview/propertyview.component';
+import { EditpropertyComponent } from './editproperty/editproperty.component';
 
 const routes: Routes = [
+  {
+    path: 'editproperty',
+    component: EditpropertyComponent,
+  },
   {
     path: 'propertyview',
     component: PropertyviewComponent,

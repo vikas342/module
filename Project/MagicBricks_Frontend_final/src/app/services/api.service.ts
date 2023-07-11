@@ -237,4 +237,13 @@ getprop_onRent() {
 
 
 
+
+  //edit property
+
+  deleteProperty(pid:number){
+    return this.http.put('https://localhost:7210/api/Property/deleteProperty?pid='+pid,null);
+
+
+  }
+
 }

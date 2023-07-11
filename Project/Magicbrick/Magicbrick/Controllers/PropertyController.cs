@@ -547,7 +547,7 @@ namespace Magicbrick.Controllers
                     data.ModifedBy = uid;
                     data.PropId = prop_id;
                     data.AmId = x.id;
-                    _context.AddAsync(data);
+                    _context.AddAsync(data);                          
 
 
 
@@ -623,5 +623,97 @@ namespace Magicbrick.Controllers
             return Ok(resp);
 
         }
+
+
+        ///   
+        /// 
+        ///    
+        /// 
+
+
+        //edit property details
+
+        [HttpPut("deleteProperty")]
+        public async Task<IActionResult> deleteProperty(int pid)
+        {
+
+            var data = _context.Properties.FirstOrDefault(x => x.PropId==pid);
+
+            data.Status = 15;
+
+            _context.SaveChanges();
+
+
+            return Ok();
+
+        }
+
+
+        [HttpGet("get_ownerdetails")]
+        public async Task<IActionResult> get_ownerdetails(int uid,int pid)
+        {
+
+            var data =   from p in _context.Properties
+                                    join o in _context.Owners on p.OwnerDetails equals o.Id
+                                    where p.PropId == pid && o.OwnerId == uid
+                                    select new
+                                    {
+                                        p.PropId,
+                                        ownwerDetails_id = o.Id,
+                                        o.OwnerName,
+                                        o.ContactNo,
+                                        o.Email
+                                    };
+
+
+            return Ok(data);
+
+        }
+
+
+        [HttpGet("get_addressdetails")]
+        public async Task<IActionResult> get_addressdetails( int pid)
+        {
+
+            var data = from p in _context.Properties
+                         join ad in _context.Addresses on p.Address equals ad.AddId
+                         where p.PropId == pid
+                         select new
+                         {
+                             PropertyDetails_Id = p.PropId,
+                             AddressDetails_Id=ad.AddId,
+                             ad.BuildingName,
+                             ad.Area,
+                             ad.State,
+                             ad.City,
+                             ad.Pincode
+                         };
+
+            return Ok(data);
+
+        }
+
+
+        [HttpGet("get_Propertydetails")]
+        public async Task<IActionResult> get_Propertydetails(int pid)
+        {
+
+            var data =   from p in _context.Properties
+                                    where p.PropId == pid
+                                    select new
+                                    {
+                                        PropDetails_id = p.PropId,
+                                        p.OwnerDetails,
+                                        p.Address,
+                                        p.PostedBy,
+                                        p.PropFor,
+                                        p.Price,
+                                        p.Prop_desc
+                                    };
+            return Ok(data);
+
+        }
     }
+
 }
+

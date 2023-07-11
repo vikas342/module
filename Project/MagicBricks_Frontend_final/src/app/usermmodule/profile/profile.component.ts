@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { DataService } from 'src/app/services/data.service';
@@ -10,7 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class ProfileComponent  implements OnInit{
 
-  constructor(private apiServ:ApiService,private datserv:DataService){
+  constructor(private apiServ:ApiService,private dataserv:DataService,private route:Router){
 
   }
   userdetails:any[]=[];
@@ -22,7 +23,39 @@ export class ProfileComponent  implements OnInit{
     })
 
     this.apiServ.getuserlisting().subscribe(res=>{
-      this.userlistings=this.datserv.dataparser(res);
+      this.userlistings=this.dataserv.dataparser(res);
     })
   }
+
+
+  propview(pid:number){
+
+    // console.log("object");
+     this.dataserv.setpid(pid)
+ this.route.navigateByUrl('/propertyview')
+  }
+
+
+  deleteListing(pid:number){
+
+
+
+    this.apiServ.deleteProperty(pid).subscribe((x)=>{
+      alert("property deleted sucessfully");
+
+    this.apiServ.getuserlisting().subscribe(res=>{
+      this.userlistings=this.dataserv.dataparser(res);
+    })
+    })
+
+  }
+
+
+  editListing(pid:number){
+
+    this.dataserv.editPropid=pid;
+    this.route.navigateByUrl('/editproperty')
+
+  }
+
 }
