@@ -24,12 +24,12 @@
 
       <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-        <!-- Indicators/dots -->
+        <!-- Indicators/dots
         <div class="carousel-indicators">
         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-      </div>
+      </div> -->
 
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
@@ -78,7 +78,7 @@
 
       <p class="text-end">
 
-        <button class="btn btn-danger ">Edit</button>
+        <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#ownerdetailsModal">Edit</button>
       </p>
 
     </div>
@@ -102,7 +102,7 @@
 
       <p class="text-end">
 
-        <button class="btn btn-danger ">Edit</button>
+        <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#AddressdetailsModal">Edit</button>
       </p>
 
     </div>
@@ -126,7 +126,7 @@
 
       <p class="text-end">
 
-        <button class="btn btn-danger ">Edit</button>
+        <button class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#propertydetailsModal">Edit</button>
       </p>
 
     </div>
@@ -159,6 +159,8 @@
 
 
 
+
+
     <div>
       <p>{{ this.address_details|json
         }}</p>
@@ -170,30 +172,89 @@
         }}</p>
 
     </div>
+    <p>
+      ownerdetailsid
+      {{
+      ownerdetails_id
+      }}
+    </p>
+
+
+    <p>
+      addressdetailsid
+      {{
+      addressdetails_id
+      }}
+    </p>
+
+
+    <p>
+      propertydetailsid
+      {{
+      propertydetails_id
+      }}
+    </p>
+  </div>
+  <br>
+
+  <br>
+  <app-footer></app-footer>
+  </div>
+
+  <div class="modal fade" id="ownerdetailsModal" tabindex="-1" aria-labelledby="ownerdetailsModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Owner Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 
+  <div class="modal fade" id="AddressdetailsModal" tabindex="-1" aria-labelledby="AddressdetailsModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Address Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    ownerdetailsid
-    {{
-    ownerdetails_id
-    }}
-  </p>
+
+  <div class="modal fade" id="propertydetailsModal" tabindex="-1" aria-labelledby="propertydetailsModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Property Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-  <p>
-    addressdetailsid
-    {{
-    addressdetails_id
-    }}
-  </p>
-
-
-  <p>
-    propertydetailsid
-    {{
-    propertydetails_id
-    }}
-  </p>
-</div>
