@@ -1,74 +1,199 @@
 <div class="container-fluid">
 
 
-<p>
-  editproperty works!
-</p>
+  <p>
+    editproperty works!
+  </p>
 
-<p>
-  {{
+  <p>
+    {{
     prop_details|json
-  }}
-</p>
+    }}
+  </p>
 
-<app-navbar></app-navbar>
-
-
-<div class="container w-25 mx-auto ">
+  <app-navbar></app-navbar>
 
 
-  <div class="mt-5 norder border border-2  p-3 rounded-3">
-    <!-- <p>{{ owner_details|json
+  <div class="container w-25 mx-auto " *ngFor="let x of prop_details">
+
+
+
+    <div class="mt-5 norder border border-2  p-3 rounded-3">
+
+      <p class=" fw-bold  fs-4">Property Images </p>
+
+      <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+      </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+
+          <div class="carousel-item active" *ngFor="let x1 of x.imageUrl">
+            <img [src]="x1.Image_url" [alt]="x1.Image_url" class="d-block   "
+              style="object-fit: fill; width: 400px; height: 400px;">
+          </div>
+
+
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev " type="button" data-bs-target="#demo" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark"></span>
+        </button>
+      </div>
+
+
+
+
+
+      <p class="text-end">
+
+        <button class="btn btn-danger ">Edit</button>
+      </p>
+
+    </div>
+
+
+
+    <div class="mt-5 norder border border-2  p-3 rounded-3">
+
+      <p class=" fw-bold  fs-4">Owner Details </p>
+
+
+      <!-- <p>{{ owner_details|json
     }}</p> -->
-    <ng-container *ngFor="let x of prop_details">
-      <p><span class=" fw-bold text-danger fs-6">Owner name :</span> {{x.ownerName}}</p>
-      <p><span class=" fw-bold text-danger fs-6">Contact no :</span> {{x.contactNo}}</p>
-      <p><span class=" fw-bold text-danger fs-6">Email :</span> {{x.email}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Owner name :</span> {{x.owner_Name}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Contact no :</span> {{x.o_contact}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Email :</span> {{x.o_email}}</p>
 
-    </ng-container>
 
-    <p class="text-end">
+      <p class="text-end">
 
-      <button class="btn btn-danger ">Edit</button>
-    </p>
+        <button class="btn btn-danger ">Edit</button>
+      </p>
 
+    </div>
+
+
+    <div class="mt-5 norder border border-2  p-3 rounded-3">
+
+      <p class=" fw-bold  fs-4">Address Details </p>
+
+
+      <!-- <p>{{ owner_details|json
+    }}</p> -->
+      <p><span class=" fw-bold text-danger fs-6">Building Name :</span> {{x.building_Name}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Area :</span> {{x.area}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Pincode :</span> {{x.pincode}}</p>
+      <p><span class=" fw-bold text-danger fs-6">State :</span> {{x.state}}</p>
+      <p><span class=" fw-bold text-danger fs-6">City :</span> {{x.city}}</p>
+
+
+
+
+      <p class="text-end">
+
+        <button class="btn btn-danger ">Edit</button>
+      </p>
+
+    </div>
+
+
+    <div class="mt-5 norder border border-2  p-3 rounded-3">
+
+      <p class=" fw-bold  fs-4">Property Details </p>
+
+
+      <!-- <p>{{ owner_details|json
+    }}</p> -->
+      <p><span class=" fw-bold text-danger fs-6">Property Description :</span> {{x.prop_desc}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Property Type :</span> {{x.propertyType}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Property For :</span> {{x.propertyFor}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Posted By :</span> {{x.postedBy}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Price :</span> {{x.price | indianCurrency}}</p>
+
+
+
+
+      <p class="text-end">
+
+        <button class="btn btn-danger ">Edit</button>
+      </p>
+
+    </div>
+
+
+    <div class="mt-5 norder border border-2  p-3 rounded-3">
+
+      <p class=" fw-bold  fs-4">Property Amenities </p>
+
+
+
+      <ul class="">
+        <li *ngFor="let z of x.prop_amenities">
+          <span class=" fw-bold text-danger fs-6"> {{z.amenity}}</span>
+
+        </li>
+      </ul>
+
+
+
+
+
+      <p class="text-end">
+
+        <button class="btn btn-danger ">Edit</button>
+      </p>
+
+    </div>
+
+
+
+
+    <div>
+      <p>{{ this.address_details|json
+        }}</p>
+
+    </div>
+
+    <div>
+      <p>{{ this.property_details|json
+        }}</p>
+
+    </div>
   </div>
 
-  <div>
-    <p>{{ this.address_details|json
-    }}</p>
-
-  </div>
-
-  <div>
-    <p>{{ this.property_details|json
-    }}</p>
-
-  </div>
-</div>
 
 
-
-<p>
-  ownerdetailsid
-  {{
+  <p>
+    ownerdetailsid
+    {{
     ownerdetails_id
-  }}
-</p>
+    }}
+  </p>
 
 
-<p>
-  addressdetailsid
-  {{
+  <p>
+    addressdetailsid
+    {{
     addressdetails_id
-  }}
-</p>
+    }}
+  </p>
 
 
-<p>
-  propertydetailsid
-  {{
+  <p>
+    propertydetailsid
+    {{
     propertydetails_id
-  }}
-</p>
+    }}
+  </p>
 </div>
