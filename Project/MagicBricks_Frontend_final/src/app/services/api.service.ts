@@ -238,12 +238,27 @@ getprop_onRent() {
 
 
 
-  //edit property
+  //edit property apis
 
   deleteProperty(pid:number){
     return this.http.put('https://localhost:7210/api/Property/deleteProperty?pid='+pid,null);
-
-
   }
+
+  edit_ownerdetails(uid:number,pid:number){
+    return this.http.get('https://localhost:7210/api/Property/get_ownerdetails?uid='+uid+'&pid='+pid);
+  }
+
+
+  edit_addressdetails(pid:number){
+    return this.http.get('https://localhost:7210/api/Property/get_addressdetails?pid='+pid);
+  }
+
+
+
+  edit_Propertydetails(pid:number){
+    return this.http.get('https://localhost:7210/api/Property/get_Propertydetails?pid='+pid);
+  }
+
+
 
 }

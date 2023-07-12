@@ -54,6 +54,9 @@ export class ProfileComponent  implements OnInit{
   editListing(pid:number){
 
     this.dataserv.editPropid=pid;
+    // localStorage.setItem('editPropId',pid.toString())
+    localStorage.setItem('pid',pid.toString())
+
     this.route.navigateByUrl('/editproperty')
 
   }

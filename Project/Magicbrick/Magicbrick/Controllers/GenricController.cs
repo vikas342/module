@@ -55,7 +55,7 @@ namespace Magicbrick.Controllers
 
         // DELETE api/<GenricController>/5
         [HttpDelete("{id}")]
-        Task<List<T>> Delete(int id)
+       public Task<List<T>> Delete(int id)
         {
             return _igenric.Delete(id);
         }

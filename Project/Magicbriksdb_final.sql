@@ -261,7 +261,7 @@ for json auto
 
 
 
-select obj.Name as amenity from Prop_amenities am join Object obj on am.Am_Id=obj.Id where Prop_Id=16 for json auto
+select obj.Name as amenity from Prop_amenities am join Object obj on am.Am_Id=obj.Id where Prop_Id=13 for json auto
 
 select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=14 for json auto
 
@@ -1708,3 +1708,17 @@ select  name as postedby  from Object where Obj_type_Id = 10
  */
    
    select p.Prop_Id as PropDetails_id,p.Owner_details,p.Address,p.PostedBy,p.Prop_for,p.Price,p.Prop_desc from Property p where Prop_Id=13
+
+
+
+   	  /*
+ finding amenity details and all
+ */
+
+ 
+select obj.Name as amenity from Prop_amenities am join Object obj on am.Am_Id=obj.Id where Prop_Id=13 for json auto
+
+select pi.Img_Id, pi.Image_url  from PropertyImages Pi where pi.property_id=14 for json auto
+
+
+ select p.Id as amenityDetails,p.Am_Id,p.Prop_Id from Prop_amenities p where p.Prop_Id=13

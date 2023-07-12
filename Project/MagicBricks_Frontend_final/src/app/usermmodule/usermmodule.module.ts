@@ -13,6 +13,7 @@ import { ResultpageComponent } from './resultpage/resultpage.component';
 import { PostpropertyComponent } from './postproperty/postproperty.component';
 import { PropertyviewComponent } from './propertyview/propertyview.component';
 import { IndianCurrency } from '../currency.pipe';
+import { EditpropComponent } from './editprop/editprop.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { IndianCurrency } from '../currency.pipe';
     ResultpageComponent,
     PostpropertyComponent,
     PropertyviewComponent,
-    IndianCurrency
+    IndianCurrency,
+    EditpropComponent
   ],
   imports: [
     CommonModule,

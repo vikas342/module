@@ -37,16 +37,6 @@ namespace Magicbrick.Controllers
         }
 
 
-      
-
-
-        //public PropertyController(MagicBricks_context context, IConfiguration config, IHash hash)
-        //{
-        //    _context = context;
-        //}
-
-
-
         ///get users prop_listings
 
         [Authorize(AuthenticationSchemes = "Bearer")]
@@ -116,7 +106,7 @@ namespace Magicbrick.Controllers
 
         public async Task<IActionResult> getallprops()
         {
-            var data =  _context.PropertySps.FromSqlRaw($"Exec AllListing");
+            var data = _context.PropertySps.FromSqlRaw($"Exec AllListing");
 
 
             return Ok(data);
@@ -153,12 +143,15 @@ namespace Magicbrick.Controllers
         public async Task<IActionResult> getpropbycities()
         {
             var data = (
-                from ot in _context.Objecttypes join o in _context.Objects on ot.Id equals o.ObjTypeId where ot.ParentId == 4 select new
+                from ot in _context.Objecttypes
+                join o in _context.Objects on ot.Id equals o.ObjTypeId
+                where ot.ParentId == 4
+                select new
                 {
-                    id=o.Id,
-                    city=o.Name
+                    id = o.Id,
+                    city = o.Name
                 }
-                
+
                 ).ToList();
 
 
@@ -184,7 +177,7 @@ namespace Magicbrick.Controllers
                 where ot.ParentId == 4
                 select new
                 {
-                    id=ot.Id,
+                    id = ot.Id,
                     state = ot.Name
                 }
 
@@ -216,7 +209,7 @@ namespace Magicbrick.Controllers
                 where ot.Id == 2
                 select new
                 {
-                    id=o.Id,
+                    id = o.Id,
                     type = o.Name
                 }
 
@@ -259,7 +252,7 @@ namespace Magicbrick.Controllers
 
         [HttpGet("getpropbudget_CFMinMax")]
 
-        public async Task<IActionResult> getpropbudget_CFMinMax(string city, string propfor, int min,int max)
+        public async Task<IActionResult> getpropbudget_CFMinMax(string city, string propfor, int min, int max)
         {
             var data = _context.PropertySps.FromSqlRaw($"Exec allpropbudget_CFMinMax @city={city},@propfor={propfor}, @low={min},@high={max}");
 
@@ -281,7 +274,7 @@ namespace Magicbrick.Controllers
 
         [HttpGet("allpropserch_CTFMinMax")]
 
-        public async Task<IActionResult> allpropserch_CTFMinMax(string city,string proptype, string propfor, int min, int max)
+        public async Task<IActionResult> allpropserch_CTFMinMax(string city, string proptype, string propfor, int min, int max)
         {
             var data = _context.PropertySps.FromSqlRaw($"Exec allpropserch_CTFMinMax @city={city},@proptype={proptype},@propfor={propfor}, @low={min},@high={max}");
 
@@ -303,7 +296,7 @@ namespace Magicbrick.Controllers
 
         [HttpGet("allpropserch_city")]
 
-        public async Task<IActionResult> allpropserch_city(string city )
+        public async Task<IActionResult> allpropserch_city(string city)
         {
             var data = _context.PropertySps.FromSqlRaw($"Exec Allcity_Prop @city={city} ");
 
@@ -324,10 +317,14 @@ namespace Magicbrick.Controllers
 
         public async Task<IActionResult> Propfor()
         {
-            var data = from x in _context.Objects where x.ObjTypeId==3 select new {
-                id=x.Id,
-                propfor=x.Name };
-             //   select  name as propfor  from Object where Obj_type_Id = 3
+            var data = from x in _context.Objects
+                       where x.ObjTypeId == 3
+                       select new
+                       {
+                           id = x.Id,
+                           propfor = x.Name
+                       };
+            //   select  name as propfor  from Object where Obj_type_Id = 3
 
 
 
@@ -372,7 +369,7 @@ namespace Magicbrick.Controllers
 
         public async Task<IActionResult> postedby()
         {
-            var data = from x in _context.Objects where x.ObjTypeId == 10 select new { id=x.Id, postedby = x.Name };
+            var data = from x in _context.Objects where x.ObjTypeId == 10 select new { id = x.Id, postedby = x.Name };
             //   select  name as propfor  from Object where Obj_type_Id = 10
 
 
@@ -447,14 +444,14 @@ namespace Magicbrick.Controllers
             data.ModifedBy = ownerdetails_.Owner_Id;
             data.OwnerName = ownerdetails_.Owner_Name;
             data.ContactNo = ownerdetails_.contact_no;
-            data.Email= ownerdetails_.Email;
+            data.Email = ownerdetails_.Email;
 
 
 
 
 
 
-           _context.AddAsync(data);
+            _context.AddAsync(data);
             _context.SaveChanges();
 
             return Ok(data.Id);
@@ -467,11 +464,11 @@ namespace Magicbrick.Controllers
 
         [HttpPost("post_Addressdetails")]
 
-        public async Task<IActionResult> post_Addressdetails( int uid, Addressdetails_DTO addressdetails_)
-         {
+        public async Task<IActionResult> post_Addressdetails(int uid, Addressdetails_DTO addressdetails_)
+        {
 
             var data = new Address();
-             data.CreatedDate = DateTime.Now;
+            data.CreatedDate = DateTime.Now;
             data.ModifiedDate = DateTime.Now;
             data.CreatedBy = uid;
             data.ModifedBy = uid;
@@ -479,11 +476,11 @@ namespace Magicbrick.Controllers
             data.BuildingName = addressdetails_.Building_Name;
             data.State = addressdetails_.State;
 
-          //  data.State = Convert.ToInt32(addressdetails_.State);
+            //  data.State = Convert.ToInt32(addressdetails_.State);
 
             data.City = addressdetails_.City;
-            data.Pincode= addressdetails_.Pincode;
-      
+            data.Pincode = addressdetails_.Pincode;
+
 
 
 
@@ -502,7 +499,7 @@ namespace Magicbrick.Controllers
 
         [HttpPost("post_Propdetails")]
 
-        public async Task<IActionResult> post_Propdetails(int uid,Propertydetails_DTO propertydetails_)
+        public async Task<IActionResult> post_Propdetails(int uid, Propertydetails_DTO propertydetails_)
         {
 
             var data = new Property();
@@ -513,10 +510,10 @@ namespace Magicbrick.Controllers
 
             data.Address = propertydetails_.Address;
             data.OwnerDetails = propertydetails_.Owner_details;
-            data.PostedBy =propertydetails_.PostedBy;
+            data.PostedBy = propertydetails_.PostedBy;
             data.PropFor = propertydetails_.Prop_for;
             data.PropType = propertydetails_.Prop_Type;
-            data.Status=propertydetails_.Status;
+            data.Status = propertydetails_.Status;
             data.Price = propertydetails_.Price;
             data.Prop_desc = propertydetails_.Prop_desc;
 
@@ -532,7 +529,7 @@ namespace Magicbrick.Controllers
 
         [HttpPost("post_PropAmenities")]
 
-        public async Task<IActionResult> post_PropAmenities(int uid,int prop_id, Amenity_DTO amenity_)
+        public async Task<IActionResult> post_PropAmenities(int uid, int prop_id, Amenity_DTO amenity_)
         {
 
             foreach (var x in amenity_.amenities)
@@ -547,7 +544,7 @@ namespace Magicbrick.Controllers
                     data.ModifedBy = uid;
                     data.PropId = prop_id;
                     data.AmId = x.id;
-                    _context.AddAsync(data);                          
+                    _context.AddAsync(data);
 
 
 
@@ -569,14 +566,14 @@ namespace Magicbrick.Controllers
 
             foreach (var x in images_.images)
             {
-                    var data = new PropertyImage();
-                    data.CreatedDate = DateTime.Now;
-                    data.ModifiedDate = DateTime.Now;
-                    data.CreatedBy = uid;
-                    data.ModifedBy = uid;
-                    data.PropertyId = prop_id;
-                    data.ImageUrl = x.imageurl;
-                    _context.AddAsync(data);
+                var data = new PropertyImage();
+                data.CreatedDate = DateTime.Now;
+                data.ModifiedDate = DateTime.Now;
+                data.CreatedBy = uid;
+                data.ModifedBy = uid;
+                data.PropertyId = prop_id;
+                data.ImageUrl = x.imageurl;
+                _context.AddAsync(data);
             }
             _context.SaveChanges();
             return Ok();
@@ -637,7 +634,7 @@ namespace Magicbrick.Controllers
         public async Task<IActionResult> deleteProperty(int pid)
         {
 
-            var data = _context.Properties.FirstOrDefault(x => x.PropId==pid);
+            var data = _context.Properties.FirstOrDefault(x => x.PropId == pid);
 
             data.Status = 15;
 
@@ -650,46 +647,48 @@ namespace Magicbrick.Controllers
 
 
         [HttpGet("get_ownerdetails")]
-        public async Task<IActionResult> get_ownerdetails(int uid,int pid)
+        public async Task<IActionResult> get_ownerdetails(int uid, int pid)
         {
 
-            var data =   from p in _context.Properties
-                                    join o in _context.Owners on p.OwnerDetails equals o.Id
-                                    where p.PropId == pid && o.OwnerId == uid
-                                    select new
-                                    {
-                                        p.PropId,
-                                        ownwerDetails_id = o.Id,
-                                        o.OwnerName,
-                                        o.ContactNo,
-                                        o.Email
-                                    };
+            var data = (from p in _context.Properties
+                        join o in _context.Owners on p.OwnerDetails equals o.Id
+                        where p.PropId == pid && o.OwnerId == uid
+                        select o.Id).ToList();
+                       //select new
+                       //{
+                       //    //p.PropId,
+                       //    ownwerDetails_id = o.Id,
+                       //    //o.OwnerName,
+                       //    //o.ContactNo,
+                       //    //o.Email
+                       //});
 
 
-            return Ok(data);
+            return Ok(data[0]);
 
         }
 
 
         [HttpGet("get_addressdetails")]
-        public async Task<IActionResult> get_addressdetails( int pid)
+        public async Task<IActionResult> get_addressdetails(int pid)
         {
 
-            var data = from p in _context.Properties
-                         join ad in _context.Addresses on p.Address equals ad.AddId
-                         where p.PropId == pid
-                         select new
-                         {
-                             PropertyDetails_Id = p.PropId,
-                             AddressDetails_Id=ad.AddId,
-                             ad.BuildingName,
-                             ad.Area,
-                             ad.State,
-                             ad.City,
-                             ad.Pincode
-                         };
+            var data = (from p in _context.Properties
+                        join ad in _context.Addresses on p.Address equals ad.AddId
+                        where p.PropId == pid
+                        select ad.AddId).ToList();
+                       //select new
+                       //{
+                       //    PropertyDetails_Id = p.PropId,
+                       //    AddressDetails_Id = ad.AddId,
+                       //    ad.BuildingName,
+                       //    ad.Area,
+                       //    ad.State,
+                       //    ad.City,
+                       //    ad.Pincode
+                       //};
 
-            return Ok(data);
+            return Ok(data[0]);
 
         }
 
@@ -698,21 +697,26 @@ namespace Magicbrick.Controllers
         public async Task<IActionResult> get_Propertydetails(int pid)
         {
 
-            var data =   from p in _context.Properties
-                                    where p.PropId == pid
-                                    select new
-                                    {
-                                        PropDetails_id = p.PropId,
-                                        p.OwnerDetails,
-                                        p.Address,
-                                        p.PostedBy,
-                                        p.PropFor,
-                                        p.Price,
-                                        p.Prop_desc
-                                    };
-            return Ok(data);
+            var data =(from p in _context.Properties
+                       where p.PropId == pid
+                       select p.PropId).ToList();
+                       //select new
+                       //{
+                       //    PropDetails_id = p.PropId,
+                       //    p.OwnerDetails,
+                       //    p.Address,
+                       //    p.PostedBy,
+                       //    p.PropFor,
+                       //    p.Price,
+                       //    p.Prop_desc
+                       //};
+            return Ok(data[0]);
 
         }
+
+
+
+
     }
 
 }

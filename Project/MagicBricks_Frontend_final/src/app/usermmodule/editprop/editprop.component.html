@@ -1,0 +1,74 @@
+<div class="container-fluid">
+
+
+<p>
+  editproperty works!
+</p>
+
+<p>
+  {{
+    prop_details|json
+  }}
+</p>
+
+<app-navbar></app-navbar>
+
+
+<div class="container w-25 mx-auto ">
+
+
+  <div class="mt-5 norder border border-2  p-3 rounded-3">
+    <!-- <p>{{ owner_details|json
+    }}</p> -->
+    <ng-container *ngFor="let x of prop_details">
+      <p><span class=" fw-bold text-danger fs-6">Owner name :</span> {{x.ownerName}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Contact no :</span> {{x.contactNo}}</p>
+      <p><span class=" fw-bold text-danger fs-6">Email :</span> {{x.email}}</p>
+
+    </ng-container>
+
+    <p class="text-end">
+
+      <button class="btn btn-danger ">Edit</button>
+    </p>
+
+  </div>
+
+  <div>
+    <p>{{ this.address_details|json
+    }}</p>
+
+  </div>
+
+  <div>
+    <p>{{ this.property_details|json
+    }}</p>
+
+  </div>
+</div>
+
+
+
+<p>
+  ownerdetailsid
+  {{
+    ownerdetails_id
+  }}
+</p>
+
+
+<p>
+  addressdetailsid
+  {{
+    addressdetails_id
+  }}
+</p>
+
+
+<p>
+  propertydetailsid
+  {{
+    propertydetails_id
+  }}
+</p>
+</div>
